@@ -1,3 +1,15 @@
 ---
-pagetitle: "New Tech Roundup"
+title: "New Tech Roundup"
+
+image: "New Tech Roundup.png"
 ---
+
+![](_under_construction_images/CaCapitolHill1114Under_Construction.gif)
+
+![](_under_construction_images/Capsule3915construction.gif)
+
+![](_under_construction_images/Hollow7752Construction.gif)
+
+![](_under_construction_images/MoMotorCity4109construct.gif)
+
+![](_under_construction_images/babygif.gif)

@@ -1,0 +1,17 @@
+[
+  {
+    "listing": "/oneliners.html",
+    "items": [
+      "/oneliners/molr-3-20-23.html",
+      "/oneliners/molr-3-6-23.html",
+      "/oneliners/molrs_2023-01-30.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/oneliners.html",
+      "/techroundup.html"
+    ]
+  }
+]

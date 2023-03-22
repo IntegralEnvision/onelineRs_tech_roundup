@@ -1,0 +1,61 @@
+---
+title: "Get Feedback on Tidyverse Operations"
+subtitle: "`tidylog`"
+date: 2023-01-30
+author: "Jonathan Zadra"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+categories: [dplyr, mutating, filtering, selecting, grouping, joins, tidyr, tidyverse, logging]
+---
+
+You’ve probably spent significant time looking at the results of join, filter, or mutate operations to be sure you got what you expected. There is a nice helper package, tidylog, which provides immediate feedback on what changed. It wraps the common dplyr functions by masking them with functions of the same name. Under the hood the dplyr functions are still being used and will produce the same output, but the there is additional info printed to the screen about what happened during the join.
+
+
+
+# Attaching libraries
+
+Load tidylog after dplyr and/or tidyr:
+```{r}
+library("dplyr", quietly = T)
+library("tidyr")
+library("tidylog", warn.conflicts = FALSE)
+```
+
+# Usage Examples
+
+## Filtering or Mutating
+`tidylog` will give you feedback, for instance when filtering a data frame or adding a new variable:
+
+```{r}
+filtered <- filter(mtcars, cyl == 4)
+mutated <- mutate(mtcars, new_var = wt ** 2)
+```    
+    
+## Joining
+
+`tidylog` also reports detailed information for joins:
+
+```{r}
+joined <- left_join(nycflights13::flights, nycflights13::weather,
+    by = c("year", "month", "day", "origin", "hour", "time_hour"))
+```
+
+In this case, we see that 1,556 rows from the flights dataset do not have weather information.
+
+## Pipes
+`tidylog` can be especially helpful in longer pipes:
+
+```{r}
+summary <- mtcars %>%
+  select(mpg, cyl, hp, am) %>%
+  filter(mpg > 15) %>%
+  mutate(mpg_round = round(mpg)) %>%
+  group_by(cyl, mpg_round, am) %>%
+  tally() %>%
+  filter(n >= 1)
+```
+
+Here, it might have been accidental that the last filter command had no effect, or it might tell us that something we thought was affecting our data actually wasn't, hopefully leading us to track down why.
+

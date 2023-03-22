@@ -1,0 +1,22 @@
+---
+title: "Monday OneLineRs"
+listing: 
+ - id: list-oneliners
+   contents:
+   - "oneliners/*.qmd"
+   type: default
+   sort-ui: true
+   filter-ui: true
+   field-types:
+     date: date
+   fields: [title, subtitle, author, date]
+   date-format: "full"
+   sort: "date desc"
+   field-display-names:
+     date: "Date"
+     title: "Title"
+     author: "Author"
+   categories: true
+image: "Monday OneLineRs.png"
+---
+

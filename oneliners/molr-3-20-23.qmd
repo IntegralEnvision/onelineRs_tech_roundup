@@ -1,0 +1,52 @@
+---
+title: "Separating and Combining Columns"
+subtitle: "`tidyr::separate_wider_*()` and `tidyr::unite()`"
+date: 2023-03-20
+author: "Jonathan Zadra"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "https://tidyr.tidyverse.org/logo.png"
+categories: [tidyr, column manipulation, tidyverse]
+---
+
+Sometimes you may have columns in your data that you want to combine into a single column, or a single column that you want to split into multiple columns. These complementary functions are a simple way of doing so.
+
+```{r}
+library(tidyverse, quietly = T, )
+
+people <-
+  enframe(
+    c(
+      "Jarred Prosacco",
+      "Donnell Jacobs",
+      "Cecily Schultz",
+      "Boyd Stark",
+      "Alverda Nolan",
+      "Bose Kling",
+      "Buel Nikolaus",
+      "Adell Gislason",
+      "Theadore Johnson",
+      "Raynard Huel"
+    ),
+    name = NULL,
+    value = "name"
+  )
+
+people
+
+people_sep <- people %>% 
+  separate_wider_delim(name, delim = " ", names = c("first", "last"))
+
+people_sep 
+
+people_sep %>% 
+  unite(col = last_first, last, first, sep = ", ") 
+```
+
+See also:
+
+-   `tidyr::separate_longer_*()` for separating column values into multiple rows
+
+-   `dplyr::coalesce()` for finding the first non-missing value from two or more columns

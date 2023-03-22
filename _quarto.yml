@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "Monday OneLineRs & Tech Roundup"
+  navbar:
+    search: true
+    left:
+      - href: index.qmd
+        text: Home
+      - href: oneliners.qmd
+      - href: techroundup.qmd
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+

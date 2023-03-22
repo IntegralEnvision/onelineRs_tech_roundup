@@ -1,0 +1,15 @@
+---
+pagetitle: "OneLineR's and Tech Roundup"
+listing:
+  - id: pages
+    contents:
+      - "oneliners.qmd"
+      - "techroundup.qmd"
+    type: grid
+    image-height: "600"
+    grid-item-border: false
+    grid-item-align: center
+---
+
+::: {#pages}
+:::

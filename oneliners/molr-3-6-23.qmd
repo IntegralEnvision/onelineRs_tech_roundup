@@ -1,0 +1,12 @@
+---
+title: "Vectorized Switch"
+subtitle: "`dplyr::case_match()`"
+date: 2023-03-06
+author: "Jonathan Zadra"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+categories: [dplyr, mutates, matching, tidyverse]
+---
+

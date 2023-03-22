@@ -11,6 +11,17 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.2.0' # The R version to download (if necessary) and use.
+      
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages:
+            any::knitr
+            any::rmarkdown
+            any::jsonlight
+            
       - name: Check out repository
         uses: actions/checkout@v3
 
@@ -24,14 +35,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      - uses: r-lib/actions/setup-r@v2
-        with:
-          r-version: '4.2.0' # The R version to download (if necessary) and use.
-      
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages:
-            any::knitr
-            any::rmarkdown
-            any::jsonlight
+ 
           

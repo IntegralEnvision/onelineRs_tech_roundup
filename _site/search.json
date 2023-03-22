@@ -1,33 +1,5 @@
 [
   {
-    "objectID": "oneliners.html",
-    "href": "oneliners.html",
-    "title": "Monday OneLineRs",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nSeparating and Combining Columns\n\n\ntidyr::separate_wider_*() and tidyr::unite()\n\n\n\n\n\n\nMonday, March 20, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nVectorized Switch\n\n\ndplyr::case_match()\n\n\n\n\n\n\nMonday, March 6, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nGet Feedback on Tidyverse Operations\n\n\ntidylog\n\n\n\n\n\n\nMonday, January 30, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "oneliners/molr-3-20-23.html",
-    "href": "oneliners/molr-3-20-23.html",
-    "title": "Separating and Combining Columns",
-    "section": "",
-    "text": "Sometimes you may have columns in your data that you want to combine into a single column, or a single column that you want to split into multiple columns. These complementary functions are a simple way of doing so.\n\nlibrary(tidyverse, quietly = T, )\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.1     ✔ purrr   1.0.1\n✔ tibble  3.2.1     ✔ dplyr   1.1.0\n✔ tidyr   1.3.0     ✔ stringr 1.5.0\n✔ readr   2.1.3     ✔ forcats 1.0.0\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\npeople <-\n  enframe(\n    c(\n      \"Jarred Prosacco\",\n      \"Donnell Jacobs\",\n      \"Cecily Schultz\",\n      \"Boyd Stark\",\n      \"Alverda Nolan\",\n      \"Bose Kling\",\n      \"Buel Nikolaus\",\n      \"Adell Gislason\",\n      \"Theadore Johnson\",\n      \"Raynard Huel\"\n    ),\n    name = NULL,\n    value = \"name\"\n  )\n\npeople\n\n\n\n\n\nname\n\n\n\n\nJarred Prosacco\n\n\nDonnell Jacobs\n\n\nCecily Schultz\n\n\nBoyd Stark\n\n\nAlverda Nolan\n\n\nBose Kling\n\n\nBuel Nikolaus\n\n\nAdell Gislason\n\n\nTheadore Johnson\n\n\nRaynard Huel\n\n\n\n\n\npeople_sep <- people %>% \n  separate_wider_delim(name, delim = \" \", names = c(\"first\", \"last\"))\n\npeople_sep \n\n\n\n\n\nfirst\nlast\n\n\n\n\nJarred\nProsacco\n\n\nDonnell\nJacobs\n\n\nCecily\nSchultz\n\n\nBoyd\nStark\n\n\nAlverda\nNolan\n\n\nBose\nKling\n\n\nBuel\nNikolaus\n\n\nAdell\nGislason\n\n\nTheadore\nJohnson\n\n\nRaynard\nHuel\n\n\n\n\n\npeople_sep %>% \n  unite(col = last_first, last, first, sep = \", \") \n\n\n\n\n\nlast_first\n\n\n\n\nProsacco, Jarred\n\n\nJacobs, Donnell\n\n\nSchultz, Cecily\n\n\nStark, Boyd\n\n\nNolan, Alverda\n\n\nKling, Bose\n\n\nNikolaus, Buel\n\n\nGislason, Adell\n\n\nJohnson, Theadore\n\n\nHuel, Raynard\n\n\n\n\n\n\nSee also:\n\ntidyr::separate_longer_*() for separating column values into multiple rows\ndplyr::coalesce() for finding the first non-missing value from two or more columns"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This site is a compendium of Monday OneLineR’s and Month Tech Roundups."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Monday OneLineRs & Tech Roundup",
-    "section": "",
-    "text": "Monday OneLineRs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "oneliners/molrs_2023-01-30.html",
     "href": "oneliners/molrs_2023-01-30.html",
     "title": "Get Feedback on Tidyverse Operations",
@@ -53,6 +25,34 @@
     "href": "oneliners/molrs_2023-01-30.html#pipes",
     "title": "Get Feedback on Tidyverse Operations",
     "section": "Pipes",
-    "text": "Pipes\ntidylog can be especially helpful in longer pipes:\n\nsummary <- mtcars %>%\n  select(mpg, cyl, hp, am) %>%\n  filter(mpg > 15) %>%\n  mutate(mpg_round = round(mpg)) %>%\n  group_by(cyl, mpg_round, am) %>%\n  tally() %>%\n  filter(n >= 1)\n\nselect: dropped 7 variables (disp, drat, wt, qsec, vs, …)\n\n\nfilter: removed 6 rows (19%), 26 rows remaining\n\n\nmutate: new variable 'mpg_round' (double) with 15 unique values and 0% NA\n\n\ngroup_by: 3 grouping variables (cyl, mpg_round, am)\n\n\ntally: now 20 rows and 4 columns, 2 group variables remaining (cyl, mpg_round)\n\n\nfilter (grouped): no rows removed\n\n\nHere, it might have been accidental that the last filter command had no effect."
+    "text": "Pipes\ntidylog can be especially helpful in longer pipes:\n\nsummary <- mtcars %>%\n  select(mpg, cyl, hp, am) %>%\n  filter(mpg > 15) %>%\n  mutate(mpg_round = round(mpg)) %>%\n  group_by(cyl, mpg_round, am) %>%\n  tally() %>%\n  filter(n >= 1)\n\nselect: dropped 7 variables (disp, drat, wt, qsec, vs, …)\n\n\nfilter: removed 6 rows (19%), 26 rows remaining\n\n\nmutate: new variable 'mpg_round' (double) with 15 unique values and 0% NA\n\n\ngroup_by: 3 grouping variables (cyl, mpg_round, am)\n\n\ntally: now 20 rows and 4 columns, 2 group variables remaining (cyl, mpg_round)\n\n\nfilter (grouped): no rows removed\n\n\nHere, it might have been accidental that the last filter command had no effect, or it might tell us that something we thought was affecting our data actually wasn’t, hopefully leading us to track down why."
+  },
+  {
+    "objectID": "oneliners/molr-3-20-23.html",
+    "href": "oneliners/molr-3-20-23.html",
+    "title": "Separating and Combining Columns",
+    "section": "",
+    "text": "Sometimes you may have columns in your data that you want to combine into a single column, or a single column that you want to split into multiple columns. These complementary functions are a simple way of doing so.\n\nlibrary(tidyverse, quietly = T, )\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.1     ✔ purrr   1.0.1\n✔ tibble  3.2.1     ✔ dplyr   1.1.0\n✔ tidyr   1.3.0     ✔ stringr 1.5.0\n✔ readr   2.1.3     ✔ forcats 1.0.0\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\npeople <-\n  enframe(\n    c(\n      \"Jarred Prosacco\",\n      \"Donnell Jacobs\",\n      \"Cecily Schultz\",\n      \"Boyd Stark\",\n      \"Alverda Nolan\",\n      \"Bose Kling\",\n      \"Buel Nikolaus\",\n      \"Adell Gislason\",\n      \"Theadore Johnson\",\n      \"Raynard Huel\"\n    ),\n    name = NULL,\n    value = \"name\"\n  )\n\npeople\n\n\n\n\n\nname\n\n\n\n\nJarred Prosacco\n\n\nDonnell Jacobs\n\n\nCecily Schultz\n\n\nBoyd Stark\n\n\nAlverda Nolan\n\n\nBose Kling\n\n\nBuel Nikolaus\n\n\nAdell Gislason\n\n\nTheadore Johnson\n\n\nRaynard Huel\n\n\n\n\n\npeople_sep <- people %>% \n  separate_wider_delim(name, delim = \" \", names = c(\"first\", \"last\"))\n\npeople_sep \n\n\n\n\n\nfirst\nlast\n\n\n\n\nJarred\nProsacco\n\n\nDonnell\nJacobs\n\n\nCecily\nSchultz\n\n\nBoyd\nStark\n\n\nAlverda\nNolan\n\n\nBose\nKling\n\n\nBuel\nNikolaus\n\n\nAdell\nGislason\n\n\nTheadore\nJohnson\n\n\nRaynard\nHuel\n\n\n\n\n\npeople_sep %>% \n  unite(col = last_first, last, first, sep = \", \") \n\n\n\n\n\nlast_first\n\n\n\n\nProsacco, Jarred\n\n\nJacobs, Donnell\n\n\nSchultz, Cecily\n\n\nStark, Boyd\n\n\nNolan, Alverda\n\n\nKling, Bose\n\n\nNikolaus, Buel\n\n\nGislason, Adell\n\n\nJohnson, Theadore\n\n\nHuel, Raynard\n\n\n\n\n\n\nSee also:\n\ntidyr::separate_longer_*() for separating column values into multiple rows\ndplyr::coalesce() for finding the first non-missing value from two or more columns"
+  },
+  {
+    "objectID": "oneliners.html",
+    "href": "oneliners.html",
+    "title": "Monday OneLineRs",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nSeparating and Combining Columns\n\n\ntidyr::separate_wider_*() and tidyr::unite()\n\n\n\n\n\n\nMonday, March 20, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nVectorized Switch\n\n\ndplyr::case_match()\n\n\n\n\n\n\nMonday, March 6, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nGet Feedback on Tidyverse Operations\n\n\ntidylog\n\n\n\n\n\n\nMonday, January 30, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Monday OneLineRs & Tech Roundup",
+    "section": "",
+    "text": "Monday OneLineRs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNew Tech Roundup\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This site is a compendium of Monday OneLineR’s and Month Tech Roundups."
   }
 ]

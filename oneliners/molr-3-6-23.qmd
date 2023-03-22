@@ -7,6 +7,6 @@ format:
   html:
     df-print: kable
 title-block-banner: false
-categories: [dplyr, mutates, matching, tidyverse]
+categories: [dplyr, mutating, matching, tidyverse]
 ---
 

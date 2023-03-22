@@ -154,7 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../techroundup.html">
- <span class="menu-text">New Tech Roundup</span></a>
+ <span class="menu-text">techroundup.html</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../about.html">
@@ -175,7 +175,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#attaching-libraries" id="toc-attaching-libraries" class="nav-link active" data-scroll-target="#attaching-libraries">Attaching libraries</a>
+  <li><a href="#attaching-libraries" id="toc-attaching-libraries" class="nav-link active" data-scroll-target="#attaching-libraries">Attaching libraries</a></li>
+  <li><a href="#usage-examples" id="toc-usage-examples" class="nav-link" data-scroll-target="#usage-examples">Usage Examples</a>
   <ul class="collapse">
   <li><a href="#filtering-or-mutating" id="toc-filtering-or-mutating" class="nav-link" data-scroll-target="#filtering-or-mutating">Filtering or Mutating</a></li>
   <li><a href="#joining" id="toc-joining" class="nav-link" data-scroll-target="#joining">Joining</a></li>
@@ -197,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div class="quarto-category">filtering</div>
     <div class="quarto-category">selecting</div>
     <div class="quarto-category">grouping</div>
-    <div class="quarto-category">joins</div>
+    <div class="quarto-category">joining</div>
     <div class="quarto-category">tidyr</div>
     <div class="quarto-category">tidyverse</div>
     <div class="quarto-category">logging</div>
@@ -251,6 +252,9 @@ Attaching package: 'dplyr'</code></pre>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyr"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidylog"</span>, <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="usage-examples" class="level1">
+<h1>Usage Examples</h1>
 <section id="filtering-or-mutating" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-or-mutating">Filtering or Mutating</h2>
 <p><code>tidylog</code> will give you feedback, for instance when filtering a data frame or adding a new variable:</p>
@@ -322,7 +326,7 @@ Attaching package: 'dplyr'</code></pre>
 <pre><code>filter (grouped): no rows removed</code></pre>
 </div>
 </div>
-<p>Here, it might have been accidental that the last filter command had no effect.</p>
+<p>Here, it might have been accidental that the last filter command had no effect, or it might tell us that something we thought was affecting our data actually wasn’t, hopefully leading us to track down why.</p>
 
 
 </section>

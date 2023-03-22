@@ -22,3 +22,8 @@ library(hexSticker)
 
 sticker("_other-code/calendar.png", package = "Monday OneLineRs", p_size = 10, s_x = 1, s_y = .9,   s_width = .65,
         h_fill = "#113e66", h_color = "#d2edf2", p_y = 1.45)
+
+
+sticker("_other-code/cowgirl white.png", package = "New Tech Roundup",
+        p_size = 10, s_x = 1, s_y = .75,   s_width = .35,
+        h_fill = "#1b6787", h_color = "#113e66", p_y = 1.45)

@@ -14,7 +14,9 @@ categories: [tidyr, column manipulation, tidyverse]
 Sometimes you may have columns in your data that you want to combine into a single column, or a single column that you want to split into multiple columns. These complementary functions are a simple way of doing so.
 
 ```{r}
-library(tidyverse, quietly = T, )
+#library(tidyverse, quietly = T)
+library(tibble)
+library(tidyr)
 
 people <-
   enframe(

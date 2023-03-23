@@ -54,5 +54,12 @@
     "title": "About",
     "section": "",
     "text": "This site is a compendium of Monday OneLineR’s and Month Tech Roundups."
+  },
+  {
+    "objectID": "oneliners/molr-3-6-23.html",
+    "href": "oneliners/molr-3-6-23.html",
+    "title": "Vectorized Switch",
+    "section": "",
+    "text": "dplyr::case_match() is a new function in dplyr 1.1 that works as a vectorized switch(). It is similar to case_when() but is simpler if the value on the left side of your testing formula is the same for all tests. The following are equivalent:\n\nlibrary(dplyr)\n\ncase_when(\n  x %in% c(\"a\", \"b\") ~ 1,\n  x %in% \"c\" ~ 2,\n  x %in% c(\"d\", \"e\") ~ 3\n)\n\ncase_match(\n  x,\n  c(\"a\", \"b\") ~ 1,\n  \"c\" ~ 2,\n  c(\"d\", \"e\") ~ 3\n)"
   }
 ]

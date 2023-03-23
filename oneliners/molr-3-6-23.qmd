@@ -10,3 +10,21 @@ title-block-banner: false
 categories: [dplyr, mutating, matching, tidyverse]
 ---
 
+`dplyr::case_match()` is a new function in dplyr 1.1 that works as a vectorized switch().  It is similar to case_when() but is simpler if the value on the left side of your testing formula is the same for all tests.  The following are equivalent:
+
+```{r, eval = F} 
+library(dplyr)
+
+case_when(
+  x %in% c("a", "b") ~ 1,
+  x %in% "c" ~ 2,
+  x %in% c("d", "e") ~ 3
+)
+
+case_match(
+  x,
+  c("a", "b") ~ 1,
+  "c" ~ 2,
+  c("d", "e") ~ 3
+)
+```

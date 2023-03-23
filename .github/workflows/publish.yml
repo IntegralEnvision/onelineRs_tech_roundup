@@ -28,7 +28,7 @@ jobs:
           packages:
             any::knitr
             any::rmarkdown
-            any::jsonlight
+           # any::jsonlight
   
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

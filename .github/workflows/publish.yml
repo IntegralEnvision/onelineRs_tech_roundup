@@ -32,6 +32,7 @@ jobs:
       - name: Install system dependencies for R packages
         run: |
           sudo apt-get install libcurl4-openssl-dev             # curl
+          sudo apt install imagemagick
           
       - name: Add packages from Renv
         uses: r-lib/actions/setup-renv@v2

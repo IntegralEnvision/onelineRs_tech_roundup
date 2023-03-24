@@ -28,7 +28,11 @@ jobs:
       #     extra-packages:
       #       any::curl
             #FIXME: Haven't saved with the above extra packages chunk, try if failes on curl again. (https://github.com/r-lib/actions/issues/416)
-       
+            
+      - name: Install system dependencies for R packages
+        run: |
+          sudo apt-get install libcurl4-openssl-dev             # curl
+          
       - name: Add packages from Renv
         uses: r-lib/actions/setup-renv@v2
       

@@ -22,9 +22,9 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       
-     - name: install R dependencies
-       uses: r-lib/actions/setup-r-dependencies@v2
-       with:
+      - name: install R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
           extra-packages:
             any::curl
             #FIXME: Haven't saved with the above extra packages chunk, try if failes on curl again. (https://github.com/r-lib/actions/issues/416)

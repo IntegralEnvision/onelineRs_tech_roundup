@@ -1,0 +1,89 @@
+---
+title: "ggplot Formatting Assistant with Natural Language Queries"
+subtitle: "`ggx::gghelp()`"
+date: 2023-03-27
+author: "Jonathan Zadra"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [ggplot]
+---
+
+Despite having used `ggplot` for well over a decade, I still find myself forgetting some of the functions and arguments for modifying the formatting. There are just so many. As a result I'm often stuck googling simple things like how to rotate the x axis labels (I have even built some custom snippets for things I do often enough to be worth creating the snippet, but not often enough to remember the exact syntax, more on this at the end).
+
+# The `ggx` Package
+
+The `ggx` package has a function, `gghelp()` that accepts natural language queries and returns suggested code for accomplishing your request.
+
+## `gghelp` Examples
+
+```{r}
+library(ggx)
+
+
+gghelp("How do I rotate the x-axis")
+
+gghelp("How do I remove the legend?")
+
+```
+
+## It's Not Perfect
+
+It works better for some questions than others of course:
+
+```{r}
+#Error
+try(gghelp("How do I change the opacity of the fill color?")) 
+
+#Weird suggestion for modifying questions
+gghelp("How do I set the opacity of the fill color to 50%?") 
+
+#Bad answer
+gghelp("How do I change the fill color to red?") 
+
+#Answer is specific to the x-axis tile, but question wasn't clear about what font size so that's understandable
+gghelp("How do I change the font size?") 
+
+#Good feedback, it wants a value so that the returned code is complete.
+gghelp("How do I change the font size of the title?") 
+
+gghelp("How do I change the font size of the title to 14?")
+```
+
+## Warning
+
+`ggx` also has a function, `gg_()` that can be used in the `ggplot()` chain to accomplish the goal without using the actual code. It essentially uses the code suggested by `gghelp()` for the same query in the actual `ggplot()` chain. **I DO NOT recommend using this feature, as it is bad practice and may not be replicable down the road.** You also do not want future users of your script to have to install `ggx`. In fact, I would recommend that you not load the library in your script, but rather *only use it interactively*.
+
+```{r}
+library(ggplot2)
+
+ggplot(data=iris, 
+       mapping=aes(x=Sepal.Length, 
+                  y=Petal.Length, color=Species))+
+  geom_point()+
+  gg_("hide legend")
+```
+
+# Bonus: My `ggplot` Snippets
+
+As I mentioned above, I have a couple snippets I use for common formatting changes, both because I can't always remember the syntax but also because it's just faster.
+
+    snippet axycomma
+        scale_y_continuous(labels = scales::comma) 
+
+    snippet axypct
+        scale_y_continuous(labels = scales::percent) +
+        ylab("Percent")
+        
+    snippet rotx
+        theme(axis.text.x = element_text(angle = ${1}, hjust = 1))
+
+## About Snippets
+
+If you haven't used snippets, they are a way of defining a text shortcut that will tab-autocomplete to the code defined below the shortcut. You can add/edit them in Global Options \> Code \> Edit Snippets
+
+![](images/image-1386202833.png)
+
+![](images/image-1525792680.png)

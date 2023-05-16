@@ -1,0 +1,24 @@
+---
+title: "Library Loading and Conflict Warning"
+subtitle: "Warnings when loading packages"
+date: 2021-11-15
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [warnings, library, packages, conflict]
+---
+
+Have you ever noticed the conflict warnings when loading a package in R?
+
+![](images/conflict_1.png)
+
+Maybe you care that filter, lag etc are masked from other packages. Maybe you are comfortable with dplyr masking them. To hide conflict warnings you can use warn.conflicts = FALSE. F can be used as a shorthand for FALSE
+
+![](images/conflict_2.png)
+
+Reference <https://stat.ethz.ch/R-manual/R-devel/library/base/html/library.html>
+
+Happy coding!

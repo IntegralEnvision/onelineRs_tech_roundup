@@ -1,0 +1,24 @@
+---
+title: "Setting Options for a Script"
+subtitle: "`options()`"
+date: 2022-02-07
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [options, base]
+---
+
+Have you ever wondered about the `options()` at the top of your R code? I've seen it used for displaying number formats or to set strings not to factors.
+
+![](images/oneliner_feb7_2022.png)
+
+You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.
+
+![](images/oneliner_feb7_2022(2).png)
+
+There are many more options for options. See the references for more.
+
+References <https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html>

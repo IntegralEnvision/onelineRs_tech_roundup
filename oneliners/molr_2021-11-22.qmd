@@ -1,0 +1,18 @@
+---
+title: "? your data"
+subtitle: "`?`"
+date: 2022-01-10
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [datasets, query, help]
+---
+
+Did you know that `?` also works with datasets in packages in R to get further information. For example you can use `?palmerpenguins::penguins` to get more info about the palmerpenguins penguins dataset. Below is a composite screenshot showing example syntax and the results in your help pane.
+
+![](images/question.png)
+
+Happy coding!

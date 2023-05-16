@@ -1,0 +1,19 @@
+---
+title: "Obtaining a Vector from a Dataframe"
+subtitle: "`pull()`"
+date: 2022-01-10
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [dplyr, pull, vector, pipe, tidyverse]
+---
+
+`pull()` is a `dplyr()` function that returns a vector (1- dimensional array of data). Its similar to the `$` in base R and may be helpful when chaining or piping in R. After loading tidyverse using `library(tidyverse)` and the Palmer Penguins data using `library(palmerpenguins)`. I was able to use `pull()` to get a species list.
+
+![](images/molr_dec20_2021.png)
+
+References\
+<https://dplyr.tidyverse.org/reference/pull.html>

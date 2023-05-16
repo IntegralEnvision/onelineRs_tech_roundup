@@ -1,0 +1,24 @@
+---
+title: "Just the One Function!"
+subtitle: "`<package>::<function>`"
+date: 2022-01-24
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [function, package, library]
+---
+Do you need to use only one function from a package, but feel like you need to load the package to have it available? There's better ways!
+ 
+You can use the :: notation to load it in as below.
+![](images/molr_jan24_2022.png)
+
+Or you can use `library(<library_name>, include.only = <function>)` with R 3.6 and later.
+![](images/molr_jan24_2022(2).png)
+
+Happy coding!
+ 
+References
+<https://www.roelpeters.be/load-single-function-r-library/>

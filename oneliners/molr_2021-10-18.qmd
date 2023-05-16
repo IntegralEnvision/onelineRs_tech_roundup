@@ -1,0 +1,22 @@
+---
+title: "`'` or `"`"
+subtitle: "Quotes in R"
+date: 2021-10-18
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [quotes, strings, base]
+---
+
+Single (') or double (") quotes can be used interchangeably in R. However, according to the documentation double quotes are preferred, Single quotes can be used to surround double quotes.
+
+so `v <- "Fall is here!"`, not `v <- 'Fall is here!'`
+
+Happy coding!
+
+References <https://stat.ethz.ch/R-manual/R-patched/library/base/html/Quotes.html>
+
+

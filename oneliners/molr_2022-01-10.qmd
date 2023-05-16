@@ -1,0 +1,27 @@
+---
+title: "Standardize Jitter Position in ggplot2"
+subtitle: "`position_jitter()`"
+date: 2022-01-10
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [ggplot2, jitter, geom_point, tidyverse]
+---
+
+Happy 2022! Are you looking for more stability in your ggplot2 plotting life? You can set a seed to standardize the jitter position in geom_point from run to run.
+
+Use `position_jitter()` with a number as the seed argument to make it reproducible!
+
+`ggplot(mtcars, aes(x = cyl, y = mpg, group = cyl)) + geom_boxplot() + geom_point(position = position_jitter(seed = 37))`
+
+![](images/molr_jan10_2022.png)
+
+Reference\
+<https://twitter.com/thomas_mock/status/1473356760593440769>
+
+<https://ggplot2.tidyverse.org/reference/position_jitter.html>
+
+Happy coding!

@@ -1,0 +1,46 @@
+---
+title: "Detect and Non Detect Using Alpha"
+subtitle: "`alpha` in `ggplot()`"
+date: 2022-06-13
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [ggplot, alpha, multiline, detect]
+---
+
+Ok, a multi line R ggplot, but a great way to visualize detect and non detects in R. Melanie wanted to separate study, type and detect status for some data. Katherine Heal suggested using alpha, which is a measure of opacity. I think its a neat way to do it.
+
+```{r}
+p2b <- ggplot(d2, aes(x=Zscore, y=log10(concentration), shape=Study, color=Type, alpha=detected)) +
+
+geom_point(size=3) +
+
+labs(x="NORMAL VARIATE (Z-SCORE)",
+
+       y = "2,3,7,8-TCDD (ng/kg)",
+
+       title = "Compare Distributions by Habitat Type") +
+
+labs(caption="Surface samples only (0-0.5 ft)", adj=1) +
+
+scale_color_discrete(name = "Type") +
+
+scale_alpha_manual(
+
+    values = c(1, 0.3),
+
+    breaks = c(TRUE, FALSE)
+
+) +
+
+theme() +
+
+theme(legend.key.size = unit(0.3, "cm"),
+
+        legend.title = element_text(color="black", size=9))
+```
+
+Resulting plot ![](images/molr_jun13_2022.png)

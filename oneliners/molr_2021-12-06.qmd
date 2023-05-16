@@ -1,0 +1,22 @@
+---
+title: "Compactly Display the Structure of an Arbitrary R Object"
+subtitle: "`str()`"
+date: 2022-01-10
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [base, str, object]
+---
+Similar to dplyr's `glimpse()`, `str()` is in base R's utilities to display objects.
+ 
+After loading glimpse via library(dplyr) mtcars can be used in the examples below.
+
+![](images/str.png)
+ 
+
+as you can see the format is a little different, but useful both ways. Try both the next time you need to view an object.
+ 
+More info on str() is here: https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/str

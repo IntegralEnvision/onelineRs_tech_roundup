@@ -1,0 +1,22 @@
+---
+title: "Generate some dates!"
+subtitle: "`seq()`"
+date: 2021-11-08
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [dates, seq]
+---
+
+Do you need to generate a sequence of dates? seq is still your friend. You can use it with a start, ending date and a by variable.
+ 
+
+![](images/dates.png)
+ 
+
+The by variable can be quite a few things: days, weeks, months, quarters or years.
+ 
+More info can be found here: https://stat.ethz.ch/R-manual/R-devel/library/base/html/seq.Date.html

@@ -323,6 +323,17 @@
         "yulab.utils"
       ]
     },
+    "ggx": {
+      "Package": "ggx",
+      "Version": "0.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "85e0bbafb7aaa88c38fcf34c3607ccda",
+      "Requirements": [
+        "ggplot2",
+        "sets"
+      ]
+    },
     "glue": {
       "Package": "glue",
       "Version": "1.6.2",
@@ -665,6 +676,14 @@
         "viridisLite"
       ]
     },
+    "sets": {
+      "Package": "sets",
+      "Version": "1.0-24",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e8ba641447232dece2a2cda95b67da4c",
+      "Requirements": []
+    },
     "showtext": {
       "Package": "showtext",
       "Version": "0.9-5",
@@ -854,10 +873,10 @@
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.37",
+      "Version": "0.39",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "a6860e1400a8fd1ddb6d9b4230cc34ab",
+      "Hash": "8f56e9acb54fb525e66464d57ab58bcb",
       "Requirements": []
     },
     "yaml": {

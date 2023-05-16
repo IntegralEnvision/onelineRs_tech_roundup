@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Eben Pendleton">
+<meta name="dcterms.date" content="2022-02-07">
 
-<title>Monday OneLineRs &amp; Tech Roundup - New Tech Roundup</title>
+<title>Monday OneLineRs &amp; Tech Roundup - Setting Options for a Script</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,7 +62,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -70,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Monday OneLineRs &amp; Tech Roundup</span>
     </a>
   </div>
@@ -81,19 +83,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./oneliners.html" rel="" target="">
+    <a class="nav-link" href="../oneliners.html" rel="" target="">
  <span class="menu-text">Monday OneLineRs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./techroundup.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../techroundup.html" rel="" target="">
  <span class="menu-text">New Tech Roundup</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -115,14 +117,31 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">New Tech Roundup</h1>
-</div>
+<h1 class="title">Setting Options for a Script</h1>
+<p class="subtitle lead"><code>options()</code></p>
+  <div class="quarto-categories">
+    <div class="quarto-category">options</div>
+    <div class="quarto-category">base</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Eben Pendleton </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 7, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -130,11 +149,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><img src="_under_construction_images/CaCapitolHill1114Under_Construction.gif" class="img-fluid"></p>
-<p><img src="_under_construction_images/Capsule3915construction.gif" class="img-fluid"></p>
-<p><img src="_under_construction_images/Hollow7752Construction.gif" class="img-fluid"></p>
-<p><img src="_under_construction_images/MoMotorCity4109construct.gif" class="img-fluid"></p>
-<p><img src="_under_construction_images/babygif.gif" class="img-fluid"></p>
+<p>Have you ever wondered about the <code>options()</code> at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.</p>
+<p><img src="images/oneliner_feb7_2022.png" class="img-fluid"></p>
+<p>You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.</p>
+<p><img src="images/oneliner_feb7_2022(2).png" class="img-fluid"></p>
+<p>There are many more options for options. See the references for more.</p>
+<p>References <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a></p>
 
 
 

@@ -1,10 +1,66 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This site is a compendium of Monday OneLineR’s and Month Tech Roundups."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Monday OneLineRs & Tech Roundup",
+    "section": "",
+    "text": "Monday OneLineRs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNew Tech Roundup\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "oneliners/molr_2022-02-07.html",
+    "href": "oneliners/molr_2022-02-07.html",
+    "title": "Setting Options for a Script",
+    "section": "",
+    "text": "Have you ever wondered about the options() at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.\n\nYou can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.\n\nThere are many more options for options. See the references for more.\nReferences https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html"
+  },
+  {
+    "objectID": "oneliners/molr_2023-01-30.html",
+    "href": "oneliners/molr_2023-01-30.html",
+    "title": "Get Feedback on Tidyverse Operations",
+    "section": "",
+    "text": "You’ve probably spent significant time looking at the results of join, filter, or mutate operations to be sure you got what you expected. There is a nice helper package, tidylog, which provides immediate feedback on what changed. It wraps the common dplyr functions by masking them with functions of the same name. Under the hood the dplyr functions are still being used and will produce the same output, but the there is additional info printed to the screen about what happened during the join."
+  },
+  {
+    "objectID": "oneliners/molr_2023-01-30.html#filtering-or-mutating",
+    "href": "oneliners/molr_2023-01-30.html#filtering-or-mutating",
+    "title": "Get Feedback on Tidyverse Operations",
+    "section": "Filtering or Mutating",
+    "text": "Filtering or Mutating\ntidylog will give you feedback, for instance when filtering a data frame or adding a new variable:\n\nfiltered &lt;- filter(mtcars, cyl == 4)\n\nfilter: removed 21 rows (66%), 11 rows remaining\n\nmutated &lt;- mutate(mtcars, new_var = wt ** 2)\n\nmutate: new variable 'new_var' (double) with 29 unique values and 0% NA"
+  },
+  {
+    "objectID": "oneliners/molr_2023-01-30.html#joining",
+    "href": "oneliners/molr_2023-01-30.html#joining",
+    "title": "Get Feedback on Tidyverse Operations",
+    "section": "Joining",
+    "text": "Joining\ntidylog also reports detailed information for joins:\n\njoined &lt;- left_join(nycflights13::flights, nycflights13::weather,\n    by = c(\"year\", \"month\", \"day\", \"origin\", \"hour\", \"time_hour\"))\n\nleft_join: added 9 columns (temp, dewp, humid, wind_dir, wind_speed, …)\n\n\n           &gt; rows only in x     1,556\n\n\n           &gt; rows only in y  (  6,737)\n\n\n           &gt; matched rows     335,220\n\n\n           &gt;                 =========\n\n\n           &gt; rows total       336,776\n\n\nIn this case, we see that 1,556 rows from the flights dataset do not have weather information."
+  },
+  {
+    "objectID": "oneliners/molr_2023-01-30.html#pipes",
+    "href": "oneliners/molr_2023-01-30.html#pipes",
+    "title": "Get Feedback on Tidyverse Operations",
+    "section": "Pipes",
+    "text": "Pipes\ntidylog can be especially helpful in longer pipes:\n\nsummary &lt;- mtcars %&gt;%\n  select(mpg, cyl, hp, am) %&gt;%\n  filter(mpg &gt; 15) %&gt;%\n  mutate(mpg_round = round(mpg)) %&gt;%\n  group_by(cyl, mpg_round, am) %&gt;%\n  tally() %&gt;%\n  filter(n &gt;= 1)\n\nselect: dropped 7 variables (disp, drat, wt, qsec, vs, …)\n\n\nfilter: removed 6 rows (19%), 26 rows remaining\n\n\nmutate: new variable 'mpg_round' (double) with 15 unique values and 0% NA\n\n\ngroup_by: 3 grouping variables (cyl, mpg_round, am)\n\n\ntally: now 20 rows and 4 columns, 2 group variables remaining (cyl, mpg_round)\n\n\nfilter (grouped): no rows removed\n\n\nHere, it might have been accidental that the last filter command had no effect, or it might tell us that something we thought was affecting our data actually wasn’t, hopefully leading us to track down why."
+  },
+  {
     "objectID": "oneliners/molr_2023-03-06.html",
     "href": "oneliners/molr_2023-03-06.html",
     "title": "Vectorized Switch",
     "section": "",
     "text": "dplyr::case_match() is a new function in dplyr 1.1 that works as a vectorized switch(). It is similar to case_when() but is simpler if the value on the left side of your testing formula is the same for all tests. The following are equivalent:\n\nlibrary(dplyr)\n\ncase_when(\n  x %in% c(\"a\", \"b\") ~ 1,\n  x %in% \"c\" ~ 2,\n  x %in% c(\"d\", \"e\") ~ 3\n)\n\ncase_match(\n  x,\n  c(\"a\", \"b\") ~ 1,\n  \"c\" ~ 2,\n  c(\"d\", \"e\") ~ 3\n)"
+  },
+  {
+    "objectID": "oneliners/molr_2023-03-20.html",
+    "href": "oneliners/molr_2023-03-20.html",
+    "title": "Separating and Combining Columns",
+    "section": "",
+    "text": "Sometimes you may have columns in your data that you want to combine into a single column, or a single column that you want to split into multiple columns. These complementary functions are a simple way of doing so.\n\n#library(tidyverse, quietly = T)\nlibrary(tibble)\n\nWarning: package 'tibble' was built under R version 4.2.3\n\nlibrary(tidyr)\n\nWarning: package 'tidyr' was built under R version 4.2.3\n\npeople &lt;-\n  enframe(\n    c(\n      \"Jarred Prosacco\",\n      \"Donnell Jacobs\",\n      \"Cecily Schultz\",\n      \"Boyd Stark\",\n      \"Alverda Nolan\",\n      \"Bose Kling\",\n      \"Buel Nikolaus\",\n      \"Adell Gislason\",\n      \"Theadore Johnson\",\n      \"Raynard Huel\"\n    ),\n    name = NULL,\n    value = \"name\"\n  )\n\npeople\n\n\n\n\n\nname\n\n\n\n\nJarred Prosacco\n\n\nDonnell Jacobs\n\n\nCecily Schultz\n\n\nBoyd Stark\n\n\nAlverda Nolan\n\n\nBose Kling\n\n\nBuel Nikolaus\n\n\nAdell Gislason\n\n\nTheadore Johnson\n\n\nRaynard Huel\n\n\n\n\n\npeople_sep &lt;- people %&gt;% \n  separate_wider_delim(name, delim = \" \", names = c(\"first\", \"last\"))\n\npeople_sep \n\n\n\n\n\nfirst\nlast\n\n\n\n\nJarred\nProsacco\n\n\nDonnell\nJacobs\n\n\nCecily\nSchultz\n\n\nBoyd\nStark\n\n\nAlverda\nNolan\n\n\nBose\nKling\n\n\nBuel\nNikolaus\n\n\nAdell\nGislason\n\n\nTheadore\nJohnson\n\n\nRaynard\nHuel\n\n\n\n\n\npeople_sep %&gt;% \n  unite(col = last_first, last, first, sep = \", \") \n\n\n\n\n\nlast_first\n\n\n\n\nProsacco, Jarred\n\n\nJacobs, Donnell\n\n\nSchultz, Cecily\n\n\nStark, Boyd\n\n\nNolan, Alverda\n\n\nKling, Bose\n\n\nNikolaus, Buel\n\n\nGislason, Adell\n\n\nJohnson, Theadore\n\n\nHuel, Raynard\n\n\n\n\n\n\nSee also:\n\ntidyr::separate_longer_*() for separating column values into multiple rows\ndplyr::coalesce() for finding the first non-missing value from two or more columns"
   },
   {
     "objectID": "oneliners/molr_2023-03-27.html",
@@ -18,7 +74,7 @@
     "href": "oneliners/molr_2023-03-27.html#gghelp-examples",
     "title": "ggplot Formatting Assistant with Natural Language Queries",
     "section": "gghelp Examples",
-    "text": "gghelp Examples\n\nlibrary(ggx)\n\ngghelp(\"How do I rotate the x-axis\")\n\ntheme(axis.text.x = element_text(angle = 90) \n\ngghelp(\"How do I remove the legend?\")\n\ntheme(legend.position = \"none\")"
+    "text": "gghelp Examples\n\nlibrary(ggx)\n\nWarning: package 'ggx' was built under R version 4.2.3\n\ngghelp(\"How do I rotate the x-axis\")\n\ntheme(axis.text.x = element_text(angle = 90) \n\ngghelp(\"How do I remove the legend?\")\n\ntheme(legend.position = \"none\")"
   },
   {
     "objectID": "oneliners/molr_2023-03-27.html#its-not-perfect",
@@ -39,62 +95,13 @@
     "href": "oneliners/molr_2023-03-27.html#about-snippets",
     "title": "ggplot Formatting Assistant with Natural Language Queries",
     "section": "About Snippets",
-    "text": "About Snippets\nIf you haven’t used snippets, they are a way of defining a text shortcut that will tab-autocomplete to the code defined below the shortcut. You can add/edit them in Global Options > Code > Edit Snippets"
-  },
-  {
-    "objectID": "oneliners/molr_2023-03-20.html",
-    "href": "oneliners/molr_2023-03-20.html",
-    "title": "Separating and Combining Columns",
-    "section": "",
-    "text": "Sometimes you may have columns in your data that you want to combine into a single column, or a single column that you want to split into multiple columns. These complementary functions are a simple way of doing so.\n\n#library(tidyverse, quietly = T)\nlibrary(tibble)\nlibrary(tidyr)\n\npeople <-\n  enframe(\n    c(\n      \"Jarred Prosacco\",\n      \"Donnell Jacobs\",\n      \"Cecily Schultz\",\n      \"Boyd Stark\",\n      \"Alverda Nolan\",\n      \"Bose Kling\",\n      \"Buel Nikolaus\",\n      \"Adell Gislason\",\n      \"Theadore Johnson\",\n      \"Raynard Huel\"\n    ),\n    name = NULL,\n    value = \"name\"\n  )\n\npeople\n\n\n\n\n\nname\n\n\n\n\nJarred Prosacco\n\n\nDonnell Jacobs\n\n\nCecily Schultz\n\n\nBoyd Stark\n\n\nAlverda Nolan\n\n\nBose Kling\n\n\nBuel Nikolaus\n\n\nAdell Gislason\n\n\nTheadore Johnson\n\n\nRaynard Huel\n\n\n\n\n\npeople_sep <- people %>% \n  separate_wider_delim(name, delim = \" \", names = c(\"first\", \"last\"))\n\npeople_sep \n\n\n\n\n\nfirst\nlast\n\n\n\n\nJarred\nProsacco\n\n\nDonnell\nJacobs\n\n\nCecily\nSchultz\n\n\nBoyd\nStark\n\n\nAlverda\nNolan\n\n\nBose\nKling\n\n\nBuel\nNikolaus\n\n\nAdell\nGislason\n\n\nTheadore\nJohnson\n\n\nRaynard\nHuel\n\n\n\n\n\npeople_sep %>% \n  unite(col = last_first, last, first, sep = \", \") \n\n\n\n\n\nlast_first\n\n\n\n\nProsacco, Jarred\n\n\nJacobs, Donnell\n\n\nSchultz, Cecily\n\n\nStark, Boyd\n\n\nNolan, Alverda\n\n\nKling, Bose\n\n\nNikolaus, Buel\n\n\nGislason, Adell\n\n\nJohnson, Theadore\n\n\nHuel, Raynard\n\n\n\n\n\n\nSee also:\n\ntidyr::separate_longer_*() for separating column values into multiple rows\ndplyr::coalesce() for finding the first non-missing value from two or more columns"
-  },
-  {
-    "objectID": "oneliners/molr_2023-01-30.html",
-    "href": "oneliners/molr_2023-01-30.html",
-    "title": "Get Feedback on Tidyverse Operations",
-    "section": "",
-    "text": "You’ve probably spent significant time looking at the results of join, filter, or mutate operations to be sure you got what you expected. There is a nice helper package, tidylog, which provides immediate feedback on what changed. It wraps the common dplyr functions by masking them with functions of the same name. Under the hood the dplyr functions are still being used and will produce the same output, but the there is additional info printed to the screen about what happened during the join."
-  },
-  {
-    "objectID": "oneliners/molr_2023-01-30.html#filtering-or-mutating",
-    "href": "oneliners/molr_2023-01-30.html#filtering-or-mutating",
-    "title": "Get Feedback on Tidyverse Operations",
-    "section": "Filtering or Mutating",
-    "text": "Filtering or Mutating\ntidylog will give you feedback, for instance when filtering a data frame or adding a new variable:\n\nfiltered <- filter(mtcars, cyl == 4)\n\nfilter: removed 21 rows (66%), 11 rows remaining\n\nmutated <- mutate(mtcars, new_var = wt ** 2)\n\nmutate: new variable 'new_var' (double) with 29 unique values and 0% NA"
-  },
-  {
-    "objectID": "oneliners/molr_2023-01-30.html#joining",
-    "href": "oneliners/molr_2023-01-30.html#joining",
-    "title": "Get Feedback on Tidyverse Operations",
-    "section": "Joining",
-    "text": "Joining\ntidylog also reports detailed information for joins:\n\njoined <- left_join(nycflights13::flights, nycflights13::weather,\n    by = c(\"year\", \"month\", \"day\", \"origin\", \"hour\", \"time_hour\"))\n\nleft_join: added 9 columns (temp, dewp, humid, wind_dir, wind_speed, …)\n\n\n           > rows only in x     1,556\n\n\n           > rows only in y  (  6,737)\n\n\n           > matched rows     335,220\n\n\n           >                 =========\n\n\n           > rows total       336,776\n\n\nIn this case, we see that 1,556 rows from the flights dataset do not have weather information."
-  },
-  {
-    "objectID": "oneliners/molr_2023-01-30.html#pipes",
-    "href": "oneliners/molr_2023-01-30.html#pipes",
-    "title": "Get Feedback on Tidyverse Operations",
-    "section": "Pipes",
-    "text": "Pipes\ntidylog can be especially helpful in longer pipes:\n\nsummary <- mtcars %>%\n  select(mpg, cyl, hp, am) %>%\n  filter(mpg > 15) %>%\n  mutate(mpg_round = round(mpg)) %>%\n  group_by(cyl, mpg_round, am) %>%\n  tally() %>%\n  filter(n >= 1)\n\nselect: dropped 7 variables (disp, drat, wt, qsec, vs, …)\n\n\nfilter: removed 6 rows (19%), 26 rows remaining\n\n\nmutate: new variable 'mpg_round' (double) with 15 unique values and 0% NA\n\n\ngroup_by: 3 grouping variables (cyl, mpg_round, am)\n\n\ntally: now 20 rows and 4 columns, 2 group variables remaining (cyl, mpg_round)\n\n\nfilter (grouped): no rows removed\n\n\nHere, it might have been accidental that the last filter command had no effect, or it might tell us that something we thought was affecting our data actually wasn’t, hopefully leading us to track down why."
+    "text": "About Snippets\nIf you haven’t used snippets, they are a way of defining a text shortcut that will tab-autocomplete to the code defined below the shortcut. You can add/edit them in Global Options &gt; Code &gt; Edit Snippets"
   },
   {
     "objectID": "oneliners.html",
     "href": "oneliners.html",
     "title": "Monday OneLineRs",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nggplot Formatting Assistant with Natural Language Queries\n\n\nggx::gghelp()\n\n\n\n\n\n\nMonday, March 27, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nSeparating and Combining Columns\n\n\ntidyr::separate_wider_*() and tidyr::unite()\n\n\n\n\n\n\nMonday, March 20, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nVectorized Switch\n\n\ndplyr::case_match()\n\n\n\n\n\n\nMonday, March 6, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nGet Feedback on Tidyverse Operations\n\n\ntidylog\n\n\n\n\n\n\nMonday, January 30, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Monday OneLineRs & Tech Roundup",
-    "section": "",
-    "text": "Monday OneLineRs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNew Tech Roundup\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This site is a compendium of Monday OneLineR’s and Month Tech Roundups."
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nggplot Formatting Assistant with Natural Language Queries\n\n\nggx::gghelp()\n\n\n\n\n\n\nMonday, March 27, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nSeparating and Combining Columns\n\n\ntidyr::separate_wider_*() and tidyr::unite()\n\n\n\n\n\n\nMonday, March 20, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nVectorized Switch\n\n\ndplyr::case_match()\n\n\n\n\n\n\nMonday, March 6, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nGet Feedback on Tidyverse Operations\n\n\ntidylog\n\n\n\n\n\n\nMonday, January 30, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nSetting Options for a Script\n\n\noptions()\n\n\n\n\n\n\nMonday, February 7, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\nNo matching items"
   }
 ]

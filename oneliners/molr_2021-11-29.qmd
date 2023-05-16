@@ -1,0 +1,28 @@
+---
+title: "What's the rle()?"
+subtitle: "`rle()`"
+date: 2021-11-29
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [base, rle, vector, consecutive]
+---
+
+Here's a neat Base R function, `rle()`. `rle()` is a named for run length encoding. In cases where you may have data that has streaks or runs of values, `rle()` gives you the length of the run and the value associated with the run.
+
+Some places where this is useful are head/tail counting in coin flips (How many heads in a row do I get?), time series analysis (how many times does x happen?)
+
+For example, we may have data that's a series of TRUE or FALSEs. `rle()` can take vector and give information about the streak or number of consecutive TRUE and FALSEs.
+
+![](images/rle.png)
+
+Here, `rle()` has returned an `rle()` object, which is a list of two elements, lengths and and values. "lengths", or `rle(z)[[1]]` above is an integer vector of the number of items in a run. In z, there are 2 TRUEs, 2 FALSEs followed by 1 TRUE and the rest of the runs. You can see this is summarized as 2, 2, 1. The values component of `rle()` (accessible by `rle(z)[2]]` here), indicates the three values in the first three runs are TRUE, FALSE, TRUE
+
+Feel free to add other examples of where `rle()` would be useful in your work!
+
+References <https://www.r-bloggers.com/2009/09/r-function-of-the-day-rle-2/amp/>
+
+Happy R'ing

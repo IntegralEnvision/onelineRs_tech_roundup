@@ -19,6 +19,8 @@ Maybe you care that filter, lag etc are masked from other packages. Maybe you ar
 
 ![](images/conflict_2.png)
 
-Reference <https://stat.ethz.ch/R-manual/R-devel/library/base/html/library.html>
+**Reference**
+
+<https://stat.ethz.ch/R-manual/R-devel/library/base/html/library.html>
 
 Happy coding!

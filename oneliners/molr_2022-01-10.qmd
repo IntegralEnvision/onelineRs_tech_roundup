@@ -19,7 +19,7 @@ Use `position_jitter()` with a number as the seed argument to make it reproducib
 
 ![](images/molr_jan10_2022.png)
 
-Reference\
+**References**\
 <https://twitter.com/thomas_mock/status/1473356760593440769>
 
 <https://ggplot2.tidyverse.org/reference/position_jitter.html>

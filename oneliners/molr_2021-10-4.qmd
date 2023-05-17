@@ -1,0 +1,28 @@
+---
+title: "Regular expression builders"
+subtitle: "RVerbalExpressions"
+date: 2021-10-4
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [packages, regex, pipe]
+---
+
+I was curious if there were R regular expression builders out there.
+
+RVerbalExpressions is one. The source is here: <https://github.com/VerbalExpressions/RVerbalExpressions>
+
+You can install from CRAN using `install.packages("RVerbalExpressions")`
+
+It uses pipes to construct expressions. Last week's examples can be mimicked using
+
+    x <- rx() %>% rx_anything_but(value ="UI ")
+    # for the extraction to work any leading or trailing whitespace needs to be removed
+    c("0.045 U", " 91", "0.037 I", "0.00046U") %>% trimws %>% str_extract(x)
+
+![](images/regex.png)
+
+Check it out. It might work well for your regex case!

@@ -1,0 +1,24 @@
+---
+title: "What's my class?"
+subtitle: "`class()`"
+date: 2021-07-26
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [class, base, object]
+---
+Do you need to know the object type of a variable in R? `class(<x>)` to the rescue! This returns information about the type of object such as character, numeric etc. Available base classes can be seen in the reference below.
+
+![](images/class.png)
+ 
+Note that numeric is the numerical object data type. There isn't an integer / float type.
+ 
+Happy Coding!
+
+ 
+**References**
+Base classes
+<https://stat.ethz.ch/R-manual/R-devel/library/methods/html/BasicClasses.html>

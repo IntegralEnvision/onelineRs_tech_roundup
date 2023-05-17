@@ -1,0 +1,36 @@
+---
+title: "An alternative way to read CSVs in R"
+subtitle: "`read_csv()`"
+date: 2021-08-02
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [read_csv, csv, readr, tidyverse, tibble]
+---
+
+The read_csv function is an alternative to the read.csv function found in base R. read_csv is part of the readr package, which is part of the tidyverse, and loads data as a tibble rather than a traditional R dataframe.
+
+Importing data via read_csv
+
+-   will load faster
+
+-   doesn't change input types (looking at you strings as factors)
+
+-   allow non-standard variable names (i.e. your variables can start with a number and can contain spaces)
+
+-   never creates row names
+
+Example
+
+![](images/readcsv.png)
+
+Happy coding!
+
+**References**
+
+<https://r4ds.had.co.nz/data-import.html>
+
+<https://medium.com/r-tutorials/r-functions-daily-read-csv-3c418c25cba4>

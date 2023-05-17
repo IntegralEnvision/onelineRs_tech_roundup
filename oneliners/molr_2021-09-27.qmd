@@ -1,0 +1,20 @@
+---
+title: "Scheduling Note and Browser in Functions"
+subtitle: "`browser()`"
+date: 2021-10-4
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [function, browser, message, debug, error]
+---
+
+Did you know that you can use `browser()` to debug within functions? The following works.
+
+![](images/browser.png)
+
+The interactive debugger is launched on line 3.
+
+Happy coding!

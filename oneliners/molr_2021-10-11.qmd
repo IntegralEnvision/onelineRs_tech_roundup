@@ -10,11 +10,15 @@ title-block-banner: false
 image: "path/url to image"
 categories: [which, max, min, base, index]
 ---
-Would you like to know what index the min and max are at in a vector? `which.min()` and `which.max()` help.
-In the example below the first min of -3 is at an index of 3 and the max of 9 is at an index of 5. Note these only return the first occurrence.
+
+Would you like to know what index the min and max are at in a vector? `which.min()` and `which.max()` help. In the example below the first min of -3 is at an index of 3 and the max of 9 is at an index of 5. Note these only return the first occurrence.
 
 ![](images/minmax_1.png)
 
 What if we want all the mins? Putting a logical expression in the which does this.
 
 ![](images/minmax_2.png)
+
+**Reference**
+
+<https://stackoverflow.com/questions/9390749/return-index-of-the-smallest-value-in-a-vector>

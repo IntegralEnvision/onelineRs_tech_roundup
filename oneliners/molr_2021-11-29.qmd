@@ -23,6 +23,8 @@ Here, `rle()` has returned an `rle()` object, which is a list of two elements, l
 
 Feel free to add other examples of where `rle()` would be useful in your work!
 
-References <https://www.r-bloggers.com/2009/09/r-function-of-the-day-rle-2/amp/>
+**References**
+
+<https://www.r-bloggers.com/2009/09/r-function-of-the-day-rle-2/amp/>
 
 Happy R'ing

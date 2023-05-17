@@ -15,5 +15,5 @@ categories: [dplyr, pull, vector, pipe, tidyverse]
 
 ![](images/molr_dec20_2021.png)
 
-References\
+**References**\
 <https://dplyr.tidyverse.org/reference/pull.html>

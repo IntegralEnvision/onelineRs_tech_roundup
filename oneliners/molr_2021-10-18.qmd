@@ -17,6 +17,6 @@ so `v <- "Fall is here!"`, not `v <- 'Fall is here!'`
 
 Happy coding!
 
-References <https://stat.ethz.ch/R-manual/R-patched/library/base/html/Quotes.html>
+**References**
 
-
+<https://stat.ethz.ch/R-manual/R-patched/library/base/html/Quotes.html>

@@ -19,6 +19,8 @@ You can also use it to turn warnings into errors that will stop your code from r
 
 ![](images/oneliner_feb7_2022(2).png)
 
-There are many more options for options. See the references for more.
+There are many more options for `options()`. See the references for more.
 
-References <https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html>
+**References**
+
+<https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html>

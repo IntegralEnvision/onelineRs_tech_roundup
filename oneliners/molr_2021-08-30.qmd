@@ -1,0 +1,34 @@
+---
+title: "Creating a Sequence"
+subtitle: "`seq()`"
+date: 2021-8-30
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [seq, base, sequence]
+---
+
+`seq()` is used in R for sequence number generation. It accepts either integers or decimal numbers. Its most basic form is `seq(from, to)` and includes the from value. Its an inclusive bound or range.
+
+![](images/seq1.png)
+
+There's a 'by' parameter that specifies the interval or "step" between numbers.
+
+![](images/seq2.png)
+
+There's a 'length.out' parameter that allows you to specify a desired sequence length,
+
+![](images/seq3.png)
+
+Finally, there's an 'along.with' parameter that allow you to specify a desired length, by the length of the argument passed. Here, I've created an input vector of length 5.
+
+![](images/seq4.png)
+
+Happy sequencing!
+
+**References**
+
+<https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/seq>

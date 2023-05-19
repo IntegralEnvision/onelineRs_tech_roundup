@@ -21,7 +21,7 @@ You could also use it to subset columns. Maybe you don't want "canal" or "evergi
 
 `d <- d[, !(colnames(d) %in% c("canal", "evergiven"))`
 
-Happy %in%ing!
+Happy `%in%`ing!
 
 **Reference**
 

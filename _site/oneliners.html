@@ -71,7 +71,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-title','listing-subtitle','listing-author','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
+      page: 25,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
@@ -142,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(24)</span></div><div class="category" data-category="across">across <span class="quarto-category-count">(1)</span></div><div class="category" data-category="alpha">alpha <span class="quarto-category-count">(1)</span></div><div class="category" data-category="backtick">backtick <span class="quarto-category-count">(1)</span></div><div class="category" data-category="base">base <span class="quarto-category-count">(7)</span></div><div class="category" data-category="browser">browser <span class="quarto-category-count">(1)</span></div><div class="category" data-category="class">class <span class="quarto-category-count">(1)</span></div><div class="category" data-category="column manipulation">column manipulation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="columns">columns <span class="quarto-category-count">(2)</span></div><div class="category" data-category="conflict">conflict <span class="quarto-category-count">(1)</span></div><div class="category" data-category="consecutive">consecutive <span class="quarto-category-count">(1)</span></div><div class="category" data-category="csv">csv <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dataframe">dataframe <span class="quarto-category-count">(3)</span></div><div class="category" data-category="datasets">datasets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dates">dates <span class="quarto-category-count">(1)</span></div><div class="category" data-category="debug">debug <span class="quarto-category-count">(1)</span></div><div class="category" data-category="detect">detect <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dplyr">dplyr <span class="quarto-category-count">(5)</span></div><div class="category" data-category="error">error <span class="quarto-category-count">(1)</span></div><div class="category" data-category="fill">fill <span class="quarto-category-count">(1)</span></div><div class="category" data-category="filtering">filtering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="function">function <span class="quarto-category-count">(2)</span></div><div class="category" data-category="geom_point">geom_point <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ggplot">ggplot <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ggplot2">ggplot2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="grouping">grouping <span class="quarto-category-count">(1)</span></div><div class="category" data-category="help">help <span class="quarto-category-count">(1)</span></div><div class="category" data-category="helpers">helpers <span class="quarto-category-count">(2)</span></div><div class="category" data-category="index">index <span class="quarto-category-count">(1)</span></div><div class="category" data-category="janitor">janitor <span class="quarto-category-count">(1)</span></div><div class="category" data-category="jitter">jitter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="joining">joining <span class="quarto-category-count">(1)</span></div><div class="category" data-category="library">library <span class="quarto-category-count">(2)</span></div><div class="category" data-category="logging">logging <span class="quarto-category-count">(1)</span></div><div class="category" data-category="matching">matching <span class="quarto-category-count">(1)</span></div><div class="category" data-category="max">max <span class="quarto-category-count">(1)</span></div><div class="category" data-category="message">message <span class="quarto-category-count">(1)</span></div><div class="category" data-category="min">min <span class="quarto-category-count">(1)</span></div><div class="category" data-category="multiline">multiline <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mutating">mutating <span class="quarto-category-count">(2)</span></div><div class="category" data-category="object">object <span class="quarto-category-count">(2)</span></div><div class="category" data-category="options">options <span class="quarto-category-count">(1)</span></div><div class="category" data-category="package">package <span class="quarto-category-count">(1)</span></div><div class="category" data-category="packages">packages <span class="quarto-category-count">(2)</span></div><div class="category" data-category="pipe">pipe <span class="quarto-category-count">(2)</span></div><div class="category" data-category="pull">pull <span class="quarto-category-count">(1)</span></div><div class="category" data-category="query">query <span class="quarto-category-count">(1)</span></div><div class="category" data-category="quotes">quotes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="read_csv">read_csv <span class="quarto-category-count">(1)</span></div><div class="category" data-category="readr">readr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="regex">regex <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rle">rle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="select">select <span class="quarto-category-count">(1)</span></div><div class="category" data-category="selecting">selecting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="seq">seq <span class="quarto-category-count">(2)</span></div><div class="category" data-category="sequence">sequence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="str">str <span class="quarto-category-count">(1)</span></div><div class="category" data-category="strings">strings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tibble">tibble <span class="quarto-category-count">(2)</span></div><div class="category" data-category="tidyr">tidyr <span class="quarto-category-count">(2)</span></div><div class="category" data-category="tidyverse">tidyverse <span class="quarto-category-count">(7)</span></div><div class="category" data-category="vector">vector <span class="quarto-category-count">(2)</span></div><div class="category" data-category="warnings">warnings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="which">which <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(44)</span></div><div class="category" data-category="NA">NA <span class="quarto-category-count">(2)</span></div><div class="category" data-category="across">across <span class="quarto-category-count">(1)</span></div><div class="category" data-category="alpha">alpha <span class="quarto-category-count">(1)</span></div><div class="category" data-category="arrow">arrow <span class="quarto-category-count">(2)</span></div><div class="category" data-category="assign">assign <span class="quarto-category-count">(2)</span></div><div class="category" data-category="axis">axis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="backtick">backtick <span class="quarto-category-count">(1)</span></div><div class="category" data-category="base">base <span class="quarto-category-count">(19)</span></div><div class="category" data-category="breakpoints">breakpoints <span class="quarto-category-count">(1)</span></div><div class="category" data-category="browser">browser <span class="quarto-category-count">(2)</span></div><div class="category" data-category="case_when">case_when <span class="quarto-category-count">(1)</span></div><div class="category" data-category="casewhen">casewhen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="class">class <span class="quarto-category-count">(1)</span></div><div class="category" data-category="coalesce">coalesce <span class="quarto-category-count">(1)</span></div><div class="category" data-category="column manipulation">column manipulation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="columns">columns <span class="quarto-category-count">(3)</span></div><div class="category" data-category="combine">combine <span class="quarto-category-count">(1)</span></div><div class="category" data-category="conditions">conditions <span class="quarto-category-count">(1)</span></div><div class="category" data-category="conflict">conflict <span class="quarto-category-count">(1)</span></div><div class="category" data-category="consecutive">consecutive <span class="quarto-category-count">(1)</span></div><div class="category" data-category="csv">csv <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dataframe">dataframe <span class="quarto-category-count">(4)</span></div><div class="category" data-category="datasets">datasets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="date">date <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dates">dates <span class="quarto-category-count">(1)</span></div><div class="category" data-category="debug">debug <span class="quarto-category-count">(3)</span></div><div class="category" data-category="detect">detect <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dimension">dimension <span class="quarto-category-count">(1)</span></div><div class="category" data-category="directory">directory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dplyr">dplyr <span class="quarto-category-count">(7)</span></div><div class="category" data-category="equals">equals <span class="quarto-category-count">(2)</span></div><div class="category" data-category="error">error <span class="quarto-category-count">(4)</span></div><div class="category" data-category="errors">errors <span class="quarto-category-count">(1)</span></div><div class="category" data-category="expand">expand <span class="quarto-category-count">(1)</span></div><div class="category" data-category="fill">fill <span class="quarto-category-count">(1)</span></div><div class="category" data-category="filtering">filtering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="function">function <span class="quarto-category-count">(3)</span></div><div class="category" data-category="geom_point">geom_point <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ggplot">ggplot <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ggplot2">ggplot2 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="grouping">grouping <span class="quarto-category-count">(1)</span></div><div class="category" data-category="help">help <span class="quarto-category-count">(2)</span></div><div class="category" data-category="helpers">helpers <span class="quarto-category-count">(2)</span></div><div class="category" data-category="if">if <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ifelse">ifelse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="in">in <span class="quarto-category-count">(1)</span></div><div class="category" data-category="index">index <span class="quarto-category-count">(1)</span></div><div class="category" data-category="intersect">intersect <span class="quarto-category-count">(1)</span></div><div class="category" data-category="janitor">janitor <span class="quarto-category-count">(1)</span></div><div class="category" data-category="jitter">jitter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="joining">joining <span class="quarto-category-count">(1)</span></div><div class="category" data-category="length">length <span class="quarto-category-count">(1)</span></div><div class="category" data-category="lengths">lengths <span class="quarto-category-count">(1)</span></div><div class="category" data-category="library">library <span class="quarto-category-count">(2)</span></div><div class="category" data-category="list">list <span class="quarto-category-count">(1)</span></div><div class="category" data-category="logging">logging <span class="quarto-category-count">(1)</span></div><div class="category" data-category="logical">logical <span class="quarto-category-count">(1)</span></div><div class="category" data-category="match">match <span class="quarto-category-count">(1)</span></div><div class="category" data-category="matching">matching <span class="quarto-category-count">(1)</span></div><div class="category" data-category="max">max <span class="quarto-category-count">(1)</span></div><div class="category" data-category="message">message <span class="quarto-category-count">(2)</span></div><div class="category" data-category="min">min <span class="quarto-category-count">(1)</span></div><div class="category" data-category="multiline">multiline <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mutating">mutating <span class="quarto-category-count">(2)</span></div><div class="category" data-category="nchar">nchar <span class="quarto-category-count">(1)</span></div><div class="category" data-category="object">object <span class="quarto-category-count">(2)</span></div><div class="category" data-category="objects">objects <span class="quarto-category-count">(1)</span></div><div class="category" data-category="operator">operator <span class="quarto-category-count">(1)</span></div><div class="category" data-category="options">options <span class="quarto-category-count">(1)</span></div><div class="category" data-category="output">output <span class="quarto-category-count">(1)</span></div><div class="category" data-category="package">package <span class="quarto-category-count">(2)</span></div><div class="category" data-category="packages">packages <span class="quarto-category-count">(2)</span></div><div class="category" data-category="pipe">pipe <span class="quarto-category-count">(2)</span></div><div class="category" data-category="print">print <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pull">pull <span class="quarto-category-count">(1)</span></div><div class="category" data-category="query">query <span class="quarto-category-count">(1)</span></div><div class="category" data-category="quotes">quotes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="read_csv">read_csv <span class="quarto-category-count">(1)</span></div><div class="category" data-category="readr">readr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="regex">regex <span class="quarto-category-count">(1)</span></div><div class="category" data-category="return">return <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rle">rle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rownames">rownames <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rows">rows <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scale">scale <span class="quarto-category-count">(1)</span></div><div class="category" data-category="select">select <span class="quarto-category-count">(1)</span></div><div class="category" data-category="selecting">selecting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="seq">seq <span class="quarto-category-count">(2)</span></div><div class="category" data-category="sequence">sequence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sets">sets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="stop">stop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="str">str <span class="quarto-category-count">(1)</span></div><div class="category" data-category="strings">strings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="system">system <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tibble">tibble <span class="quarto-category-count">(3)</span></div><div class="category" data-category="tidyr">tidyr <span class="quarto-category-count">(2)</span></div><div class="category" data-category="tidyverse">tidyverse <span class="quarto-category-count">(10)</span></div><div class="category" data-category="union">union <span class="quarto-category-count">(1)</span></div><div class="category" data-category="vector">vector <span class="quarto-category-count">(4)</span></div><div class="category" data-category="vectors">vectors <span class="quarto-category-count">(1)</span></div><div class="category" data-category="warning">warning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="warnings">warnings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="which">which <span class="quarto-category-count">(1)</span></div><div class="category" data-category="zoo">zoo <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -700,7 +701,447 @@ Eben Pendleton
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-categories="across,dplyr,columns,dataframe" data-listing-date-sort="NaN">
+<div class="quarto-post image-right" data-index="23" data-categories="tibble,columns,case_when,conditions" data-listing-date-sort="1626678000000">
+<div class="body">
+<a href="./oneliners/molr_2021-07-19.html">
+<h3 class="no-anchor listing-title">
+Creating new columns based on conditions
+</h3>
+<div class="listing-subtitle">
+<code>case_when()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-07-19.html">
+<div class="listing-date">
+Monday, July 19, 2021
+</div>
+<div class="listing-author">
+Julia Bouzaher
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="24" data-categories="length,lengths,dimension,nchar,base,vectors" data-listing-date-sort="1626073200000">
+<div class="body">
+<a href="./oneliners/molr_2021-07-12.html">
+<h3 class="no-anchor listing-title">
+What’s my length?
+</h3>
+<div class="listing-subtitle">
+<code>length()</code>, <code>lengths()</code>, and <code>nchar()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-07-12.html">
+<div class="listing-date">
+Monday, July 12, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="25" data-categories="date,base,system" data-listing-date-sort="1624258800000">
+<div class="body">
+<a href="./oneliners/molr_2021-6-21.html">
+<h3 class="no-anchor listing-title">
+Getting the current date!
+</h3>
+<div class="listing-subtitle">
+<code>Sys.Date()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-6-21.html">
+<div class="listing-date">
+Monday, June 21, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="26" data-categories="combine,base,vector,list" data-listing-date-sort="1620630000000">
+<div class="body">
+<a href="./oneliners/molr_2021-03-15.html">
+<h3 class="no-anchor listing-title">
+What is c()?
+</h3>
+<div class="listing-subtitle">
+<code>c()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-03-15.html">
+<div class="listing-date">
+Monday, May 10, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="27" data-categories="dplyr,tidyverse,ifelse,casewhen" data-listing-date-sort="1620630000000">
+<div class="body">
+<a href="./oneliners/molr_2021-05-03.html">
+<h3 class="no-anchor listing-title">
+Special cases in data frames
+</h3>
+<div class="listing-subtitle">
+<code>case_when()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-05-03.html">
+<div class="listing-date">
+Monday, May 10, 2021
+</div>
+<div class="listing-author">
+Katherine Heal
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="28" data-categories="coalesce,dplyr,tidyverse,NA,vector" data-listing-date-sort="1620630000000">
+<div class="body">
+<a href="./oneliners/molr_2021-05-10.html">
+<h3 class="no-anchor listing-title">
+Join two vectors with NAs
+</h3>
+<div class="listing-subtitle">
+<code>coalesce()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-05-10.html">
+<div class="listing-date">
+Monday, May 10, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="29" data-categories="rownames,rows,base,dataframe" data-listing-date-sort="1619420400000">
+<div class="body">
+<a href="./oneliners/molr_2021-04-26.html">
+<h3 class="no-anchor listing-title">
+What’s my row, reset?
+</h3>
+<div class="listing-subtitle">
+<code>row.names()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-04-26.html">
+<div class="listing-date">
+Monday, April 26, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="30" data-categories="sets,base,union,intersect" data-listing-date-sort="1618815600000">
+<div class="body">
+<a href="./oneliners/molr_2021-04-19.html">
+<h3 class="no-anchor listing-title">
+Functions for sets in R
+</h3>
+<div class="listing-subtitle">
+<code>intersect()</code> and <code>union()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-04-19.html">
+<div class="listing-date">
+Monday, April 19, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="31" data-categories="logical,operator,base,in,match" data-listing-date-sort="1618210800000">
+<div class="body">
+<a href="./oneliners/molr_2021-04-12.html">
+<h3 class="no-anchor listing-title">
+Are you in?
+</h3>
+<div class="listing-subtitle">
+<code>%in%</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-04-12.html">
+<div class="listing-date">
+Monday, April 12, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="32" data-categories="browser,debug,error,base" data-listing-date-sort="1616396400000">
+<div class="body">
+<a href="./oneliners/molr_2021-03-22.html">
+<h3 class="no-anchor listing-title">
+Halting and Debugging Code
+</h3>
+<div class="listing-subtitle">
+<code>browser()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-03-22.html">
+<div class="listing-date">
+Monday, March 22, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="33" data-categories="equals,arrow,assign,base" data-listing-date-sort="1615190400000">
+<div class="body">
+<a href="./oneliners/molr_2021-03-08.html">
+<h3 class="no-anchor listing-title">
+What’s the difference between = and &lt;-?
+</h3>
+<div class="listing-subtitle">
+R assignment operators
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-03-08.html">
+<div class="listing-date">
+Monday, March 8, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="34" data-categories="stop,error,base,tidyverse" data-listing-date-sort="1614585600000">
+<div class="body">
+<a href="./oneliners/molr_2021-03-01.html">
+<h3 class="no-anchor listing-title">
+Stop the code!
+</h3>
+<div class="listing-subtitle">
+<code>stop()</code> and <code>stopifnot()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-03-01.html">
+<div class="listing-date">
+Monday, March 1, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="35" data-categories="print,message,base,output" data-listing-date-sort="1613980800000">
+<div class="body">
+<a href="./oneliners/molr_2021-02-22.html">
+<h3 class="no-anchor listing-title">
+Should I use <code>print()</code> or <code>message()</code> in my code?
+</h3>
+<div class="listing-subtitle">
+<code>print()</code> and <code>message()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-02-22.html">
+<div class="listing-date">
+Monday, February 22, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="36" data-categories="equals,arrow,assign,base" data-listing-date-sort="1612771200000">
+<div class="body">
+<a href="./oneliners/molr_2021-02-08.html">
+<h3 class="no-anchor listing-title">
+Preview your data
+</h3>
+<div class="listing-subtitle">
+<code>head()</code> and <code>tail()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-02-08.html">
+<div class="listing-date">
+Monday, February 8, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="37" data-categories="help,package,function" data-listing-date-sort="1611561600000">
+<div class="body">
+<a href="./oneliners/molr_2021-01-25.html">
+<h3 class="no-anchor listing-title">
+Package help
+</h3>
+<div class="listing-subtitle">
+<code>help()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-01-25.html">
+<div class="listing-date">
+Monday, January 25, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="38" data-categories="breakpoints,debug,errors" data-listing-date-sort="1610956800000">
+<div class="body">
+<a href="./oneliners/molr_2021-01-18.html">
+<h3 class="no-anchor listing-title">
+Breakpoints!
+</h3>
+<div class="listing-subtitle">
+How to use breakpoints to debug
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-01-18.html">
+<div class="listing-date">
+Monday, January 18, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="39" data-categories="error,warning,directory,if" data-listing-date-sort="1610352000000">
+<div class="body">
+<a href="./oneliners/molr_2021-01-11.html">
+<h3 class="no-anchor listing-title">
+Remove warnings about creating a directory
+</h3>
+<div class="listing-subtitle">
+<code>if(!dir.exists())</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-01-11.html">
+<div class="listing-date">
+Monday, January 11, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="40" data-categories="ggplot2,ggplot,expand,scale,axis" data-listing-date-sort="1609747200000">
+<div class="body">
+<a href="./oneliners/molr_2021-01-04.html">
+<h3 class="no-anchor listing-title">
+Expand your scale in ggplot
+</h3>
+<div class="listing-subtitle">
+<code>expansion()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-01-04.html">
+<div class="listing-date">
+Monday, January 4, 2021
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="41" data-categories="zoo,NA" data-listing-date-sort="1608537600000">
+<div class="body">
+<a href="./oneliners/molr_2020-12-21.html">
+<h3 class="no-anchor listing-title">
+Carry the last observation forward using NAs
+</h3>
+<div class="listing-subtitle">
+<code>locf()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2020-12-21.html">
+<div class="listing-date">
+Monday, December 21, 2020
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="42" data-categories="base,objects,return" data-listing-date-sort="NaN">
+<div class="body">
+<a href="./oneliners/molr_2021-02-01.html">
+<h3 class="no-anchor listing-title">
+Return multiple objects
+</h3>
+<div class="listing-subtitle">
+<code>list()</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./oneliners/molr_2021-02-01.html">
+<div class="listing-date">
+Invalid Date
+</div>
+<div class="listing-author">
+Eben Pendleton
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="43" data-categories="across,dplyr,columns,dataframe" data-listing-date-sort="NaN">
 <div class="body">
 <a href="./oneliners/molr_2021-08-16.html">
 <h3 class="no-anchor listing-title">
@@ -726,6 +1167,9 @@ Eben Pendleton
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="list-oneliners-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

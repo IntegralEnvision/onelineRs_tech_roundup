@@ -14,6 +14,139 @@
     "text": "Monday OneLineRs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNew Tech Roundup\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "oneliners/molr_2020-12-21.html",
+    "href": "oneliners/molr_2020-12-21.html",
+    "title": "Carry the last observation forward using NAs",
+    "section": "",
+    "text": "From the zoo package (https://cran.r-project.org/web/packages/zoo/index.html)\n# carry the last observation forward to replace NAs\nd$'Well.No.' &lt;- zoo::na.locf(d$'Well.No.')"
+  },
+  {
+    "objectID": "oneliners/molr_2021-01-04.html",
+    "href": "oneliners/molr_2021-01-04.html",
+    "title": "Expand your scale in ggplot",
+    "section": "",
+    "text": "expansion() is a convenient way to expand your plot scales in ggplot. expand() expands both sides of the scale while expansion() is a multiplicative or additive function to expand both or either ends of a scale on a plot. The below example expands by multiplication with the y min by 1% and the y max by 10%\nscale_y_continuous(limits = c(0, NA), expand = expand_scale(mult = c(0.01, 0.1))) +\nMore info here: https://ggplot2.tidyverse.org/reference/expansion.html"
+  },
+  {
+    "objectID": "oneliners/molr_2021-01-11.html",
+    "href": "oneliners/molr_2021-01-11.html",
+    "title": "Remove warnings about creating a directory",
+    "section": "",
+    "text": "Want to remove the warning about creating a directory? Use a one line if statement.\n# check for directory existence. Create it if not found\noutdir &lt;- paste0(here(\"Output/\"),Sys.Date())\nif (!dir.exists(outdir)) {dir.create(outdir) }"
+  },
+  {
+    "objectID": "oneliners/molr_2021-01-18.html",
+    "href": "oneliners/molr_2021-01-18.html",
+    "title": "Breakpoints!",
+    "section": "",
+    "text": "Breakpoints are a great way to look at your code interactively. In RStudio they can be added by double clicking to the left of the line number. In the figure above a breakpoint is the red dot to the left of 80. Double click to remove a breakpoint.\nWhen sourcing your code or rerun with debug on error your code pauses execution at the line with the breakpoint. This allows you to put on your code detective hat and dig into your code.\nMore debugging resources are here: https://adv-r.hadley.nz/debugging.html"
+  },
+  {
+    "objectID": "oneliners/molr_2021-01-25.html",
+    "href": "oneliners/molr_2021-01-25.html",
+    "title": "Package help",
+    "section": "",
+    "text": "Need help on a a function? You can use help() or ? after the function has been loaded\n\nYou can also search for help using ??\n \nMore info here: https://www.r-project.org/help.html"
+  },
+  {
+    "objectID": "oneliners/molr_2021-02-01.html",
+    "href": "oneliners/molr_2021-02-01.html",
+    "title": "Return multiple objects",
+    "section": "",
+    "text": "Unlike other languages R functions can’t return multiple objects. One solution is to put the objects in a list. return(list(\"alldata\" = d.stats, \"detectedonly\" = d.stats.detected))\nThese can be accessed with d$alldata and d$detectedonly\nhttps://stackoverflow.com/questions/8936099/returning-multiple-objects-in-an-r-function"
+  },
+  {
+    "objectID": "oneliners/molr_2021-02-08.html",
+    "href": "oneliners/molr_2021-02-08.html",
+    "title": "Preview your data",
+    "section": "",
+    "text": "Do you need to see a part of your data after loading it? You can use head() or tail() to view the first or last rows. The default row count is 6.\n\nMore info here: https://stat.ethz.ch/R-manual/R-devel/library/utils/html/head.html\nDo you need more statistics about your dataset? Check out skimr::skim(), a great recommend from Laura Mudge\n \nhttps://cran.r-project.org/web/packages/skimr/vignettes/skimr.html"
+  },
+  {
+    "objectID": "oneliners/molr_2021-02-22.html",
+    "href": "oneliners/molr_2021-02-22.html",
+    "title": "Should I use print() or message() in my code?",
+    "section": "",
+    "text": "Both print() and message() are handy ways to see how your script is progressing. However, print() lacks concatenation in its output and also prints the element index which may or may not be useful. To use print() and multiple elements you have to use paste() or paste0().\n\nmessage() concatenates as needed.\n\nmessage() has some other nice features as well such as printing to stderr and providing an error state. Check it out!\nhttps://stackoverflow.com/questions/36699272/why-is-message-a-better-choice-than-print-in-r-for-writing-a-package\nmessage() reference: https://stat.ethz.ch/R-manual/R-patched/library/base/html/message.html"
+  },
+  {
+    "objectID": "oneliners/molr_2021-03-01.html",
+    "href": "oneliners/molr_2021-03-01.html",
+    "title": "Stop the code!",
+    "section": "",
+    "text": "Do you want a one liner to stop your code if something’s not the way you expect. This allows your script to stop and message in undesired cases. For Python users, this is R’s version of the assert statement\nThere’s a few options:\nif / stop option if(blahdiblah) stop(\"error message\") \nstopifnot() is a little more descriptive stopifnot(blahdiblah) \nThe assert_that() from tidyverse’s assertthat is even more so: \nstopifnot: https://stat.ethz.ch/R-manual/R-devel/library/base/html/stopifnot.html\nassert_that: https://github.com/hadley/assertthat"
+  },
+  {
+    "objectID": "oneliners/molr_2021-03-08.html",
+    "href": "oneliners/molr_2021-03-08.html",
+    "title": "What’s the difference between = and <-?",
+    "section": "",
+    "text": "Both = and &lt;- can be used for assignment operators such as\nx &lt;- 1\nHowever, = can also be used as something called a syntax token, such as a named argument in a function. Here is a description of this that I found useful:\nhttps://developer.r-project.org/equalAssign.html\n[= assignment is] allowed in only two places in the grammar: at the top level (as a complete program or user-typed expression); and when isolated from surrounding logical structure, by braces or an extra pair of parentheses.\nFor example,\nx = 1 or func (x = NA)\n&lt;- and also -&gt; don’t have this duality. &lt;- and -&gt; only call the same assignment in their use. You can’t use them as a named argument unlike =.\nI tend to use &lt;- everywhere except in functions as it seems to follow conventions here and what I see on the internet. Since Python uses = this took some getting used to.\nFor more information see here:\nhttps://stackoverflow.com/questions/1741820/what-are-the-differences-between-and-assignment-operators-in-r"
+  },
+  {
+    "objectID": "oneliners/molr_2021-03-15.html",
+    "href": "oneliners/molr_2021-03-15.html",
+    "title": "What is c()?",
+    "section": "",
+    "text": "In R, numbers are a vector with length 1. The example below shows an input of 1 returns a vector with an index of 1, denoted by [1], and the value 1.\n\nc stands for combine. In the example below when you type c(c(1,2), c(3)), R concatenates or combines the 1 or multi length vectors into a single vector of length 3 with an index of 1.\n\nc() can combine more than just vectors. It can be used to combine lists and many other vector like objects.\nSee more details here where these examples and info come from: https://stackoverflow.com/questions/11488820/why-use-c-to-define-vector\nFor more information on vectors and c() there’s also the R intro PDF. Search for c().\nhttps://cran.r-project.org/doc/manuals/r-release/R-intro.pdf\nHappy coding!"
+  },
+  {
+    "objectID": "oneliners/molr_2021-03-22.html",
+    "href": "oneliners/molr_2021-03-22.html",
+    "title": "Halting and Debugging Code",
+    "section": "",
+    "text": "The browser() function stops or halts your running code and starts something called an environment browser that lets you explore variables and functions. Unlike breakpoints, its a line in your code. As it’s part of your code it requires no special applications / or tools to activate.\nThe below example stops your code before returning TRUE\n\nThis and other debugging information is available here:\nhttps://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-RStudio#browser\nA tutorial on using browser() is here:\nhttps://riptutorial.com/r/example/5482/using-browser\nHappy debugging!"
+  },
+  {
+    "objectID": "oneliners/molr_2021-04-12.html",
+    "href": "oneliners/molr_2021-04-12.html",
+    "title": "Are you in?",
+    "section": "",
+    "text": "%in% is a useful logical operator in R to see if values match any of those in a vector. For example is red in the vector x defined below? What about banana?\n\nIt can be used to compare vectors to other vectors and returns TRUE/FALSE of the vector length\nYou could also use it to subset columns. Maybe you don’t want “canal” or “evergiven” in your dataframe, but all the other columns. This uses the not (!) operator along with %in%:\nd &lt;- d[, !(colnames(d) %in% c(\"canal\", \"evergiven\"))\nHappy %in%ing!\nReference\nhttps://r4ds.had.co.nz/transform.html?q=%in%#logical-operators"
+  },
+  {
+    "objectID": "oneliners/molr_2021-04-19.html",
+    "href": "oneliners/molr_2021-04-19.html",
+    "title": "Functions for sets in R",
+    "section": "",
+    "text": "R has base functions for union() and intersect(). A union is a set that is made up of all members passed to the set.\nToday’s one liner is about intersect(). An intersection is the set of members of each original set that are in both. In the example below only 3, 5, 7 and 13 are in both a and b vectors.\n\nWhere this gets more interesting is that you can use it for character vectors as well. Say, in finding the common columns that you want to row bind together.\n\nFurther reading: https://www.r-bloggers.com/2017/06/set-operations-unions-and-intersections-in-r/\nHappy coding!"
+  },
+  {
+    "objectID": "oneliners/molr_2021-04-26.html",
+    "href": "oneliners/molr_2021-04-26.html",
+    "title": "What’s my row, reset?",
+    "section": "",
+    "text": "The row.names() function R returns the row names of a dataframe. It also helps you reset a row index.\nFor the mtcars dataset below, row.names() returns the car model, which is the dataset’s row index.\n\n\nIf you ever need to reset your row index, say after slicing, you can do that with row.names(&lt;dataframe&gt;) &lt;- NULL Here’s I’ve reset the mtcars row names to a number rather than the car model.\n\nFurther reading: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/row.names"
+  },
+  {
+    "objectID": "oneliners/molr_2021-05-03.html",
+    "href": "oneliners/molr_2021-05-03.html",
+    "title": "Special cases in data frames",
+    "section": "",
+    "text": "The case_when() function in R’s dplyr package vectorizes ifelse() statements. It’s based in SQL’s CASE WHEN statement. It works especially well when making a new column in dataframe that is dependent on values in other columns.\nI like this example with the Star Wars dataset. Note that the TRUE ~ \"other\" sets all instances where neither condition is met to “other”, rather than NA.\n\nMore info here: https://dplyr.tidyverse.org/reference/case_when.html"
+  },
+  {
+    "objectID": "oneliners/molr_2021-05-10.html",
+    "href": "oneliners/molr_2021-05-10.html",
+    "title": "Join two vectors with NAs",
+    "section": "",
+    "text": "This may be the first dplyr entry, which is a package of the tidyverse. We’ll come back to that in a future post! More below if interested.\nGiven a set of vectors, coalesce() finds the first non missing value at each position. This is inspired by SQL’s COALESCE which does the same thing for NULLs instead of NAs.\nHere, “thing 3” replaces the NA in the first vector below\n\nHere’s switching the order where “one fish” replaces NA.\n\nThis can be pretty helpful in combining columns (like coordinates and keeping the first non NA value). Remember, this returns the first, so ordering is important.\nHappy coding!\nReferences\ntidyverser reference: https://www.tidyverse.org/\ncoalesce: https://dplyr.tidyverse.org/reference/coalesce.html"
+  },
+  {
+    "objectID": "oneliners/molr_2021-07-12.html",
+    "href": "oneliners/molr_2021-07-12.html",
+    "title": "What’s my length?",
+    "section": "",
+    "text": "length, lengths and nchar are a few ways to get lengths of vectors, lists and number of characters in R. length gives the number of elements in a vector. See the concatenate example below.\n\nlengths gives length of each element in a list See the list of a list below\n\nFinally, nchar returns the character lengths in string vectors.\n\nHere’s with a list. Note the inner list is summed.\n\nHappy R!"
+  },
+  {
+    "objectID": "oneliners/molr_2021-07-19.html",
+    "href": "oneliners/molr_2021-07-19.html",
+    "title": "Creating new columns based on conditions",
+    "section": "",
+    "text": "case_when() is a great option for creating a new column conditionally based on multiple conditions, where the format follows this template:\ndf %&gt;% mutate(new_column = case_when(condition 1 == TRUE ~ value_1,condition 2 == TRUE ~ value_2, TRUE ~ NA_real_)\nThe last line, “TRUE ~ _____”, assigns a value for rows that do not satisfy any of the mentioned conditions. If you wanted your case_when() to retain the original row values for rows that do not meet any conditions, you would write TRUE ~ as.character(x) or as.numeric(x), depending on the value type.\nExample:"
+  },
+  {
     "objectID": "oneliners/molr_2021-07-26.html",
     "href": "oneliners/molr_2021-07-26.html",
     "title": "What’s my class?",
@@ -126,6 +259,13 @@
     "text": "pull() is a dplyr() function that returns a vector (1- dimensional array of data). Its similar to the $ in base R and may be helpful when chaining or piping in R. After loading tidyverse using library(tidyverse) and the Palmer Penguins data using library(palmerpenguins). I was able to use pull() to get a species list.\n\nReferences\nhttps://dplyr.tidyverse.org/reference/pull.html"
   },
   {
+    "objectID": "oneliners/molr_2021-6-21.html",
+    "href": "oneliners/molr_2021-6-21.html",
+    "title": "Getting the current date!",
+    "section": "",
+    "text": "In honor of the summer solstice, here’s a one liner to get the current date in R. Sys.Date() can be used in R to return the date in YYYY-MM-DD format.\n\nTo get other formats you can wrap Sys.Date() in a format function call.\n\nHere’s a listing of some common formats:\nhttps://statistics.berkeley.edu/computing/faqs/dates-and-times-r\n\nHappy Solstice!"
+  },
+  {
     "objectID": "oneliners/molr_2022-01-10.html",
     "href": "oneliners/molr_2022-01-10.html",
     "title": "Standardize Jitter Position in ggplot2",
@@ -235,6 +375,6 @@
     "href": "oneliners.html",
     "title": "Monday OneLineRs",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nggplot Formatting Assistant with Natural Language Queries\n\n\nggx::gghelp()\n\n\n\n\n\n\nMonday, March 27, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nSeparating and Combining Columns\n\n\ntidyr::separate_wider_*() and tidyr::unite()\n\n\n\n\n\n\nMonday, March 20, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nVectorized Switch\n\n\ndplyr::case_match()\n\n\n\n\n\n\nMonday, March 6, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nGet Feedback on Tidyverse Operations\n\n\ntidylog\n\n\n\n\n\n\nMonday, January 30, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nDetect and Non Detect Using Alpha\n\n\nalpha in ggplot()\n\n\n\n\n\n\nMonday, June 13, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nSetting Options for a Script\n\n\noptions()\n\n\n\n\n\n\nMonday, February 7, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nJust the One Function!\n\n\n&lt;package&gt;::&lt;function&gt;\n\n\n\n\n\n\nMonday, January 24, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\n? your data\n\n\n?\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nCompactly Display the Structure of an Arbitrary R Object\n\n\nstr()\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nObtaining a Vector from a Dataframe\n\n\npull()\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nStandardize Jitter Position in ggplot2\n\n\nposition_jitter()\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nWhat’s the rle()?\n\n\nrle()\n\n\n\n\n\n\nMonday, November 29, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nLibrary Loading and Conflict Warning\n\n\nWarnings when loading packages\n\n\n\n\n\n\nMonday, November 15, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nGenerate some dates!\n\n\nseq()\n\n\n\n\n\n\nMonday, November 8, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nSingle or Double Quotes\n\n\nQuotes in R\n\n\n\n\n\n\nMonday, October 18, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nFinding the index of min or max\n\n\nwhich.min() and which.max()\n\n\n\n\n\n\nMonday, October 11, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nScheduling Note and Browser in Functions\n\n\nbrowser()\n\n\n\n\n\n\nMonday, October 4, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nRegular expression builders\n\n\nRVerbalExpressions\n\n\n\n\n\n\nMonday, October 4, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nCreating a Sequence\n\n\nseq()\n\n\n\n\n\n\nMonday, August 30, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nReferring to columns that start with numbers\n\n\nbackticks\n\n\n\n\n\n\nMonday, August 23, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nFillling Data in a Tibble\n\n\nfill()\n\n\n\n\n\n\nMonday, August 9, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nAn alternative way to read CSVs in R\n\n\nread_csv()\n\n\n\n\n\n\nMonday, August 2, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nWhat’s my class?\n\n\nclass()\n\n\n\n\n\n\nMonday, July 26, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nPerform a function across columns\n\n\nacross()\n\n\n\n\n\n\nInvalid Date\n\n\nEben Pendleton\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nggplot Formatting Assistant with Natural Language Queries\n\n\nggx::gghelp()\n\n\n\n\n\n\nMonday, March 27, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nSeparating and Combining Columns\n\n\ntidyr::separate_wider_*() and tidyr::unite()\n\n\n\n\n\n\nMonday, March 20, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nVectorized Switch\n\n\ndplyr::case_match()\n\n\n\n\n\n\nMonday, March 6, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nGet Feedback on Tidyverse Operations\n\n\ntidylog\n\n\n\n\n\n\nMonday, January 30, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nDetect and Non Detect Using Alpha\n\n\nalpha in ggplot()\n\n\n\n\n\n\nMonday, June 13, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nSetting Options for a Script\n\n\noptions()\n\n\n\n\n\n\nMonday, February 7, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nJust the One Function!\n\n\n&lt;package&gt;::&lt;function&gt;\n\n\n\n\n\n\nMonday, January 24, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\n? your data\n\n\n?\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nCompactly Display the Structure of an Arbitrary R Object\n\n\nstr()\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nObtaining a Vector from a Dataframe\n\n\npull()\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nStandardize Jitter Position in ggplot2\n\n\nposition_jitter()\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nWhat’s the rle()?\n\n\nrle()\n\n\n\n\n\n\nMonday, November 29, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nLibrary Loading and Conflict Warning\n\n\nWarnings when loading packages\n\n\n\n\n\n\nMonday, November 15, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nGenerate some dates!\n\n\nseq()\n\n\n\n\n\n\nMonday, November 8, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nSingle or Double Quotes\n\n\nQuotes in R\n\n\n\n\n\n\nMonday, October 18, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nFinding the index of min or max\n\n\nwhich.min() and which.max()\n\n\n\n\n\n\nMonday, October 11, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nScheduling Note and Browser in Functions\n\n\nbrowser()\n\n\n\n\n\n\nMonday, October 4, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nRegular expression builders\n\n\nRVerbalExpressions\n\n\n\n\n\n\nMonday, October 4, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nCreating a Sequence\n\n\nseq()\n\n\n\n\n\n\nMonday, August 30, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nReferring to columns that start with numbers\n\n\nbackticks\n\n\n\n\n\n\nMonday, August 23, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nFillling Data in a Tibble\n\n\nfill()\n\n\n\n\n\n\nMonday, August 9, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nAn alternative way to read CSVs in R\n\n\nread_csv()\n\n\n\n\n\n\nMonday, August 2, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nWhat’s my class?\n\n\nclass()\n\n\n\n\n\n\nMonday, July 26, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nCreating new columns based on conditions\n\n\ncase_when()\n\n\n\n\n\n\nMonday, July 19, 2021\n\n\nJulia Bouzaher\n\n\n\n\n\n\n\n\nWhat’s my length?\n\n\nlength(), lengths(), and nchar()\n\n\n\n\n\n\nMonday, July 12, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nGetting the current date!\n\n\nSys.Date()\n\n\n\n\n\n\nMonday, June 21, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nWhat is c()?\n\n\nc()\n\n\n\n\n\n\nMonday, May 10, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nSpecial cases in data frames\n\n\ncase_when()\n\n\n\n\n\n\nMonday, May 10, 2021\n\n\nKatherine Heal\n\n\n\n\n\n\n\n\nJoin two vectors with NAs\n\n\ncoalesce()\n\n\n\n\n\n\nMonday, May 10, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nWhat’s my row, reset?\n\n\nrow.names()\n\n\n\n\n\n\nMonday, April 26, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nFunctions for sets in R\n\n\nintersect() and union()\n\n\n\n\n\n\nMonday, April 19, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nAre you in?\n\n\n%in%\n\n\n\n\n\n\nMonday, April 12, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nHalting and Debugging Code\n\n\nbrowser()\n\n\n\n\n\n\nMonday, March 22, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nWhat’s the difference between = and &lt;-?\n\n\nR assignment operators\n\n\n\n\n\n\nMonday, March 8, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nStop the code!\n\n\nstop() and stopifnot()\n\n\n\n\n\n\nMonday, March 1, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nShould I use print() or message() in my code?\n\n\nprint() and message()\n\n\n\n\n\n\nMonday, February 22, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nPreview your data\n\n\nhead() and tail()\n\n\n\n\n\n\nMonday, February 8, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nPackage help\n\n\nhelp()\n\n\n\n\n\n\nMonday, January 25, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nBreakpoints!\n\n\nHow to use breakpoints to debug\n\n\n\n\n\n\nMonday, January 18, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nRemove warnings about creating a directory\n\n\nif(!dir.exists())\n\n\n\n\n\n\nMonday, January 11, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nExpand your scale in ggplot\n\n\nexpansion()\n\n\n\n\n\n\nMonday, January 4, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nCarry the last observation forward using NAs\n\n\nlocf()\n\n\n\n\n\n\nMonday, December 21, 2020\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nReturn multiple objects\n\n\nlist()\n\n\n\n\n\n\nInvalid Date\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nPerform a function across columns\n\n\nacross()\n\n\n\n\n\n\nInvalid Date\n\n\nEben Pendleton\n\n\n\n\n\n\nNo matching items"
   }
 ]

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eben Pendleton">
-<meta name="dcterms.date" content="2022-02-07">
+<meta name="dcterms.date" content="2022-01-10">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Setting Options for a Script</title>
+<title>Monday OneLineRs &amp; Tech Roundup - Obtaining a Vector from a Dataframe</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,11 +117,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Setting Options for a Script</h1>
-<p class="subtitle lead"><code>options()</code></p>
+<h1 class="title">Obtaining a Vector from a Dataframe</h1>
+<p class="subtitle lead"><code>pull()</code></p>
   <div class="quarto-categories">
-    <div class="quarto-category">options</div>
-    <div class="quarto-category">base</div>
+    <div class="quarto-category">dplyr</div>
+    <div class="quarto-category">pull</div>
+    <div class="quarto-category">vector</div>
+    <div class="quarto-category">pipe</div>
+    <div class="quarto-category">tidyverse</div>
   </div>
   </div>
 
@@ -139,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 7, 2022</p>
+      <p class="date">January 10, 2022</p>
     </div>
   </div>
   
@@ -149,13 +152,10 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Have you ever wondered about the <code>options()</code> at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.</p>
-<p><img src="images/oneliner_feb7_2022.png" class="img-fluid"></p>
-<p>You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.</p>
-<p><img src="images/oneliner_feb7_2022(2).png" class="img-fluid"></p>
-<p>There are many more options for <code>options()</code>. See the references for more.</p>
-<p><strong>References</strong></p>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a></p>
+<p><code>pull()</code> is a <code>dplyr()</code> function that returns a vector (1- dimensional array of data). Its similar to the <code>$</code> in base R and may be helpful when chaining or piping in R. After loading tidyverse using <code>library(tidyverse)</code> and the Palmer Penguins data using <code>library(palmerpenguins)</code>. I was able to use <code>pull()</code> to get a species list.</p>
+<p><img src="images/molr_dec20_2021.png" class="img-fluid"></p>
+<p><strong>References</strong><br>
+<a href="https://dplyr.tidyverse.org/reference/pull.html" class="uri">https://dplyr.tidyverse.org/reference/pull.html</a></p>
 
 
 

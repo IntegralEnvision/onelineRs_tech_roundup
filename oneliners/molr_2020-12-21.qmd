@@ -1,0 +1,17 @@
+---
+title: "Carry the last observation forward using NAs"
+subtitle: "`locf()`"
+date: 2020-12-21
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [zoo, NA]
+---
+From the zoo package (<https://cran.r-project.org/web/packages/zoo/index.html>)
+```
+# carry the last observation forward to replace NAs
+d$'Well.No.' <- zoo::na.locf(d$'Well.No.')
+```

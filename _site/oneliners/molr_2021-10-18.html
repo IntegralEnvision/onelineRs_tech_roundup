@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eben Pendleton">
-<meta name="dcterms.date" content="2022-02-07">
+<meta name="dcterms.date" content="2021-10-18">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Setting Options for a Script</title>
+<title>Monday OneLineRs &amp; Tech Roundup - Single or Double Quotes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,10 +117,11 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Setting Options for a Script</h1>
-<p class="subtitle lead"><code>options()</code></p>
+<h1 class="title">Single or Double Quotes</h1>
+<p class="subtitle lead">Quotes in R</p>
   <div class="quarto-categories">
-    <div class="quarto-category">options</div>
+    <div class="quarto-category">quotes</div>
+    <div class="quarto-category">strings</div>
     <div class="quarto-category">base</div>
   </div>
   </div>
@@ -139,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 7, 2022</p>
+      <p class="date">October 18, 2021</p>
     </div>
   </div>
   
@@ -149,13 +150,11 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Have you ever wondered about the <code>options()</code> at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.</p>
-<p><img src="images/oneliner_feb7_2022.png" class="img-fluid"></p>
-<p>You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.</p>
-<p><img src="images/oneliner_feb7_2022(2).png" class="img-fluid"></p>
-<p>There are many more options for <code>options()</code>. See the references for more.</p>
+<p>Single (’) or double (“) quotes can be used interchangeably in R. However, according to the documentation double quotes are preferred, Single quotes can be used to surround double quotes.</p>
+<p>so <code>v &lt;- "Fall is here!"</code>, not <code>v &lt;- 'Fall is here!'</code></p>
+<p>Happy coding!</p>
 <p><strong>References</strong></p>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a></p>
+<p><a href="https://stat.ethz.ch/R-manual/R-patched/library/base/html/Quotes.html" class="uri">https://stat.ethz.ch/R-manual/R-patched/library/base/html/Quotes.html</a></p>
 
 
 

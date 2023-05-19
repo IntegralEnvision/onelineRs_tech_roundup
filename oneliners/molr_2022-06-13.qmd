@@ -13,7 +13,7 @@ categories: [ggplot, alpha, multiline, detect]
 
 Ok, a multi line R ggplot, but a great way to visualize detect and non detects in R. Melanie wanted to separate study, type and detect status for some data. Katherine Heal suggested using alpha, which is a measure of opacity. I think its a neat way to do it.
 
-```{r}
+```
 p2b <- ggplot(d2, aes(x=Zscore, y=log10(concentration), shape=Study, color=Type, alpha=detected)) +
 
 geom_point(size=3) +

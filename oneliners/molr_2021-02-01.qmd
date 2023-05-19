@@ -1,0 +1,18 @@
+---
+title: "Return multiple objects"
+subtitle: "`list()`"
+date: 2021-02-0
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [base, objects, return]
+---
+
+Unlike other languages R functions can't return multiple objects. One solution is to put the objects in a list. `return(list("alldata" = d.stats, "detectedonly" = d.stats.detected))`
+
+These can be accessed with `d$alldata` and `d$detectedonly`
+
+<https://stackoverflow.com/questions/8936099/returning-multiple-objects-in-an-r-function>

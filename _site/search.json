@@ -14,11 +14,144 @@
     "text": "Monday OneLineRs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNew Tech Roundup\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "oneliners/molr_2021-07-26.html",
+    "href": "oneliners/molr_2021-07-26.html",
+    "title": "What’s my class?",
+    "section": "",
+    "text": "Do you need to know the object type of a variable in R? class(&lt;x&gt;) to the rescue! This returns information about the type of object such as character, numeric etc. Available base classes can be seen in the reference below.\n\nNote that numeric is the numerical object data type. There isn’t an integer / float type.\nHappy Coding!\nReferences Base classes https://stat.ethz.ch/R-manual/R-devel/library/methods/html/BasicClasses.html"
+  },
+  {
+    "objectID": "oneliners/molr_2021-08-02.html",
+    "href": "oneliners/molr_2021-08-02.html",
+    "title": "An alternative way to read CSVs in R",
+    "section": "",
+    "text": "The read_csv function is an alternative to the read.csv function found in base R. read_csv is part of the readr package, which is part of the tidyverse, and loads data as a tibble rather than a traditional R dataframe.\nImporting data via read_csv\n\nwill load faster\ndoesn’t change input types (looking at you strings as factors)\nallow non-standard variable names (i.e. your variables can start with a number and can contain spaces)\nnever creates row names\n\nExample\n\nHappy coding!\nReferences\nhttps://r4ds.had.co.nz/data-import.html\nhttps://medium.com/r-tutorials/r-functions-daily-read-csv-3c418c25cba4"
+  },
+  {
+    "objectID": "oneliners/molr_2021-08-09.html",
+    "href": "oneliners/molr_2021-08-09.html",
+    "title": "Fillling Data in a Tibble",
+    "section": "",
+    "text": "Do you need to fill in columns of data using a previous or next value? Tidyverse has you covered! ’’\nThe syntax is fill(data, ..., .direction = c(\"down\", \"up\", \"downup\", \"updown\"))\nFrom their examples:\n# Value (year) is recorded only when it changes\nsales &lt;- tibble::tribble(\n  ~quarter, ~year, ~sales,\n  \"Q1\",    2000,    66013,\n  \"Q2\",      NA,    69182,\n  \"Q3\",      NA,    53175,\n  \"Q4\",      NA,    21001,\n  \"Q1\",    2001,    46036,\n  \"Q2\",      NA,    58842,\n  \"Q3\",      NA,    44568,\n  \"Q4\",      NA,    50197,\n  \"Q1\",    2002,    39113,\n  \"Q2\",      NA,    41668,\n  \"Q3\",      NA,    30144,\n  \"Q4\",      NA,    52897,\n  \"Q1\",    2004,    32129,\n  \"Q2\",      NA,    67686,\n  \"Q3\",      NA,    31768,\n  \"Q4\",      NA,    49094\n)\n\n\n\n# `fill()` defaults to replacing missing data from top to bottom\nsales %&gt;% fill(year)\n#&gt; # A tibble: 16 x 3\n#&gt;    quarter  year sales\n#&gt;    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;\n#&gt;  1 Q1       2000 66013\n#&gt;  2 Q2       2000 69182\n#&gt;  3 Q3       2000 53175\n#&gt;  4 Q4       2000 21001\n#&gt;  5 Q1       2001 46036\n#&gt;  6 Q2       2001 58842\n#&gt;  7 Q3       2001 44568\n#&gt;  8 Q4       2001 50197\n#&gt;  9 Q1       2002 39113\n#&gt; 10 Q2       2002 41668\n#&gt; 11 Q3       2002 30144\n#&gt; 12 Q4       2002 52897\n#&gt; 13 Q1       2004 32129\n#&gt; 14 Q2       2004 67686\n#&gt; 15 Q3       2004 31768\n#&gt; 16 Q4       2004 49094\n\n# Value (pet_type) is missing above\ntidy_pets &lt;- tibble::tribble(\n  ~rank, ~pet_type, ~breed,\n  1L,        NA,    \"Boston Terrier\",\n  2L,        NA,    \"Retrievers (Labrador)\",\n  3L,        NA,    \"Retrievers (Golden)\",\n  4L,        NA,    \"French Bulldogs\",\n  5L,        NA,    \"Bulldogs\",\n  6L,     \"Dog\",    \"Beagles\",\n  1L,        NA,    \"Persian\",\n  2L,        NA,    \"Maine Coon\",\n  3L,        NA,    \"Ragdoll\",\n  4L,        NA,    \"Exotic\",\n  5L,        NA,    \"Siamese\",\n  6L,     \"Cat\",    \"American Short\"\n)\n\n\n\n# For values that are missing above you can use `.direction = \"up\"`\ntidy_pets %&gt;%\n  fill(pet_type, .direction = \"up\")\n#&gt; # A tibble: 12 x 3\n#&gt;     rank pet_type breed                \n#&gt;    &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;                \n#&gt;  1     1 Dog      Boston Terrier       \n#&gt;  2     2 Dog      Retrievers (Labrador)\n#&gt;  3     3 Dog      Retrievers (Golden)  \n#&gt;  4     4 Dog      French Bulldogs      \n#&gt;  5     5 Dog      Bulldogs             \n#&gt;  6     6 Dog      Beagles              \n#&gt;  7     1 Cat      Persian              \n#&gt;  8     2 Cat      Maine Coon           \n#&gt;  9     3 Cat      Ragdoll              \n#&gt; 10     4 Cat      Exotic               \n#&gt; 11     5 Cat      Siamese              \n#&gt; 12     6 Cat      American Short       \n\n# Value (n_squirrels) is missing above and below within a group\nsquirrels &lt;- tibble::tribble(\n  ~group,    ~name,     ~role,     ~n_squirrels,\n  1,      \"Sam\",    \"Observer\",   NA,\n  1,     \"Mara\", \"Scorekeeper\",    8,\n  1,    \"Jesse\",    \"Observer\",   NA,\n  1,      \"Tom\",    \"Observer\",   NA,\n  2,     \"Mike\",    \"Observer\",   NA,\n  2,  \"Rachael\",    \"Observer\",   NA,\n  2,  \"Sydekea\", \"Scorekeeper\",   14,\n  2, \"Gabriela\",    \"Observer\",   NA,\n  3,  \"Derrick\",    \"Observer\",   NA,\n  3,     \"Kara\", \"Scorekeeper\",    9,\n  3,    \"Emily\",    \"Observer\",   NA,\n  3, \"Danielle\",    \"Observer\",   NA\n)\n\n\n\n# The values are inconsistently missing by position within the group\n# Use .direction = \"downup\" to fill missing values in both directions\nsquirrels %&gt;%\n  dplyr::group_by(group) %&gt;%\n  fill(n_squirrels, .direction = \"downup\") %&gt;%\n  dplyr::ungroup()\n#&gt; # A tibble: 12 x 4\n#&gt;    group name     role        n_squirrels\n#&gt;    &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt;\n#&gt;  1     1 Sam      Observer              8\n#&gt;  2     1 Mara     Scorekeeper           8\n#&gt;  3     1 Jesse    Observer              8\n#&gt;  4     1 Tom      Observer              8\n#&gt;  5     2 Mike     Observer             14\n#&gt;  6     2 Rachael  Observer             14\n#&gt;  7     2 Sydekea  Scorekeeper          14\n#&gt;  8     2 Gabriela Observer             14\n#&gt;  9     3 Derrick  Observer              9\n#&gt; 10     3 Kara     Scorekeeper           9\n#&gt; 11     3 Emily    Observer              9\n#&gt; 12     3 Danielle Observer              9\n# Using `.direction = \"updown\"` accomplishes the same goal in this example\nHappy coding!\nReferences\nhttps://tidyr.tidyverse.org/reference/fill.html"
+  },
+  {
+    "objectID": "oneliners/molr_2021-08-16.html",
+    "href": "oneliners/molr_2021-08-16.html",
+    "title": "Perform a function across columns",
+    "section": "",
+    "text": "When using dplyr have you ever wanted to preform a function on several columns? dplyr::across() may be your friend. across() takes two arguments; columns to evaluate using the select syntax, so by name, position, function etc, and a function or list of functions to apply to each column.\n\nhttps://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_across.png\nHere’s some examples\n\nHere’s with multiple functions\n\nReferences\nhttps://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/\nhttps://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_across.png"
+  },
+  {
+    "objectID": "oneliners/molr_2021-08-23.html",
+    "href": "oneliners/molr_2021-08-23.html",
+    "title": "Referring to columns that start with numbers",
+    "section": "",
+    "text": "Columns names that start with a number like 2021_data must start and end with a backtick ” ` ” to work with base R and dplyr verbs.\nThe action parts of dplyr such as select(), mutate() and group_by() are referred to as verbs. This comes from the idea that dplyr is a grammar of data manipulation, like ggplot is grammar of graphics. On my US qwerty keyboard that character is above and to the left of the tab key.\nIn example, Here’s an error if a backtick is not used \nThe correct approach\n\n\nThe janitor package can also clean names to making working with these type of names easier. \nReferences\nhttps://stackoverflow.com/questions/42005884/dplyr-select-column-when-column-name-is-number\nhttps://dplyr.tidyverse.org/index.html\nhttps://garthtarr.github.io/meatR/janitor.html\nHappy Coding!"
+  },
+  {
+    "objectID": "oneliners/molr_2021-08-30.html",
+    "href": "oneliners/molr_2021-08-30.html",
+    "title": "Creating a Sequence",
+    "section": "",
+    "text": "seq() is used in R for sequence number generation. It accepts either integers or decimal numbers. Its most basic form is seq(from, to) and includes the from value. Its an inclusive bound or range.\n\nThere’s a ‘by’ parameter that specifies the interval or “step” between numbers.\n\nThere’s a ‘length.out’ parameter that allows you to specify a desired sequence length,\n\nFinally, there’s an ‘along.with’ parameter that allow you to specify a desired length, by the length of the argument passed. Here, I’ve created an input vector of length 5.\n\nHappy sequencing!\nReferences\nhttps://www.rdocumentation.org/packages/base/versions/3.6.2/topics/seq"
+  },
+  {
+    "objectID": "oneliners/molr_2021-09-27.html",
+    "href": "oneliners/molr_2021-09-27.html",
+    "title": "Scheduling Note and Browser in Functions",
+    "section": "",
+    "text": "Did you know that you can use browser() to debug within functions? The following works.\n\nThe interactive debugger is launched on line 3.\nHappy coding!"
+  },
+  {
+    "objectID": "oneliners/molr_2021-10-11.html",
+    "href": "oneliners/molr_2021-10-11.html",
+    "title": "Finding the index of min or max",
+    "section": "",
+    "text": "Would you like to know what index the min and max are at in a vector? which.min() and which.max() help. In the example below the first min of -3 is at an index of 3 and the max of 9 is at an index of 5. Note these only return the first occurrence.\n\nWhat if we want all the mins? Putting a logical expression in the which does this.\n\nReference\nhttps://stackoverflow.com/questions/9390749/return-index-of-the-smallest-value-in-a-vector"
+  },
+  {
+    "objectID": "oneliners/molr_2021-10-18.html",
+    "href": "oneliners/molr_2021-10-18.html",
+    "title": "Single or Double Quotes",
+    "section": "",
+    "text": "Single (’) or double (“) quotes can be used interchangeably in R. However, according to the documentation double quotes are preferred, Single quotes can be used to surround double quotes.\nso v &lt;- \"Fall is here!\", not v &lt;- 'Fall is here!'\nHappy coding!\nReferences\nhttps://stat.ethz.ch/R-manual/R-patched/library/base/html/Quotes.html"
+  },
+  {
+    "objectID": "oneliners/molr_2021-10-4.html",
+    "href": "oneliners/molr_2021-10-4.html",
+    "title": "Regular expression builders",
+    "section": "",
+    "text": "I was curious if there were R regular expression builders out there.\nRVerbalExpressions is one. The source is here: https://github.com/VerbalExpressions/RVerbalExpressions\nYou can install from CRAN using install.packages(\"RVerbalExpressions\")\nIt uses pipes to construct expressions. Last week’s examples can be mimicked using\nx &lt;- rx() %&gt;% rx_anything_but(value =\"UI \")\n# for the extraction to work any leading or trailing whitespace needs to be removed\nc(\"0.045 U\", \" 91\", \"0.037 I\", \"0.00046U\") %&gt;% trimws %&gt;% str_extract(x)\n\nCheck it out. It might work well for your regex case!"
+  },
+  {
+    "objectID": "oneliners/molr_2021-11-08.html",
+    "href": "oneliners/molr_2021-11-08.html",
+    "title": "Generate some dates!",
+    "section": "",
+    "text": "Do you need to generate a sequence of dates? seq is still your friend. You can use it with a start, ending date and a by variable.\n\nThe by variable can be quite a few things: days, weeks, months, quarters or years.\nMore info can be found here: https://stat.ethz.ch/R-manual/R-devel/library/base/html/seq.Date.html"
+  },
+  {
+    "objectID": "oneliners/molr_2021-11-15.html",
+    "href": "oneliners/molr_2021-11-15.html",
+    "title": "Library Loading and Conflict Warning",
+    "section": "",
+    "text": "Have you ever noticed the conflict warnings when loading a package in R?\n\nMaybe you care that filter, lag etc are masked from other packages. Maybe you are comfortable with dplyr masking them. To hide conflict warnings you can use warn.conflicts = FALSE. F can be used as a shorthand for FALSE\n\nReference\nhttps://stat.ethz.ch/R-manual/R-devel/library/base/html/library.html\nHappy coding!"
+  },
+  {
+    "objectID": "oneliners/molr_2021-11-22.html",
+    "href": "oneliners/molr_2021-11-22.html",
+    "title": "? your data",
+    "section": "",
+    "text": "Did you know that ? also works with datasets in packages in R to get further information. For example you can use ?palmerpenguins::penguins to get more info about the palmerpenguins penguins dataset. Below is a composite screenshot showing example syntax and the results in your help pane.\n\nHappy coding!"
+  },
+  {
+    "objectID": "oneliners/molr_2021-11-29.html",
+    "href": "oneliners/molr_2021-11-29.html",
+    "title": "What’s the rle()?",
+    "section": "",
+    "text": "Here’s a neat Base R function, rle(). rle() is a named for run length encoding. In cases where you may have data that has streaks or runs of values, rle() gives you the length of the run and the value associated with the run.\nSome places where this is useful are head/tail counting in coin flips (How many heads in a row do I get?), time series analysis (how many times does x happen?)\nFor example, we may have data that’s a series of TRUE or FALSEs. rle() can take vector and give information about the streak or number of consecutive TRUE and FALSEs.\n\nHere, rle() has returned an rle() object, which is a list of two elements, lengths and and values. “lengths”, or rle(z)[[1]] above is an integer vector of the number of items in a run. In z, there are 2 TRUEs, 2 FALSEs followed by 1 TRUE and the rest of the runs. You can see this is summarized as 2, 2, 1. The values component of rle() (accessible by rle(z)[2]] here), indicates the three values in the first three runs are TRUE, FALSE, TRUE\nFeel free to add other examples of where rle() would be useful in your work!\nReferences\nhttps://www.r-bloggers.com/2009/09/r-function-of-the-day-rle-2/amp/\nHappy R’ing"
+  },
+  {
+    "objectID": "oneliners/molr_2021-12-06.html",
+    "href": "oneliners/molr_2021-12-06.html",
+    "title": "Compactly Display the Structure of an Arbitrary R Object",
+    "section": "",
+    "text": "Similar to dplyr’s glimpse(), str() is in base R’s utilities to display objects.\nAfter loading glimpse via library(dplyr) mtcars can be used in the examples below.\n\nas you can see the format is a little different, but useful both ways. Try both the next time you need to view an object.\nMore info on str() is here: https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/str"
+  },
+  {
+    "objectID": "oneliners/molr_2021-12-20.html",
+    "href": "oneliners/molr_2021-12-20.html",
+    "title": "Obtaining a Vector from a Dataframe",
+    "section": "",
+    "text": "pull() is a dplyr() function that returns a vector (1- dimensional array of data). Its similar to the $ in base R and may be helpful when chaining or piping in R. After loading tidyverse using library(tidyverse) and the Palmer Penguins data using library(palmerpenguins). I was able to use pull() to get a species list.\n\nReferences\nhttps://dplyr.tidyverse.org/reference/pull.html"
+  },
+  {
+    "objectID": "oneliners/molr_2022-01-10.html",
+    "href": "oneliners/molr_2022-01-10.html",
+    "title": "Standardize Jitter Position in ggplot2",
+    "section": "",
+    "text": "Happy 2022! Are you looking for more stability in your ggplot2 plotting life? You can set a seed to standardize the jitter position in geom_point from run to run.\nUse position_jitter() with a number as the seed argument to make it reproducible!\nggplot(mtcars, aes(x = cyl, y = mpg, group = cyl)) + geom_boxplot() + geom_point(position = position_jitter(seed = 37))\n\nReferences\nhttps://twitter.com/thomas_mock/status/1473356760593440769\nhttps://ggplot2.tidyverse.org/reference/position_jitter.html\nHappy coding!"
+  },
+  {
+    "objectID": "oneliners/molr_2022-01-24.html",
+    "href": "oneliners/molr_2022-01-24.html",
+    "title": "Just the One Function!",
+    "section": "",
+    "text": "Do you need to use only one function from a package, but feel like you need to load the package to have it available? There’s better ways!\nYou can use the :: notation to load it in as below.\n\nOr you can use library(&lt;library_name&gt;, include.only = &lt;function&gt;) with R 3.6 and later. \nHappy coding!\nReferences\nhttps://www.roelpeters.be/load-single-function-r-library/"
+  },
+  {
     "objectID": "oneliners/molr_2022-02-07.html",
     "href": "oneliners/molr_2022-02-07.html",
     "title": "Setting Options for a Script",
     "section": "",
-    "text": "Have you ever wondered about the options() at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.\n\nYou can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.\n\nThere are many more options for options. See the references for more.\nReferences https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html"
+    "text": "Have you ever wondered about the options() at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.\n\nYou can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.\n\nThere are many more options for options(). See the references for more.\nReferences\nhttps://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html"
+  },
+  {
+    "objectID": "oneliners/molr_2022-06-13.html",
+    "href": "oneliners/molr_2022-06-13.html",
+    "title": "Detect and Non Detect Using Alpha",
+    "section": "",
+    "text": "Ok, a multi line R ggplot, but a great way to visualize detect and non detects in R. Melanie wanted to separate study, type and detect status for some data. Katherine Heal suggested using alpha, which is a measure of opacity. I think its a neat way to do it.\np2b &lt;- ggplot(d2, aes(x=Zscore, y=log10(concentration), shape=Study, color=Type, alpha=detected)) +\n\ngeom_point(size=3) +\n\nlabs(x=\"NORMAL VARIATE (Z-SCORE)\",\n\n       y = \"2,3,7,8-TCDD (ng/kg)\",\n\n       title = \"Compare Distributions by Habitat Type\") +\n\nlabs(caption=\"Surface samples only (0-0.5 ft)\", adj=1) +\n\nscale_color_discrete(name = \"Type\") +\n\nscale_alpha_manual(\n\n    values = c(1, 0.3),\n\n    breaks = c(TRUE, FALSE)\n\n) +\n\ntheme() +\n\ntheme(legend.key.size = unit(0.3, \"cm\"),\n\n        legend.title = element_text(color=\"black\", size=9))\nResulting plot"
   },
   {
     "objectID": "oneliners/molr_2023-01-30.html",
@@ -102,6 +235,6 @@
     "href": "oneliners.html",
     "title": "Monday OneLineRs",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nggplot Formatting Assistant with Natural Language Queries\n\n\nggx::gghelp()\n\n\n\n\n\n\nMonday, March 27, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nSeparating and Combining Columns\n\n\ntidyr::separate_wider_*() and tidyr::unite()\n\n\n\n\n\n\nMonday, March 20, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nVectorized Switch\n\n\ndplyr::case_match()\n\n\n\n\n\n\nMonday, March 6, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nGet Feedback on Tidyverse Operations\n\n\ntidylog\n\n\n\n\n\n\nMonday, January 30, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nSetting Options for a Script\n\n\noptions()\n\n\n\n\n\n\nMonday, February 7, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nggplot Formatting Assistant with Natural Language Queries\n\n\nggx::gghelp()\n\n\n\n\n\n\nMonday, March 27, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nSeparating and Combining Columns\n\n\ntidyr::separate_wider_*() and tidyr::unite()\n\n\n\n\n\n\nMonday, March 20, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nVectorized Switch\n\n\ndplyr::case_match()\n\n\n\n\n\n\nMonday, March 6, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nGet Feedback on Tidyverse Operations\n\n\ntidylog\n\n\n\n\n\n\nMonday, January 30, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\n\n\nDetect and Non Detect Using Alpha\n\n\nalpha in ggplot()\n\n\n\n\n\n\nMonday, June 13, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nSetting Options for a Script\n\n\noptions()\n\n\n\n\n\n\nMonday, February 7, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nJust the One Function!\n\n\n&lt;package&gt;::&lt;function&gt;\n\n\n\n\n\n\nMonday, January 24, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\n? your data\n\n\n?\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nCompactly Display the Structure of an Arbitrary R Object\n\n\nstr()\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nObtaining a Vector from a Dataframe\n\n\npull()\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nStandardize Jitter Position in ggplot2\n\n\nposition_jitter()\n\n\n\n\n\n\nMonday, January 10, 2022\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nWhat’s the rle()?\n\n\nrle()\n\n\n\n\n\n\nMonday, November 29, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nLibrary Loading and Conflict Warning\n\n\nWarnings when loading packages\n\n\n\n\n\n\nMonday, November 15, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nGenerate some dates!\n\n\nseq()\n\n\n\n\n\n\nMonday, November 8, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nSingle or Double Quotes\n\n\nQuotes in R\n\n\n\n\n\n\nMonday, October 18, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nFinding the index of min or max\n\n\nwhich.min() and which.max()\n\n\n\n\n\n\nMonday, October 11, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nScheduling Note and Browser in Functions\n\n\nbrowser()\n\n\n\n\n\n\nMonday, October 4, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nRegular expression builders\n\n\nRVerbalExpressions\n\n\n\n\n\n\nMonday, October 4, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nCreating a Sequence\n\n\nseq()\n\n\n\n\n\n\nMonday, August 30, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nReferring to columns that start with numbers\n\n\nbackticks\n\n\n\n\n\n\nMonday, August 23, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nFillling Data in a Tibble\n\n\nfill()\n\n\n\n\n\n\nMonday, August 9, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nAn alternative way to read CSVs in R\n\n\nread_csv()\n\n\n\n\n\n\nMonday, August 2, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nWhat’s my class?\n\n\nclass()\n\n\n\n\n\n\nMonday, July 26, 2021\n\n\nEben Pendleton\n\n\n\n\n\n\n\n\nPerform a function across columns\n\n\nacross()\n\n\n\n\n\n\nInvalid Date\n\n\nEben Pendleton\n\n\n\n\n\n\nNo matching items"
   }
 ]

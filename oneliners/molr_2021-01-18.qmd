@@ -1,0 +1,20 @@
+---
+title: "Breakpoints!"
+subtitle: "How to use breakpoints to debug"
+date: 2021-01-18
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [breakpoints, debug, errors]
+---
+
+![](images/breakpoint.png)
+
+Breakpoints are a great way to look at your code interactively. In RStudio they can be added by double clicking to the left of the line number. In the figure above a breakpoint is the red dot to the left of 80. Double click to remove a breakpoint.
+
+When sourcing your code or rerun with debug on error your code pauses execution at the line with the breakpoint. This allows you to put on your code detective hat and dig into your code.
+
+More debugging resources are here: <https://adv-r.hadley.nz/debugging.html>

@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eben Pendleton">
-<meta name="dcterms.date" content="2022-02-07">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Setting Options for a Script</title>
+<title>Monday OneLineRs &amp; Tech Roundup - Perform a function across columns</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,11 +116,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Setting Options for a Script</h1>
-<p class="subtitle lead"><code>options()</code></p>
+<h1 class="title">Perform a function across columns</h1>
+<p class="subtitle lead"><code>across()</code></p>
   <div class="quarto-categories">
-    <div class="quarto-category">options</div>
-    <div class="quarto-category">base</div>
+    <div class="quarto-category">across</div>
+    <div class="quarto-category">dplyr</div>
+    <div class="quarto-category">columns</div>
+    <div class="quarto-category">dataframe</div>
   </div>
   </div>
 
@@ -139,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 7, 2022</p>
+      <p class="date">Invalid Date</p>
     </div>
   </div>
   
@@ -149,13 +150,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Have you ever wondered about the <code>options()</code> at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.</p>
-<p><img src="images/oneliner_feb7_2022.png" class="img-fluid"></p>
-<p>You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.</p>
-<p><img src="images/oneliner_feb7_2022(2).png" class="img-fluid"></p>
-<p>There are many more options for <code>options()</code>. See the references for more.</p>
+<p>When using <code>dplyr</code> have you ever wanted to preform a function on several columns? <code>dplyr::across()</code> may be your friend. <code>across()</code> takes two arguments; columns to evaluate using the select syntax, so by name, position, function etc, and a function or list of functions to apply to each column.</p>
+<p><img src="images/across1.png" class="img-fluid"></p>
+<p><a href="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_across.png" class="uri">https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_across.png</a></p>
+<p>Here’s some examples</p>
+<p><img src="images/across2.png" class="img-fluid"></p>
+<p>Here’s with multiple functions</p>
+<p><img src="images/across3.png" class="img-fluid"></p>
 <p><strong>References</strong></p>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a></p>
+<p><a href="https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/" class="uri">https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/</a></p>
+<p><a href="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_across.png" class="uri">https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_across.png</a></p>
 
 
 

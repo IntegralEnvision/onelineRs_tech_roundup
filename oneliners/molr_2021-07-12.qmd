@@ -1,0 +1,30 @@
+---
+title: "What's my length?"
+subtitle: "`length()`, `lengths()`, and `nchar()`"
+date: 2021-07-12
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [length, lengths, dimension, nchar, base, vectors]
+---
+
+length, lengths and nchar are a few ways to get lengths of vectors, lists and number of characters in R. length gives the number of elements in a vector. See the concatenate example below.
+
+![](images/length1.png)
+
+lengths gives length of each element in a list See the list of a list below
+
+![](images/length2.png)
+
+Finally, nchar returns the character lengths in string vectors.
+
+![](images/length3.png)
+
+Here's with a list. Note the inner list is summed.
+
+![](images/length4.png)
+
+Happy R!

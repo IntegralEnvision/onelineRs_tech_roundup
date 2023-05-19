@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eben Pendleton">
-<meta name="dcterms.date" content="2022-02-07">
+<meta name="dcterms.date" content="2021-08-02">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Setting Options for a Script</title>
+<title>Monday OneLineRs &amp; Tech Roundup - An alternative way to read CSVs in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,11 +117,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Setting Options for a Script</h1>
-<p class="subtitle lead"><code>options()</code></p>
+<h1 class="title">An alternative way to read CSVs in R</h1>
+<p class="subtitle lead"><code>read_csv()</code></p>
   <div class="quarto-categories">
-    <div class="quarto-category">options</div>
-    <div class="quarto-category">base</div>
+    <div class="quarto-category">read_csv</div>
+    <div class="quarto-category">csv</div>
+    <div class="quarto-category">readr</div>
+    <div class="quarto-category">tidyverse</div>
+    <div class="quarto-category">tibble</div>
   </div>
   </div>
 
@@ -139,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 7, 2022</p>
+      <p class="date">August 2, 2021</p>
     </div>
   </div>
   
@@ -149,13 +152,20 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Have you ever wondered about the <code>options()</code> at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.</p>
-<p><img src="images/oneliner_feb7_2022.png" class="img-fluid"></p>
-<p>You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.</p>
-<p><img src="images/oneliner_feb7_2022(2).png" class="img-fluid"></p>
-<p>There are many more options for <code>options()</code>. See the references for more.</p>
+<p>The read_csv function is an alternative to the read.csv function found in base R. read_csv is part of the readr package, which is part of the tidyverse, and loads data as a tibble rather than a traditional R dataframe.</p>
+<p>Importing data via read_csv</p>
+<ul>
+<li><p>will load faster</p></li>
+<li><p>doesn’t change input types (looking at you strings as factors)</p></li>
+<li><p>allow non-standard variable names (i.e.&nbsp;your variables can start with a number and can contain spaces)</p></li>
+<li><p>never creates row names</p></li>
+</ul>
+<p>Example</p>
+<p><img src="images/readcsv.png" class="img-fluid"></p>
+<p>Happy coding!</p>
 <p><strong>References</strong></p>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a></p>
+<p><a href="https://r4ds.had.co.nz/data-import.html" class="uri">https://r4ds.had.co.nz/data-import.html</a></p>
+<p><a href="https://medium.com/r-tutorials/r-functions-daily-read-csv-3c418c25cba4" class="uri">https://medium.com/r-tutorials/r-functions-daily-read-csv-3c418c25cba4</a></p>
 
 
 

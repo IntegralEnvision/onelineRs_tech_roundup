@@ -1,5 +1,3 @@
-------------------------------------------------------------------------
-
 ---
 title: "Referring to columns that start with numbers"
 subtitle: "backticks"

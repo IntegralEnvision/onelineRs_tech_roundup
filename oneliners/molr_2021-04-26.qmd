@@ -1,0 +1,26 @@
+---
+title: "What's my row, reset?"
+subtitle: "`row.names()`"
+date: 2021-04-26
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [rownames, rows, base, dataframe]
+---
+
+The `row.names()` function R returns the row names of a dataframe. It also helps you reset a row index.
+
+For the mtcars dataset below, `row.names()` returns the car model, which is the dataset's row index.
+
+![](images/rownames1.png)
+
+![](images/rownames2.png)
+
+If you ever need to reset your row index, say after slicing, you can do that with `row.names(<dataframe>) <- NULL` Here's I've reset the mtcars row names to a number rather than the car model.
+
+![](images/rownames3.png)
+
+Further reading: <https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/row.names>

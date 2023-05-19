@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eben Pendleton">
-<meta name="dcterms.date" content="2022-02-07">
+<meta name="dcterms.date" content="2021-10-11">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Setting Options for a Script</title>
+<title>Monday OneLineRs &amp; Tech Roundup - Finding the index of min or max</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,11 +117,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Setting Options for a Script</h1>
-<p class="subtitle lead"><code>options()</code></p>
+<h1 class="title">Finding the index of min or max</h1>
+<p class="subtitle lead"><code>which.min()</code> and <code>which.max()</code></p>
   <div class="quarto-categories">
-    <div class="quarto-category">options</div>
+    <div class="quarto-category">which</div>
+    <div class="quarto-category">max</div>
+    <div class="quarto-category">min</div>
     <div class="quarto-category">base</div>
+    <div class="quarto-category">index</div>
   </div>
   </div>
 
@@ -139,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 7, 2022</p>
+      <p class="date">October 11, 2021</p>
     </div>
   </div>
   
@@ -149,13 +152,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Have you ever wondered about the <code>options()</code> at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.</p>
-<p><img src="images/oneliner_feb7_2022.png" class="img-fluid"></p>
-<p>You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.</p>
-<p><img src="images/oneliner_feb7_2022(2).png" class="img-fluid"></p>
-<p>There are many more options for <code>options()</code>. See the references for more.</p>
-<p><strong>References</strong></p>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a></p>
+<p>Would you like to know what index the min and max are at in a vector? <code>which.min()</code> and <code>which.max()</code> help. In the example below the first min of -3 is at an index of 3 and the max of 9 is at an index of 5. Note these only return the first occurrence.</p>
+<p><img src="images/minmax_1.png" class="img-fluid"></p>
+<p>What if we want all the mins? Putting a logical expression in the which does this.</p>
+<p><img src="images/minmax_2.png" class="img-fluid"></p>
+<p><strong>Reference</strong></p>
+<p><a href="https://stackoverflow.com/questions/9390749/return-index-of-the-smallest-value-in-a-vector" class="uri">https://stackoverflow.com/questions/9390749/return-index-of-the-smallest-value-in-a-vector</a></p>
 
 
 

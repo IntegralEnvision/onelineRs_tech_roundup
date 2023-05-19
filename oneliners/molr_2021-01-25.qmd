@@ -1,0 +1,22 @@
+---
+title: "Package help"
+subtitle: "`help()`"
+date: 2021-01-25
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [help, package, function]
+---
+
+Need help on a a function? You can use help() or ? after the function has been loaded
+
+![](images/help1.png)
+
+You can also search for help using ??
+
+![](images/help2.png) ![](images/help3.png)
+
+More info here: <https://www.r-project.org/help.html>

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eben Pendleton">
-<meta name="dcterms.date" content="2022-02-07">
+<meta name="dcterms.date" content="2022-01-24">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Setting Options for a Script</title>
+<title>Monday OneLineRs &amp; Tech Roundup - Just the One Function!</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,11 +117,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Setting Options for a Script</h1>
-<p class="subtitle lead"><code>options()</code></p>
+<h1 class="title">Just the One Function!</h1>
+<p class="subtitle lead"><code>&lt;package&gt;::&lt;function&gt;</code></p>
   <div class="quarto-categories">
-    <div class="quarto-category">options</div>
-    <div class="quarto-category">base</div>
+    <div class="quarto-category">function</div>
+    <div class="quarto-category">package</div>
+    <div class="quarto-category">library</div>
   </div>
   </div>
 
@@ -139,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 7, 2022</p>
+      <p class="date">January 24, 2022</p>
     </div>
   </div>
   
@@ -149,13 +150,13 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Have you ever wondered about the <code>options()</code> at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.</p>
-<p><img src="images/oneliner_feb7_2022.png" class="img-fluid"></p>
-<p>You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.</p>
-<p><img src="images/oneliner_feb7_2022(2).png" class="img-fluid"></p>
-<p>There are many more options for <code>options()</code>. See the references for more.</p>
+<p>Do you need to use only one function from a package, but feel like you need to load the package to have it available? There’s better ways!</p>
+<p>You can use the :: notation to load it in as below.</p>
+<p><img src="images/molr_jan24_2022.png" class="img-fluid"></p>
+<p>Or you can use <code>library(&lt;library_name&gt;, include.only = &lt;function&gt;)</code> with R 3.6 and later. <img src="images/molr_jan24_2022(2).png" class="img-fluid"></p>
+<p>Happy coding!</p>
 <p><strong>References</strong></p>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a></p>
+<p><a href="https://www.roelpeters.be/load-single-function-r-library/" class="uri">https://www.roelpeters.be/load-single-function-r-library/</a></p>
 
 
 

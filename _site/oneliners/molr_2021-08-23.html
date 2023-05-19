@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eben Pendleton">
-<meta name="dcterms.date" content="2022-02-07">
+<meta name="dcterms.date" content="2021-08-23">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Setting Options for a Script</title>
+<title>Monday OneLineRs &amp; Tech Roundup - Referring to columns that start with numbers</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,11 +117,15 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Setting Options for a Script</h1>
-<p class="subtitle lead"><code>options()</code></p>
+<h1 class="title">Referring to columns that start with numbers</h1>
+<p class="subtitle lead">backticks</p>
   <div class="quarto-categories">
-    <div class="quarto-category">options</div>
-    <div class="quarto-category">base</div>
+    <div class="quarto-category">backtick</div>
+    <div class="quarto-category">dataframe</div>
+    <div class="quarto-category">columns</div>
+    <div class="quarto-category">dplyr</div>
+    <div class="quarto-category">select</div>
+    <div class="quarto-category">janitor</div>
   </div>
   </div>
 
@@ -139,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 7, 2022</p>
+      <p class="date">August 23, 2021</p>
     </div>
   </div>
   
@@ -149,13 +153,18 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Have you ever wondered about the <code>options()</code> at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.</p>
-<p><img src="images/oneliner_feb7_2022.png" class="img-fluid"></p>
-<p>You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.</p>
-<p><img src="images/oneliner_feb7_2022(2).png" class="img-fluid"></p>
-<p>There are many more options for <code>options()</code>. See the references for more.</p>
+<p>Columns names that start with a number like 2021_data must start and end with a backtick ” ` ” to work with base R and dplyr verbs.</p>
+<p>The action parts of dplyr such as <code>select()</code>, <code>mutate()</code> and <code>group_by()</code> are referred to as verbs. This comes from the idea that dplyr is a grammar of data manipulation, like ggplot is grammar of graphics. On my US qwerty keyboard that character is above and to the left of the tab key.</p>
+<p>In example, Here’s an error if a backtick is not used <img src="images/backtick1.png" class="img-fluid"></p>
+<p>The correct approach</p>
+<p><img src="images/backtick2.png" class="img-fluid"></p>
+<p><img src="images/backtick3.png" class="img-fluid"></p>
+<p>The janitor package can also clean names to making working with these type of names easier. <img src="images/backtick4.png" class="img-fluid"></p>
 <p><strong>References</strong></p>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a></p>
+<p><a href="https://stackoverflow.com/questions/42005884/dplyr-select-column-when-column-name-is-number" class="uri">https://stackoverflow.com/questions/42005884/dplyr-select-column-when-column-name-is-number</a></p>
+<p><a href="https://dplyr.tidyverse.org/index.html" class="uri">https://dplyr.tidyverse.org/index.html</a></p>
+<p><a href="https://garthtarr.github.io/meatR/janitor.html" class="uri">https://garthtarr.github.io/meatR/janitor.html</a></p>
+<p>Happy Coding!</p>
 
 
 

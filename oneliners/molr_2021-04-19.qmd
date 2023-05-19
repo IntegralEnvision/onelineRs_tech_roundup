@@ -1,0 +1,26 @@
+---
+title: "Functions for sets in R"
+subtitle: "`intersect()` and `union()`"
+date: 2021-04-19
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [sets, base, union, intersect]
+---
+
+R has base functions for `union()` and `intersect()`. A union is a set that is made up of all members passed to the set.
+
+Today's one liner is about `intersect()`. An intersection is the set of members of each original set that are in both. In the example below only 3, 5, 7 and 13 are in both a and b vectors.
+
+![](images/intersect1.png)
+
+Where this gets more interesting is that you can use it for character vectors as well. Say, in finding the common columns that you want to row bind together.
+
+![](images/intersect2.png)
+
+Further reading: <https://www.r-bloggers.com/2017/06/set-operations-unions-and-intersections-in-r/>
+
+Happy coding!

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eben Pendleton">
-<meta name="dcterms.date" content="2022-02-07">
+<meta name="dcterms.date" content="2022-06-13">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Setting Options for a Script</title>
+<title>Monday OneLineRs &amp; Tech Roundup - Detect and Non Detect Using Alpha</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,11 +117,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Setting Options for a Script</h1>
-<p class="subtitle lead"><code>options()</code></p>
+<h1 class="title">Detect and Non Detect Using Alpha</h1>
+<p class="subtitle lead"><code>alpha</code> in <code>ggplot()</code></p>
   <div class="quarto-categories">
-    <div class="quarto-category">options</div>
-    <div class="quarto-category">base</div>
+    <div class="quarto-category">ggplot</div>
+    <div class="quarto-category">alpha</div>
+    <div class="quarto-category">multiline</div>
+    <div class="quarto-category">detect</div>
   </div>
   </div>
 
@@ -139,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 7, 2022</p>
+      <p class="date">June 13, 2022</p>
     </div>
   </div>
   
@@ -149,13 +151,35 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Have you ever wondered about the <code>options()</code> at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.</p>
-<p><img src="images/oneliner_feb7_2022.png" class="img-fluid"></p>
-<p>You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.</p>
-<p><img src="images/oneliner_feb7_2022(2).png" class="img-fluid"></p>
-<p>There are many more options for <code>options()</code>. See the references for more.</p>
-<p><strong>References</strong></p>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a></p>
+<p>Ok, a multi line R ggplot, but a great way to visualize detect and non detects in R. Melanie wanted to separate study, type and detect status for some data. Katherine Heal suggested using alpha, which is a measure of opacity. I think its a neat way to do it.</p>
+<pre><code>p2b &lt;- ggplot(d2, aes(x=Zscore, y=log10(concentration), shape=Study, color=Type, alpha=detected)) +
+
+geom_point(size=3) +
+
+labs(x="NORMAL VARIATE (Z-SCORE)",
+
+       y = "2,3,7,8-TCDD (ng/kg)",
+
+       title = "Compare Distributions by Habitat Type") +
+
+labs(caption="Surface samples only (0-0.5 ft)", adj=1) +
+
+scale_color_discrete(name = "Type") +
+
+scale_alpha_manual(
+
+    values = c(1, 0.3),
+
+    breaks = c(TRUE, FALSE)
+
+) +
+
+theme() +
+
+theme(legend.key.size = unit(0.3, "cm"),
+
+        legend.title = element_text(color="black", size=9))</code></pre>
+<p>Resulting plot <img src="images/molr_jun13_2022.png" class="img-fluid"></p>
 
 
 

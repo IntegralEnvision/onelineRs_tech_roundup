@@ -1,0 +1,22 @@
+---
+title: "Creating new columns based on conditions"
+subtitle: "`case_when()`"
+date: 2021-7-19
+author: "Julia Bouzaher"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tibble, columns, case_when, conditions]
+---
+
+`case_when()` is a great option for creating a new column conditionally based on multiple conditions, where the format follows this template:
+
+    df %>% mutate(new_column = case_when(condition 1 == TRUE ~ value_1,condition 2 == TRUE ~ value_2, TRUE ~ NA_real_)
+
+The last line, "TRUE \~ \_\_\_\_\_", assigns a value for rows that do not satisfy any of the mentioned conditions. If you wanted your `case_when()` to retain the original row values for rows that do not meet any conditions, you would write `TRUE ~ as.character(x)` or `as.numeric(x)`, depending on the value type.
+
+Example:
+
+![](images/casewhen.png)

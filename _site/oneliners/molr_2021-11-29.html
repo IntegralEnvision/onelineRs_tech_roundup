@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eben Pendleton">
-<meta name="dcterms.date" content="2022-02-07">
+<meta name="dcterms.date" content="2021-11-29">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Setting Options for a Script</title>
+<title>Monday OneLineRs &amp; Tech Roundup - What’s the rle()?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,11 +117,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Setting Options for a Script</h1>
-<p class="subtitle lead"><code>options()</code></p>
+<h1 class="title">What’s the rle()?</h1>
+<p class="subtitle lead"><code>rle()</code></p>
   <div class="quarto-categories">
-    <div class="quarto-category">options</div>
     <div class="quarto-category">base</div>
+    <div class="quarto-category">rle</div>
+    <div class="quarto-category">vector</div>
+    <div class="quarto-category">consecutive</div>
   </div>
   </div>
 
@@ -139,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 7, 2022</p>
+      <p class="date">November 29, 2021</p>
     </div>
   </div>
   
@@ -149,13 +151,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Have you ever wondered about the <code>options()</code> at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.</p>
-<p><img src="images/oneliner_feb7_2022.png" class="img-fluid"></p>
-<p>You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.</p>
-<p><img src="images/oneliner_feb7_2022(2).png" class="img-fluid"></p>
-<p>There are many more options for <code>options()</code>. See the references for more.</p>
+<p>Here’s a neat Base R function, <code>rle()</code>. <code>rle()</code> is a named for run length encoding. In cases where you may have data that has streaks or runs of values, <code>rle()</code> gives you the length of the run and the value associated with the run.</p>
+<p>Some places where this is useful are head/tail counting in coin flips (How many heads in a row do I get?), time series analysis (how many times does x happen?)</p>
+<p>For example, we may have data that’s a series of TRUE or FALSEs. <code>rle()</code> can take vector and give information about the streak or number of consecutive TRUE and FALSEs.</p>
+<p><img src="images/rle.png" class="img-fluid"></p>
+<p>Here, <code>rle()</code> has returned an <code>rle()</code> object, which is a list of two elements, lengths and and values. “lengths”, or <code>rle(z)[[1]]</code> above is an integer vector of the number of items in a run. In z, there are 2 TRUEs, 2 FALSEs followed by 1 TRUE and the rest of the runs. You can see this is summarized as 2, 2, 1. The values component of <code>rle()</code> (accessible by <code>rle(z)[2]]</code> here), indicates the three values in the first three runs are TRUE, FALSE, TRUE</p>
+<p>Feel free to add other examples of where <code>rle()</code> would be useful in your work!</p>
 <p><strong>References</strong></p>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a></p>
+<p><a href="https://www.r-bloggers.com/2009/09/r-function-of-the-day-rle-2/amp/" class="uri">https://www.r-bloggers.com/2009/09/r-function-of-the-day-rle-2/amp/</a></p>
+<p>Happy R’ing</p>
 
 
 

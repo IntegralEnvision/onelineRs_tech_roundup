@@ -1,0 +1,28 @@
+---
+title: "Are you in?"
+subtitle: "`%in%`"
+date: 2021-04-12
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [logical, operator, base, in, match]
+---
+
+`%in%` is a useful logical operator in R to see if values match any of those in a vector. For example is red in the vector x defined below? What about banana?
+
+![](images/in.png)
+
+It can be used to compare vectors to other vectors and returns TRUE/FALSE of the vector length
+
+You could also use it to subset columns. Maybe you don't want "canal" or "evergiven" in your dataframe, but all the other columns. This uses the not (!) operator along with `%in%`:
+
+`d <- d[, !(colnames(d) %in% c("canal", "evergiven"))`
+
+Happy %in%ing!
+
+**Reference**
+
+[https://r4ds.had.co.nz/transform.html?q=%in%#logical-operators](https://r4ds.had.co.nz/transform.html?q=%in%#logical-operators){.uri}

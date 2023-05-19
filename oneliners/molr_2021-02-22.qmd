@@ -1,0 +1,26 @@
+---
+title: "Should I use `print()` or `message()` in my code?"
+subtitle: "`print()` and `message()`"
+date: 2021-02-22
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [print, message, base, output]
+---
+
+Both `print()` and `message()` are handy ways to see how your script is progressing. However, `print()` lacks concatenation in its output and also prints the element index which may or may not be useful. To use `print()` and multiple elements you have to use `paste()` or `paste0()`.
+
+![](images/print1.png)
+
+`message()` concatenates as needed.
+
+![](images/print2.png)
+
+`message()` has some other nice features as well such as printing to stderr and providing an error state. Check it out!
+
+<https://stackoverflow.com/questions/36699272/why-is-message-a-better-choice-than-print-in-r-for-writing-a-package>
+
+`message()` reference: <https://stat.ethz.ch/R-manual/R-patched/library/base/html/message.html>

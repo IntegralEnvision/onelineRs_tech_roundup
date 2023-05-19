@@ -1,0 +1,20 @@
+---
+title: "Special cases in data frames"
+subtitle: "`case_when()`"
+date: 2021-05-10
+author: "Katherine Heal"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [dplyr, tidyverse, ifelse, casewhen]
+---
+
+The `case_when()` function in R's dplyr package vectorizes `ifelse()` statements. It's based in SQL's CASE WHEN statement. It works especially well when making a new column in dataframe that is dependent on values in other columns.
+
+I like this example with the Star Wars dataset. Note that the `TRUE ~ "other"` sets all instances where neither condition is met to "other", rather than NA.
+
+![](images/case_when.png)
+
+More info here: <https://dplyr.tidyverse.org/reference/case_when.html>

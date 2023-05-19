@@ -1,0 +1,28 @@
+---
+title: "Getting the current date!"
+subtitle: "`Sys.Date()`"
+date: 2021-06-21
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [date, base, system]
+---
+
+In honor of the summer solstice, here's a one liner to get the current date in R. `Sys.Date()` can be used in R to return the date in YYYY-MM-DD format.
+
+![](images/date1.png)
+
+To get other formats you can wrap `Sys.Date()` in a format function call.
+
+![](images/date2.png)
+
+Here's a listing of some common formats:
+
+<https://statistics.berkeley.edu/computing/faqs/dates-and-times-r>
+
+![](images/date3.png)
+
+Happy Solstice!

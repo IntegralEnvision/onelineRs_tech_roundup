@@ -1,0 +1,34 @@
+---
+title: "What's the difference between = and <-?"
+subtitle: "R assignment operators"
+date: 2021-03-08
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [equals, arrow, assign, base]
+---
+
+Both `=` and `<-` can be used for assignment operators such as
+
+    x <- 1
+
+However, `=` can also be used as something called a syntax token, such as a named argument in a function. Here is a description of this that I found useful:
+
+<https://developer.r-project.org/equalAssign.html>
+
+\[= assignment is\] allowed in only two places in the grammar: at the top level (as a complete program or user-typed expression); and when isolated from surrounding logical structure, by braces or an extra pair of parentheses.
+
+For example,
+
+    x = 1 or func (x = NA)
+
+`<-` and also `->` don't have this duality. `<-` and `->` only call the same assignment in their use. You can't use them as a named argument unlike `=`.
+
+I tend to use `<-` everywhere except in functions as it seems to follow conventions here and what I see on the internet. Since Python uses `=` this took some getting used to.
+
+For more information see here:
+
+<https://stackoverflow.com/questions/1741820/what-are-the-differences-between-and-assignment-operators-in-r>

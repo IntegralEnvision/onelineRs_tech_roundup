@@ -1,5 +1,5 @@
 ---
-title: "`'` or `"`"
+title: "Single or Double Quotes"
 subtitle: "Quotes in R"
 date: 2021-10-18
 author: "Eben Pendleton"

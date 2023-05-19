@@ -1,0 +1,24 @@
+---
+title: "Preview your data"
+subtitle: "`head()` and `tail()`"
+date: 2021-02-08
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [equals, arrow, assign, base]
+---
+
+Do you need to see a part of your data after loading it? You can use `head()` or `tail()` to view the first or last rows. The default row count is 6.
+
+![](images/head1.png)
+
+More info here: <https://stat.ethz.ch/R-manual/R-devel/library/utils/html/head.html>
+
+Do you need more statistics about your dataset? Check out `skimr::skim()`, a great recommend from Laura Mudge
+
+![](images/head2.png) ![](images/head3.png)
+
+<https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html>

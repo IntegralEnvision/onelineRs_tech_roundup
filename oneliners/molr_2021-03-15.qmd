@@ -1,0 +1,30 @@
+---
+title: "What is c()?"
+subtitle: "`c()`"
+date: 2021-05-10
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [combine, base, vector, list]
+---
+
+In R, numbers are a vector with length 1. The example below shows an input of 1 returns a vector with an index of 1, denoted by \[1\], and the value 1.
+
+![](images/c1.png)
+
+c stands for combine. In the example below when you type `c(c(1,2), c(3))`, R concatenates or combines the 1 or multi length vectors into a single vector of length 3 with an index of 1.
+
+![](images/c2.png)
+
+`c()` can combine more than just vectors. It can be used to combine lists and many other vector like objects.
+
+See more details here where these examples and info come from: <https://stackoverflow.com/questions/11488820/why-use-c-to-define-vector>
+
+For more information on vectors and `c()` there's also the R intro PDF. Search for `c()`.
+
+<https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf>
+
+Happy coding!

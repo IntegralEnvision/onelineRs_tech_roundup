@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eben Pendleton">
-<meta name="dcterms.date" content="2022-02-07">
+<meta name="dcterms.date" content="2022-01-10">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Setting Options for a Script</title>
+<title>Monday OneLineRs &amp; Tech Roundup - Standardize Jitter Position in ggplot2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,11 +117,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Setting Options for a Script</h1>
-<p class="subtitle lead"><code>options()</code></p>
+<h1 class="title">Standardize Jitter Position in ggplot2</h1>
+<p class="subtitle lead"><code>position_jitter()</code></p>
   <div class="quarto-categories">
-    <div class="quarto-category">options</div>
-    <div class="quarto-category">base</div>
+    <div class="quarto-category">ggplot2</div>
+    <div class="quarto-category">jitter</div>
+    <div class="quarto-category">geom_point</div>
+    <div class="quarto-category">tidyverse</div>
   </div>
   </div>
 
@@ -139,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 7, 2022</p>
+      <p class="date">January 10, 2022</p>
     </div>
   </div>
   
@@ -149,13 +151,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Have you ever wondered about the <code>options()</code> at the top of your R code? I’ve seen it used for displaying number formats or to set strings not to factors.</p>
-<p><img src="images/oneliner_feb7_2022.png" class="img-fluid"></p>
-<p>You can also use it to turn warnings into errors that will stop your code from running. By default, R keeps running despite any warnings. Use warn = 2 to error, causing a stop on warnings.</p>
-<p><img src="images/oneliner_feb7_2022(2).png" class="img-fluid"></p>
-<p>There are many more options for <code>options()</code>. See the references for more.</p>
-<p><strong>References</strong></p>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a></p>
+<p>Happy 2022! Are you looking for more stability in your ggplot2 plotting life? You can set a seed to standardize the jitter position in geom_point from run to run.</p>
+<p>Use <code>position_jitter()</code> with a number as the seed argument to make it reproducible!</p>
+<p><code>ggplot(mtcars, aes(x = cyl, y = mpg, group = cyl)) + geom_boxplot() + geom_point(position = position_jitter(seed = 37))</code></p>
+<p><img src="images/molr_jan10_2022.png" class="img-fluid"></p>
+<p><strong>References</strong><br>
+<a href="https://twitter.com/thomas_mock/status/1473356760593440769" class="uri">https://twitter.com/thomas_mock/status/1473356760593440769</a></p>
+<p><a href="https://ggplot2.tidyverse.org/reference/position_jitter.html" class="uri">https://ggplot2.tidyverse.org/reference/position_jitter.html</a></p>
+<p>Happy coding!</p>
 
 
 

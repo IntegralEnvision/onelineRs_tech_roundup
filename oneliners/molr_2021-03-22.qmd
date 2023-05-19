@@ -1,0 +1,28 @@
+---
+title: "Halting and Debugging Code"
+subtitle: "`browser()`"
+date: 2021-03-22
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [browser, debug, error, base]
+---
+
+The `browser()` function stops or halts your running code and starts something called an environment browser that lets you explore variables and functions. Unlike breakpoints, its a line in your code. As it's part of your code it requires no special applications / or tools to activate.
+
+The below example stops your code before returning TRUE
+
+![](images/debug.png)
+
+This and other debugging information is available here:
+
+<https://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-RStudio#browser>
+
+A tutorial on using `browser()` is here:
+
+<https://riptutorial.com/r/example/5482/using-browser>
+
+Happy debugging!

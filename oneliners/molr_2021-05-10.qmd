@@ -1,0 +1,34 @@
+---
+title: "Join two vectors with NAs"
+subtitle: "`coalesce()`"
+date: 2021-05-10
+author: "Eben Pendleton"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [coalesce, dplyr, tidyverse, NA, vector]
+---
+
+This may be the first dplyr entry, which is a package of the tidyverse. We'll come back to that in a future post! More below if interested.
+
+Given a set of vectors, `coalesce()` finds the first non missing value at each position. This is inspired by SQL's COALESCE which does the same thing for NULLs instead of NAs.
+
+Here, "thing 3" replaces the NA in the first vector below
+
+![](images/coalesce1.png)
+
+Here's switching the order where "one fish" replaces NA.
+
+![](images/coalesce2.png)
+
+This can be pretty helpful in combining columns (like coordinates and keeping the first non NA value). Remember, this returns the first, so ordering is important.
+
+Happy coding!
+
+**References**
+
+tidyverser reference: <https://www.tidyverse.org/>
+
+coalesce: <https://dplyr.tidyverse.org/reference/coalesce.html>

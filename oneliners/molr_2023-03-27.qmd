@@ -68,15 +68,17 @@ ggplot(data=iris,
 
 As I mentioned above, I have a couple snippets I use for common formatting changes, both because I can't always remember the syntax but also because it's just faster.
 
-    snippet axycomma
-        scale_y_continuous(labels = scales::comma) 
+```         
+snippet axycomma
+    scale_y_continuous(labels = scales::comma) 
 
-    snippet axypct
-        scale_y_continuous(labels = scales::percent) +
-        ylab("Percent")
-        
-    snippet rotx
-        theme(axis.text.x = element_text(angle = ${1}, hjust = 1))
+snippet axypct
+    scale_y_continuous(labels = scales::percent) +
+    ylab("Percent")
+    
+snippet rotx
+    theme(axis.text.x = element_text(angle = ${1}, hjust = 1))
+```
 
 ## About Snippets
 

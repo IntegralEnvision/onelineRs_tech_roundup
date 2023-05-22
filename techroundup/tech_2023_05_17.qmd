@@ -1,0 +1,13 @@
+---
+title: "YouTube: Shiny Workshop - Create Your Own Hydrological Data App"
+subtitle: ""
+date: 2023-05-17
+author: "Jonathan Zadra"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+categories: [environmental, shiny]
+---
+
+[YouTube Link](https://www.youtube.com/watch?v=_ZnOje9nQic)

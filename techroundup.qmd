@@ -1,15 +1,21 @@
 ---
 title: "New Tech Roundup"
-
+listing: 
+ - id: list-new_tech
+   contents:
+   - "techroundup/*.qmd"
+   type: default
+   sort-ui: true
+   filter-ui: true
+   field-types:
+     date: date
+   fields: [title, subtitle, author, date]
+   date-format: "full"
+   sort: "date desc"
+   field-display-names:
+     date: "Date"
+     title: "Title"
+     author: "Author"
+   categories: true
 image: "New Tech Roundup.png"
 ---
-
-![](_under_construction_images/CaCapitolHill1114Under_Construction.gif)
-
-![](_under_construction_images/Capsule3915construction.gif)
-
-![](_under_construction_images/Hollow7752Construction.gif)
-
-![](_under_construction_images/MoMotorCity4109construct.gif)
-
-![](_under_construction_images/babygif.gif)

@@ -1,0 +1,13 @@
+---
+title: "My Title"
+subtitle: "Subtitle (usually package name or package::function()"
+date: 2023-03-20
+author: "Jonathan Zadra"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+

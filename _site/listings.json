@@ -2,6 +2,7 @@
   {
     "listing": "/oneliners.html",
     "items": [
+      "/oneliners/molr_2023_05_22.html",
       "/oneliners/molr_2023-03-27.html",
       "/oneliners/molr_2023-03-20.html",
       "/oneliners/molr_2023-03-06.html",
@@ -13,6 +14,12 @@
     "items": [
       "/oneliners.html",
       "/techroundup.html"
+    ]
+  },
+  {
+    "listing": "/techroundup.html",
+    "items": [
+      "/techroundup/tech_2023_05_17.html"
     ]
   }
 ]

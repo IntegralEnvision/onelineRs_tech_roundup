@@ -10,7 +10,7 @@ title-block-banner: false
 categories: [search, interactive helpers]
 ---
 
-If you come across reference to a function, but it isn't clear what package it is from (most often in example code or stack overflow), the `sos::findFn()` function can help. It will search a database of CRAN packages and return a list of packages that contain a matching function and list them in order of likelihood.
+If you come across reference to a function, but it isn't clear what package it is from (most often in example code or stack overflow), the `sos::findFn()` function can help. It will search a database of CRAN packages and return a list of packages that contain a matching function and list them in order of likelihood.  Unlike `??`, this searches all CRAN packages, not just ones installed on your system.
 
 ```{r}
 sos::findFn("skim")

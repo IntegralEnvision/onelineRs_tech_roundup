@@ -1,0 +1,77 @@
+---
+title: ".Last.value"
+subtitle: "Accessing the result of the last operation"
+date: 2023-05-06
+author: "Jonathan Zadra"
+format:
+  html:
+    df-print: kable
+    code-copy: true
+title-block-banner: false
+image: "path/url to image"
+categories: [baseR, interactive helpers]
+---
+
+Have you ever run a slow chunk of code but neglected to assign the output? Rather that re-running it, there is a hidden variable in RStudio, `.Last.value`, that always contains the most recent result.
+
+# Example
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(render = function(x, ...){
+    unlockBinding(".Last.value", .BaseNamespaceEnv)
+    assign(".Last.value", x, .BaseNamespaceEnv)
+    lockBinding(".Last.value", .BaseNamespaceEnv)
+    knitr::knit_print(x, ...)
+})
+
+suppressPackageStartupMessages(library(tidyverse))
+
+```
+
+```{r}
+
+mtcars %>% 
+  filter(cyl > 3) %>% 
+  select(mpg) %>% 
+  summarize(mpg_mean = mean(mpg))
+
+.Last.value
+
+
+```
+
+# More Info
+
+There is an option in RStudio to show `.Last.value` in the "Environment" tab:
+
+Tools \> Global Options \> General \> Advanced \> Show .Last.value in environment listing
+
+![](images/Screenshot%202023-06-05%20at%201.33.07%20PM.png)
+
+Enabling this option will result in this:
+
+![](images/Screenshot%202023-06-05%20at%201.53.00%20PM.png)
+
+# Other Uses
+
+I use `.Last.value` in a number of snippets to make it faster to see certain summaries or views of the result:
+
+```{r, eval=FALSE}
+
+# Shortcut to get the last value with less typing
+snippet lv
+	.Last.value
+
+# Use dplyr's glimpse() function to see a summary for data with lots of columns
+snippet glv
+	glimpse(.Last.value)
+
+# Show the last value in an Excel sheet (requires integral pacakge)
+snippet xvl
+	xview(.Last.value)
+
+# Show a plot of all values to investigate missingness
+snippet vd
+	visdat::vis_dat(${1:.Last.value}, warn_large_data = F, sort_type = F, palette = "qual")
+
+```

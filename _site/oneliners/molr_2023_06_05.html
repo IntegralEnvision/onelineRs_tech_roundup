@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jonathan Zadra">
+<meta name="dcterms.date" content="2023-05-06">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Monday OneLineRs</title>
+<title>Monday OneLineRs &amp; Tech Roundup - .Last.value</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,40 +94,9 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-list-oneliners .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title','listing-subtitle','listing-author','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-list-oneliners'] = new List('listing-list-oneliners', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -103,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Monday OneLineRs &amp; Tech Roundup</span>
     </a>
   </div>
@@ -114,19 +117,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./oneliners.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../oneliners.html" rel="" target="">
  <span class="menu-text">Monday OneLineRs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./techroundup.html" rel="" target="">
+    <a class="nav-link" href="../techroundup.html" rel="" target="">
  <span class="menu-text">New Tech Roundup</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -141,21 +144,46 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="baseR">baseR <span class="quarto-category-count">(1)</span></div><div class="category" data-category="column manipulation">column manipulation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dplyr">dplyr <span class="quarto-category-count">(2)</span></div><div class="category" data-category="filtering">filtering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ggplot">ggplot <span class="quarto-category-count">(1)</span></div><div class="category" data-category="grouping">grouping <span class="quarto-category-count">(1)</span></div><div class="category" data-category="helpers">helpers <span class="quarto-category-count">(2)</span></div><div class="category" data-category="interactive helpers">interactive helpers <span class="quarto-category-count">(2)</span></div><div class="category" data-category="joining">joining <span class="quarto-category-count">(1)</span></div><div class="category" data-category="logging">logging <span class="quarto-category-count">(1)</span></div><div class="category" data-category="matching">matching <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mutating">mutating <span class="quarto-category-count">(2)</span></div><div class="category" data-category="search">search <span class="quarto-category-count">(1)</span></div><div class="category" data-category="selecting">selecting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tidyr">tidyr <span class="quarto-category-count">(2)</span></div><div class="category" data-category="tidyverse">tidyverse <span class="quarto-category-count">(3)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#example" id="toc-example" class="nav-link active" data-scroll-target="#example">Example</a></li>
+  <li><a href="#more-info" id="toc-more-info" class="nav-link" data-scroll-target="#more-info">More Info</a></li>
+  <li><a href="#other-uses" id="toc-other-uses" class="nav-link" data-scroll-target="#other-uses">Other Uses</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Monday OneLineRs</h1>
-</div>
+<h1 class="title">.Last.value</h1>
+<p class="subtitle lead">Accessing the result of the last operation</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">baseR</div>
+    <div class="quarto-category">interactive helpers</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jonathan Zadra </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 6, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -163,174 +191,82 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>Have you ever run a slow chunk of code but neglected to assign the output? Rather that re-running it, there is a hidden variable in RStudio, <code>.Last.value</code>, that always contains the most recent result.</p>
+<section id="example" class="level1">
+<h1>Example</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cyl <span class="sc">&gt;</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mpg_mean =</span> <span class="fu">mean</span>(mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">mpg_mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">20.09062</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>.Last.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">mpg_mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">20.09062</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="more-info" class="level1">
+<h1>More Info</h1>
+<p>There is an option in RStudio to show <code>.Last.value</code> in the “Environment” tab:</p>
+<p>Tools &gt; Global Options &gt; General &gt; Advanced &gt; Show .Last.value in environment listing</p>
+<p><img src="images/Screenshot 2023-06-05 at 1.33.07 PM.png" class="img-fluid"></p>
+<p>Enabling this option will result in this:</p>
+<p><img src="images/Screenshot 2023-06-05 at 1.53.00 PM.png" class="img-fluid"></p>
+</section>
+<section id="other-uses" class="level1">
+<h1>Other Uses</h1>
+<p>I use <code>.Last.value</code> in a number of snippets to make it faster to see certain summaries or views of the result:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shortcut to get the last value with less typing</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>snippet lv</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    .Last.value</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Use dplyr's glimpse() function to see a summary for data with lots of columns</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>snippet glv</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">glimpse</span>(.Last.value)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the last value in an Excel sheet (requires integral pacakge)</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>snippet xvl</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xview</span>(.Last.value)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Show a plot of all values to investigate missingness</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>snippet vd</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    visdat<span class="sc">::</span><span class="fu">vis_dat</span>(<span class="sc">$</span>{<span class="dv">1</span><span class="sc">:</span>.Last.value}, <span class="at">warn_large_data =</span> F, <span class="at">sort_type =</span> F, <span class="at">palette =</span> <span class="st">"qual"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-list-oneliners">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-list-oneliners-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-list-oneliners'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="search,interactive helpers" data-listing-date-sort="1684735200000">
-<div class="body">
-<a href="./oneliners/molr_2023_05_22.html">
-<h3 class="no-anchor listing-title">
-Find Which Package a Function Belongs To
-</h3>
-<div class="listing-subtitle">
-<code>sos::findFn</code>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./oneliners/molr_2023_05_22.html">
-<div class="listing-date">
-Monday, May 22, 2023
-</div>
-<div class="listing-author">
-Jonathan Zadra
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="baseR,interactive helpers" data-listing-date-sort="1683352800000">
-<div class="body">
-<a href="./oneliners/molr_2023_06_05.html">
-<h3 class="no-anchor listing-title">
-.Last.value
-</h3>
-<div class="listing-subtitle">
-Accessing the result of the last operation
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./oneliners/molr_2023_06_05.html">
-<div class="listing-date">
-Saturday, May 6, 2023
-</div>
-<div class="listing-author">
-Jonathan Zadra
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="ggplot,helpers" data-listing-date-sort="1679896800000">
-<div class="body">
-<a href="./oneliners/molr_2023-03-27.html">
-<h3 class="no-anchor listing-title">
-ggplot Formatting Assistant with Natural Language Queries
-</h3>
-<div class="listing-subtitle">
-<code>ggx::gghelp()</code>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./oneliners/molr_2023-03-27.html">
-<div class="listing-date">
-Monday, March 27, 2023
-</div>
-<div class="listing-author">
-Jonathan Zadra
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="tidyr,column manipulation,tidyverse" data-listing-date-sort="1679292000000">
-<div class="body">
-<a href="./oneliners/molr_2023-03-20.html">
-<h3 class="no-anchor listing-title">
-Separating and Combining Columns
-</h3>
-<div class="listing-subtitle">
-<code>tidyr::separate_wider_*()</code> and <code>tidyr::unite()</code>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./oneliners/molr_2023-03-20.html">
-<div class="listing-date">
-Monday, March 20, 2023
-</div>
-<div class="listing-author">
-Jonathan Zadra
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="dplyr,mutating,matching,tidyverse" data-listing-date-sort="1678086000000">
-<div class="body">
-<a href="./oneliners/molr_2023-03-06.html">
-<h3 class="no-anchor listing-title">
-Vectorized Switch
-</h3>
-<div class="listing-subtitle">
-<code>dplyr::case_match()</code>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./oneliners/molr_2023-03-06.html">
-<div class="listing-date">
-Monday, March 6, 2023
-</div>
-<div class="listing-author">
-Jonathan Zadra
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="dplyr,mutating,filtering,selecting,grouping,joining,tidyr,tidyverse,logging,helpers" data-listing-date-sort="1675062000000">
-<div class="body">
-<a href="./oneliners/molr_2023-01-30.html">
-<h3 class="no-anchor listing-title">
-Get Feedback on Tidyverse Operations
-</h3>
-<div class="listing-subtitle">
-<code>tidylog</code>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./oneliners/molr_2023-01-30.html">
-<div class="listing-date">
-Monday, January 30, 2023
-</div>
-<div class="listing-author">
-Jonathan Zadra
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

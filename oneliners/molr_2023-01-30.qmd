@@ -7,7 +7,7 @@ format:
   html:
     df-print: kable
 title-block-banner: false
-categories: [dplyr, mutating, filtering, selecting, grouping, joining, tidyr, tidyverse, logging, helpers]
+categories: [dplyr, mutating, filtering, selecting, grouping, joining, tidyr, tidyverse, logging, interactive helpers]
 ---
 
 You've probably spent significant time looking at the results of join, filter, or mutate operations to be sure you got what you expected. There is a nice helper package, tidylog, which provides immediate feedback on what changed. It wraps the common dplyr functions by masking them with functions of the same name. Under the hood the dplyr functions are still being used and will produce the same output, but the there is additional info printed to the screen about what happened during the join.

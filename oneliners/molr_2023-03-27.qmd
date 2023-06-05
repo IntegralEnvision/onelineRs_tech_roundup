@@ -8,7 +8,7 @@ format:
     df-print: kable
 title-block-banner: false
 image: "path/url to image"
-categories: [ggplot, helpers]
+categories: [ggplot, interactive helpers]
 ---
 
 Despite having used `ggplot` for well over a decade, I still find myself forgetting some of the functions and arguments for modifying the formatting. There are just so many. As a result I'm often stuck googling simple things like how to rotate the x axis labels (I have even built some custom snippets for things I do often enough to be worth creating the snippet, but not often enough to remember the exact syntax, more on this at the end).

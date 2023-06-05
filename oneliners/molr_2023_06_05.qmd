@@ -1,7 +1,7 @@
 ---
 title: ".Last.value"
 subtitle: "Accessing the result of the last operation"
-date: 2023-05-06
+date: 2023-06-05
 author: "Jonathan Zadra"
 format:
   html:
@@ -9,7 +9,7 @@ format:
     code-copy: true
 title-block-banner: false
 image: "path/url to image"
-categories: [baseR, interactive helpers]
+categories: [base R, interactive helpers]
 ---
 
 Have you ever run a slow chunk of code but neglected to assign the output? Rather that re-running it, there is a hidden variable in RStudio, `.Last.value`, that always contains the most recent result.
@@ -24,7 +24,7 @@ knitr::opts_chunk$set(render = function(x, ...){
     knitr::knit_print(x, ...)
 })
 
-suppressPackageStartupMessages(library(tidyverse))
+library(tidyverse)
 
 ```
 

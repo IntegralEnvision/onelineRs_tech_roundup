@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "oneliners/molr_2023_06_05.html",
+    "href": "oneliners/molr_2023_06_05.html",
+    "title": ".Last.value",
+    "section": "",
+    "text": "Have you ever run a slow chunk of code but neglected to assign the output? Rather that re-running it, there is a hidden variable in RStudio, .Last.value, that always contains the most recent result.\n\nExample\n\nmtcars %&gt;% \n  filter(cyl &gt; 3) %&gt;% \n  select(mpg) %&gt;% \n  summarize(mpg_mean = mean(mpg))\n\n\n\n\n\nmpg_mean\n\n\n\n\n20.09062\n\n\n\n\n\n.Last.value\n\n\n\n\n\nmpg_mean\n\n\n\n\n20.09062\n\n\n\n\n\n\n\n\nMore Info\nThere is an option in RStudio to show .Last.value in the “Environment” tab:\nTools &gt; Global Options &gt; General &gt; Advanced &gt; Show .Last.value in environment listing\n\nEnabling this option will result in this:\n\n\n\nOther Uses\nI use .Last.value in a number of snippets to make it faster to see certain summaries or views of the result:\n\n# Shortcut to get the last value with less typing\nsnippet lv\n    .Last.value\n\n# Use dplyr's glimpse() function to see a summary for data with lots of columns\nsnippet glv\n    glimpse(.Last.value)\n\n# Show the last value in an Excel sheet (requires integral pacakge)\nsnippet xvl\n    xview(.Last.value)\n\n# Show a plot of all values to investigate missingness\nsnippet vd\n    visdat::vis_dat(${1:.Last.value}, warn_large_data = F, sort_type = F, palette = \"qual\")"
+  },
+  {
     "objectID": "oneliners/molr_2023-03-06.html",
     "href": "oneliners/molr_2023-03-06.html",
     "title": "Vectorized Switch",
@@ -117,12 +124,5 @@
     "title": "YouTube: Shiny Workshop - Create Your Own Hydrological Data App",
     "section": "",
     "text": "YouTube Link"
-  },
-  {
-    "objectID": "oneliners/molr_2023_06_05.html",
-    "href": "oneliners/molr_2023_06_05.html",
-    "title": ".Last.value",
-    "section": "",
-    "text": "Have you ever run a slow chunk of code but neglected to assign the output? Rather that re-running it, there is a hidden variable in RStudio, .Last.value, that always contains the most recent result.\n\nExample\n\nmtcars %&gt;% \n  filter(cyl &gt; 3) %&gt;% \n  select(mpg) %&gt;% \n  summarize(mpg_mean = mean(mpg))\n\n\n\n\n\nmpg_mean\n\n\n\n\n20.09062\n\n\n\n\n\n.Last.value\n\n\n\n\n\nmpg_mean\n\n\n\n\n20.09062\n\n\n\n\n\n\n\n\nMore Info\nThere is an option in RStudio to show .Last.value in the “Environment” tab:\nTools &gt; Global Options &gt; General &gt; Advanced &gt; Show .Last.value in environment listing\n\nEnabling this option will result in this:\n\n\n\nOther Uses\nI use .Last.value in a number of snippets to make it faster to see certain summaries or views of the result:\n\n# Shortcut to get the last value with less typing\nsnippet lv\n    .Last.value\n\n# Use dplyr's glimpse() function to see a summary for data with lots of columns\nsnippet glv\n    glimpse(.Last.value)\n\n# Show the last value in an Excel sheet (requires integral pacakge)\nsnippet xvl\n    xview(.Last.value)\n\n# Show a plot of all values to investigate missingness\nsnippet vd\n    visdat::vis_dat(${1:.Last.value}, warn_large_data = F, sort_type = F, palette = \"qual\")"
   }
 ]

@@ -1,5 +1,5 @@
 ---
-title: "Expand your scale in ggplot"
+title: "Expand your scale in ggplot beyond the data"
 subtitle: "`expansion()`"
 date: 2021-01-04
 author: "Eben Pendleton"
@@ -8,7 +8,7 @@ format:
     df-print: kable
 title-block-banner: false
 image: "path/url to image"
-categories: [ggplot2, ggplot, expand, scale, axis]
+categories: [ggplot, scales, axes]
 ---
 
 `expansion()` is a convenient way to expand your plot scales in ggplot. `expand()` expands both sides of the scale while `expansion()` is a multiplicative or additive function to expand both or either ends of a scale on a plot. The below example expands by multiplication with the y min by 1% and the y max by 10%

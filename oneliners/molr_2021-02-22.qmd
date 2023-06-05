@@ -8,7 +8,7 @@ format:
     df-print: kable
 title-block-banner: false
 image: "path/url to image"
-categories: [print, message, base, output]
+categories: [messages]
 ---
 
 Both `print()` and `message()` are handy ways to see how your script is progressing. However, `print()` lacks concatenation in its output and also prints the element index which may or may not be useful. To use `print()` and multiple elements you have to use `paste()` or `paste0()`.

@@ -1,6 +1,6 @@
 ---
 title: "Remove warnings about creating a directory"
-subtitle: "`if(!dir.exists())`"
+subtitle: "`if(!dir.exists())`; `fs::dir_create()`"
 date: 2021-01-11
 author: "Eben Pendleton"
 format:
@@ -8,11 +8,15 @@ format:
     df-print: kable
 title-block-banner: false
 image: "path/url to image"
-categories: [error, warning, directory, if]
+categories: [file operations]
 ---
 
 Want to remove the warning about creating a directory? Use a one line if statement.
 
+```{r, eval = F}
     # check for directory existence. Create it if not found
     outdir <- paste0(here("Output/"),Sys.Date())
     if (!dir.exists(outdir)) {dir.create(outdir) }
+```
+
+Update 5/6/2023: a better method is to use `fs::dir_create()`, which will do nothing if the directory already exists.

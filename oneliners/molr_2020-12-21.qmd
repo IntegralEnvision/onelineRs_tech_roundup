@@ -1,6 +1,6 @@
 ---
 title: "Carry the last observation forward using NAs"
-subtitle: "`locf()`"
+subtitle: "`zoo::locf()`; tidyr::fill()"
 date: 2020-12-21
 author: "Eben Pendleton"
 format:
@@ -8,10 +8,12 @@ format:
     df-print: kable
 title-block-banner: false
 image: "path/url to image"
-categories: [zoo, NA]
+categories: [NAs, missing values, tidyr]
 ---
 From the zoo package (<https://cran.r-project.org/web/packages/zoo/index.html>)
 ```
 # carry the last observation forward to replace NAs
 d$'Well.No.' <- zoo::na.locf(d$'Well.No.')
 ```
+
+Update June 5, 2023: `tidyr` has functions that are easier to use and don't require an extra package: `tidyr::fill()`

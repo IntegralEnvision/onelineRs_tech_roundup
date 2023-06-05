@@ -1,14 +1,14 @@
 ---
 title: "Perform a function across columns"
 subtitle: "`across()`"
-date: 2021-8-216
+date: 2021-08-16
 author: "Eben Pendleton"
 format:
   html:
     df-print: kable
 title-block-banner: false
 image: "path/url to image"
-categories: [across, dplyr, columns, dataframe]
+categories: [dplyr, column manipulation]
 ---
 
 When using `dplyr` have you ever wanted to preform a function on several columns? `dplyr::across()` may be your friend. `across()` takes two arguments; columns to evaluate using the select syntax, so by name, position, function etc, and a function or list of functions to apply to each column.

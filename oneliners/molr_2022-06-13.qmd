@@ -1,5 +1,5 @@
 ---
-title: "Detect and Non Detect Using Alpha"
+title: "Plot Detects and Non-Detects Using Transparency"
 subtitle: "`alpha` in `ggplot()`"
 date: 2022-06-13
 author: "Eben Pendleton"
@@ -8,39 +8,31 @@ format:
     df-print: kable
 title-block-banner: false
 image: "path/url to image"
-categories: [ggplot, alpha, multiline, detect]
+categories: [ggplot]
 ---
 
-Ok, a multi line R ggplot, but a great way to visualize detect and non detects in R. Melanie wanted to separate study, type and detect status for some data. Katherine Heal suggested using alpha, which is a measure of opacity. I think its a neat way to do it.
+Using transparency can be a great way to visualize detects and non detects in plots. Melanie wanted to separate study, type and detect status for some data. Katherine Heal suggested using alpha, which is a measure of opacity. In ggplot, alpha can be specified as a value between 0 (invisible) and 1 (fully opaque)--they are essentially a percentage of transparency. I think its a neat way to do it.
 
-```
-p2b <- ggplot(d2, aes(x=Zscore, y=log10(concentration), shape=Study, color=Type, alpha=detected)) +
-
+```{r, eval=F}
+p2b <- ggplot(d2, aes(x=Zscore, y=log10(concentration), 
+                      shape=Study, 
+                      color=Type, 
+                      alpha=detected)) + # <1>
 geom_point(size=3) +
-
 labs(x="NORMAL VARIATE (Z-SCORE)",
-
        y = "2,3,7,8-TCDD (ng/kg)",
-
        title = "Compare Distributions by Habitat Type") +
-
 labs(caption="Surface samples only (0-0.5 ft)", adj=1) +
-
 scale_color_discrete(name = "Type") +
-
-scale_alpha_manual(
-
+scale_alpha_manual( # <2>
     values = c(1, 0.3),
-
     breaks = c(TRUE, FALSE)
-
 ) +
-
-theme() +
-
 theme(legend.key.size = unit(0.3, "cm"),
-
         legend.title = element_text(color="black", size=9))
 ```
+
+1. Assign the variable that will determine the `alpha` (transparency). In this case, it's a logical variable indicating whether there was a detect or non-detect.
+2. Typically `alpha` will be used on a continuous variable, and be scaled between 0 and 1 based on the data. Because here we have a binary variable, we are setting the alpha values manually (detects are 1, non-detects are 0.3), and specifying how the alpha values map to the data values using `breaks`
 
 Resulting plot ![](images/molr_jun13_2022.png)

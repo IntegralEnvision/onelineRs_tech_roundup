@@ -8,7 +8,7 @@ format:
     df-print: kable
 title-block-banner: false
 image: "path/url to image"
-categories: [help, package, function]
+categories: [help]
 ---
 
 Need help on a a function? You can use help() or ? after the function has been loaded

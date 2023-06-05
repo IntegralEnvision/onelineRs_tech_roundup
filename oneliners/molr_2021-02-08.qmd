@@ -8,7 +8,7 @@ format:
     df-print: kable
 title-block-banner: false
 image: "path/url to image"
-categories: [equals, arrow, assign, base]
+categories: [interactive helpers]
 ---
 
 Do you need to see a part of your data after loading it? You can use `head()` or `tail()` to view the first or last rows. The default row count is 6.
@@ -22,3 +22,5 @@ Do you need more statistics about your dataset? Check out `skimr::skim()`, a gre
 ![](images/head2.png) ![](images/head3.png)
 
 <https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html>
+
+Update 6/5/23: `dplyr::slice_head()` and `dplyr::slice_tail()`, and other `dplyr::slice_` functions provide more functionality.

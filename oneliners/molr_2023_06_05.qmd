@@ -1,6 +1,6 @@
 ---
-title: ".Last.value"
-subtitle: "Accessing the result of the last operation"
+title: "Accessing the result of the last operation"
+subtitle: "`.Last.value`"
 date: 2023-06-05
 author: "Jonathan Zadra"
 format:

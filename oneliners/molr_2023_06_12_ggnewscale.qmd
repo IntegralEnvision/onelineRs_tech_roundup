@@ -1,0 +1,44 @@
+---
+title: "Add a second color scale for the same ggplot aesthetic"
+subtitle: "`ggnewscale::new_scale()`"
+date: 2023-06-12
+author: "Jonathan Zadra"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [ggplot, scales]
+---
+
+There can be cases where you need to specify two different scales for the same aesthetic in a ggplot (for instance you want viridis for the `color` aesthetic of one set of points, and rainbow for the `color` aesthetic of a second set of poitns). `ggplot2` won't allow two different scales for the same aesthetic - it will throw a warning and only use the most recent definition. The `ggnewscale` package provides a simple solution to this.
+
+# Example
+
+From the `ggnewscale` [documentation](https://eliocamp.github.io/ggnewscale/):
+
+```{r}
+library(ggplot2)
+library(ggnewscale) #install.packages("ggnewscale")
+# Equivalent to melt(volcano)
+topography <- expand.grid(x = 1:nrow(volcano),
+                          y = 1:ncol(volcano))
+topography$z <- c(volcano)
+
+# point measurements of something at a few locations
+set.seed(42)
+measurements <- data.frame(x = runif(30, 1, 80),
+                           y = runif(30, 1, 60),
+                           thing = rnorm(30))
+
+ggplot(mapping = aes(x, y)) +
+  geom_contour(data = topography, aes(z = z, color = after_stat(level))) +
+  # Color scale for topography
+  scale_color_viridis_c(option = "D") +
+  # geoms below will use another color scale
+  new_scale_color() +
+  geom_point(data = measurements, size = 3, aes(color = thing)) +
+  # Color scale applied to geoms added after new_scale_color()
+  scale_color_viridis_c(option = "A")
+
+```

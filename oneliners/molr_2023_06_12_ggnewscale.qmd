@@ -11,7 +11,7 @@ image: "path/url to image"
 categories: [ggplot, scales]
 ---
 
-There can be cases where you need to specify two different scales for the same aesthetic in a ggplot (for instance you want viridis for the `color` aesthetic of one set of points, and rainbow for the `color` aesthetic of a second set of poitns). `ggplot2` won't allow two different scales for the same aesthetic - it will throw a warning and only use the most recent definition. The `ggnewscale` package provides a simple solution to this.
+There can be cases where you need to specify two different scales for the same aesthetic in a ggplot (for instance you want viridis for the `color` aesthetic of one set of points, and rainbow for the `color` aesthetic of a second set of points). `ggplot2` won't allow two different scales for the same aesthetic - it will throw a warning and only use the most recent definition. The `ggnewscale` package provides a simple solution to this.
 
 # Example
 

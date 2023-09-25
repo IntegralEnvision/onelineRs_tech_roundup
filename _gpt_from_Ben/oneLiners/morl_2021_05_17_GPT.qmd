@@ -1,0 +1,40 @@
+---
+title: ""
+subtitle: "`c()`"
+date: 2021-05-17
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to Vectors and Lists in R
+
+R programming language provides a variety of data types, including atomic vectors and lists. In this tutorial, we will explore the differences between vectors and lists, and their respective roles in R programming.
+
+Vectors in R
+
+In R, an atomic vector is a fundamental data type that contains elements of the same class or structure. For instance, a numeric vector contains numbers, a character vector contains strings or text, and a logical vector contains TRUE or FALSE values.
+
+To create a vector, you can use the c() function, which concatenates the input values into a vector. For example, v <- c(1, 2, 3, 4, 5) assigns a numeric vector containing the numbers 1 to 5 to the variable v.
+
+You can also use the square brackets [ ] to access elements in a vector. Square brackets allow you to extract, modify, or subset the elements of a vector. For example, v[2] returns the second element of the vector, which is 2. Additionally, you can use negative indices to exclude elements from a vector, or consecutive ranges to select a subset of elements. For example, v[-1] excludes the first element of the vector, and v[2:4] selects the second to fourth elements of the vector.
+
+A major characteristic of an atomic vector is that it is homogeneous, meaning that all elements in the vector are of the same data type. If you attempt to combine different types of data into a vector, R will coerce the data types into a single common type, typically starting with the least restrictive type.
+
+Lists in R
+
+While vectors in R provide a robust container for holding values of a common type, they are sometimes too restrictive for holding diverse data types or complex data structures. For instance, a list is an object that can contain elements of different classes or types, and even other complex data types, such as data frames or other lists. 
+
+To create a list, you can use the list( ) function, which allows you to combine elements of different types into a single object. For example, l <- list(1, "two", 3.0, TRUE) creates a list with four elements: a numeric, a character, a numeric, and a logical.
+
+Unlike vectors, you use double square brackets [[ ]] to extract components of a list. For instance, l[[1]] extracts the first element of the list, which is 1. You can also use the dollar sign $ notation to extract named elements of a list. For example, if the second element of our list is named "second", we can extract it with l$second.
+
+Another difference between lists and vectors is that you can access each element in a list using only one index. This is because each element in a list can have a varying length or structure, and is not constrained to the same data type like in vectors. 
+
+Conclusion
+
+In summary, vectors and lists are fundamental data types in R programming that serve different purposes. Vectors are useful for storing homogeneous data types or elements of a similar structure, while lists are appropriate for storing heterogeneous or complex data structures. Each data type has its own characteristics and custom functions that can be used to manipulate and extract their elements. Understanding these differences is essential for working with more complex datasets and R packages that use these data types.

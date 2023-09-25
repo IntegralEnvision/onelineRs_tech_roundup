@@ -1,0 +1,61 @@
+---
+title: "Monday One Liners: options()"
+subtitle: "`Options() and mean() and options()`"
+date: 2022-02-07
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to R functions
+
+R is a statistical programming language that is widely used by researchers and data scientists. It provides a set of built-in functions to perform various operations. Functions are an important concept in R because they enable you to reuse code, make it more organized, and reduce the chances of making errors.
+
+Options() function in R
+
+The options() function provides a way to control the behavior of R's interpreter. The behavior can be changed by setting values for various options. Some of the options that can be set include default strings to be printed for null or missing values, the number of characters that should be printed on one line, and so on. By executing the options() function, you can get a list of all available options.
+
+Here is an example of how to use the options() function:
+
+```
+options(warn = 2)
+```
+The above code will set the warn option to 2, which will cause R to stop the execution of the code if a warning occurs. By default, the warn option is set to 0, which means that warnings will be displayed but will not stop the execution of the code.
+
+Water Quality example dataset
+
+To illustrate how the options() function works, we can use a water quality dataset. Let's create a dataset that contains the pH and temperature values of water samples taken from different sources.
+
+```
+water_quality <- data.frame(
+  pH = c(7.6, 8.1, 6.5, 7.3, 7.5),
+  temperature = c(22, 25, 18, 20, 21)
+)
+```
+
+The above code will create a dataset with five rows and two columns. The columns represent the pH and temperature values of the water samples.
+
+Turning Warnings into Errors
+
+Suppose we want to write a function to calculate the mean of the pH values. We can use the mean() function to achieve this.
+
+```
+calculate_mean_pH <- function(data) {
+  mean(data$pH)
+}
+```
+
+If the column name in the input data is spelled wrongly, or if there are any missing values in the column, the mean calculation will give a warning but will not stop the execution of the code. This is because the warn option is set to 0 by default. 
+
+To stop the execution of the code when a warning occurs, we can set the warn option to 2 as shown below:
+
+```
+options(warn = 2)
+```
+
+Now, if there are any warnings generated in the code, they will be turned into errors and will stop the execution of the code immediately. 
+In the case of our example, if the column name or the input data is spelled wrongly or if there are any missing values in the column, we will get an error immediately, and the code will not execute any further.

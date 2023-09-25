@@ -1,0 +1,94 @@
+---
+title: "Monday One Liners: Generate some dates!"
+subtitle: "`Date() and seq()`"
+date: 2021-11-08
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction
+Sometimes in your R programming projects, you would need to generate a sequence of dates, for example, you may need to generate a sequence of dates ranging from January 1, 2020, to December 31, 2020, at weekly intervals.
+
+In this tutorial, we will show you how to use the `seq()` function to generate a sequence of dates with different intervals: days, weeks, months, quarters, and years.
+
+Using the seq() function
+The `seq()` function in R can be used to generate a sequence of numbers or a sequence of dates. Here is the basic syntax of the `seq()` function for generating a sequence of dates:
+
+`seq(from, to, by)`
+
+- `from` - the start date of the sequence
+- `to` - the end date of the sequence
+- `by` - the interval at which to generate the sequence
+
+The `from` and `to` parameters can be in any format that R recognizes as a date. The `by` parameter can be a number (for example, 7 for a weekly interval) or a string (for example, "month" for monthly interval, "quarter" for quarterly interval or "year" for yearly interval).
+
+Generating a sequence of dates
+Now let's look at some examples of how to generate a sequence of dates using the `seq()` function.
+
+Example 1: Generate a sequence of dates at daily intervals
+
+To generate a sequence of dates at daily intervals, we can use the `seq()` function as follows:
+
+```
+start_date <- as.Date("2020-01-01") # Start date
+end_date <- as.Date("2020-12-31") # End date
+dates <- seq(from = start_date, to = end_date, by = "day") # Sequence of dates
+```
+
+In the above code, we first defined the start and end date using the `as.Date()` function. We then used the `seq()` function to generate a sequence of dates at daily intervals.
+
+Example 2: Generate a sequence of dates at weekly intervals
+
+To generate a sequence of dates at weekly intervals, we can use the `seq()` function with a `by` parameter equal to 7 (the number of days in a week) as follows:
+
+```
+start_date <- as.Date("2020-01-01") # Start date
+end_date <- as.Date("2020-12-31") # End date
+dates <- seq(from = start_date, to = end_date, by = 7) # Sequence of dates
+```
+
+In the above code, we used the `by` parameter of the `seq()` function to generate a sequence of dates at weekly intervals.
+
+Example 3: Generate a sequence of dates at monthly intervals
+
+To generate a sequence of dates at monthly intervals, we can use the `seq()` function with a `by` parameter equal to "month" as follows:
+
+```
+start_date <- as.Date("2020-01-01") # Start date
+end_date <- as.Date("2020-12-31") # End date
+dates <- seq(from = start_date, to = end_date, by = "month") # Sequence of dates
+```
+
+In the above code, we used the `by` parameter of the `seq()` function to generate a sequence of dates at monthly intervals.
+
+Example 4: Generate a sequence of dates at quarterly intervals
+
+To generate a sequence of dates at quarterly intervals, we can use the `seq()` function with a `by` parameter equal to "quarter" as follows:
+
+```
+start_date <- as.Date("2020-01-01") # Start date
+end_date <- as.Date("2020-12-31") # End date
+dates <- seq(from = start_date, to = end_date, by = "quarter") # Sequence of dates
+```
+
+In the above code, we used the `by` parameter of the `seq()` function to generate a sequence of dates at quarterly intervals.
+
+Example 5: Generate a sequence of dates at yearly intervals
+
+To generate a sequence of dates at yearly intervals, we can use the `seq()` function with a `by` parameter equal to "year" as follows:
+
+```
+start_date <- as.Date("2020-01-01") # Start date
+end_date <- as.Date("2025-12-31") # End date
+dates <- seq(from = start_date, to = end_date, by = "year") # Sequence of dates
+```
+
+In the above code, we used the `by` parameter of the `seq()` function to generate a sequence of dates at yearly intervals.
+
+Conclusion
+In this tutorial, we have shown you how to use the `seq()` function in R to generate a sequence of dates with different intervals: days, weeks, months, quarters, and years. We hope that you can use this function in your R programming projects to generate the sequence of dates that you need.

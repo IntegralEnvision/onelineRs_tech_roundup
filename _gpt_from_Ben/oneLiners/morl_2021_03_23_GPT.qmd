@@ -1,0 +1,66 @@
+---
+title: ""
+subtitle: "`browser() and function() and options()`"
+date: 2021-03-23
+author: "Dreas Nielsen"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Overview of R Functions
+
+In R, a function is a group of related statements that perform a specific task. Functions are used to eliminate redundant code blocks in a program, thereby making the code more modular and easier to read. Simply put, a function is a set of instructions wrapped up in a single package that can be reused later.
+
+Defining Functions in R
+
+In R, functions are defined using the 'function()' command. The syntax for defining a function in R is as follows:
+
+function_name <- function(arguments){
+                  statements
+                  return(objects) }
+
+The 'function_name' is the name given to the function, and the 'arguments' are the inputs accepted by the function. Statements are made up of one or more R expressions that perform specific tasks within the function.  Finally, the objects returned by the function can be assigned to a variable or printed to the console.
+
+Example dataset for water quality
+
+To illustrate the concept of functions in R, let us create a simple dataset on water quality measurements. Suppose we want to compute the pH value for each site in the dataset using a mathematical formula that relates pH to the concentration of hydrogen ions. The dataset may look like this:
+
+site_location <- c("Site A", "Site B", "Site C")
+hydrogen_ion_concentration <- c(1.5, 0.8, 2.2)
+water_temperature <- c(20, 18, 22)
+
+water_quality_data <- data.frame(site_location, hydrogen_ion_concentration, water_temperature)
+
+Configuring R Scripts
+
+When working with R scripts, it is essential to create configuration settings that control the behavior of the script. A configuration setting is a variable that is defined at the beginning of the script and can be modified as necessary during execution. This allows for more control over the behavior of the script than hard-coding values into the script itself.
+
+In R, the "options()" command is used to create configuration settings. The "options()" command is used to set options that affect the behavior of R. The syntax for creating a configuration setting is as follows:
+
+options(name = value)
+
+The "name" is the name of the configuration setting we want to create, and "value" is the value we want to assign to this setting. Once we have created a configuration setting, we can modify it during runtime by calling the "options()" command again with the new value.
+
+Example of R Configuration Setting
+
+Suppose we want to create a configuration setting called "do_debug," which controls whether or not the "browser()" function is executed when the script is run. We can define this setting as follows:
+
+options(do_debug = FALSE)
+
+In this case, we have set "do_debug" to FALSE, which means that the "browser()" function will not be executed. Later on in the script, we can modify this setting if necessary by calling the "options()" command again:
+
+options(do_debug = TRUE)
+
+In this case, we have changed the value of "do_debug" to TRUE, which means that the "browser()" function will now be executed when the script is run.
+
+Creating Different Types of Configuration Settings
+
+In R, it is good practice to define different types of configuration settings to segregate rarely-modified settings from often-modified settings. For example, we can define general settings at the beginning of the script, which are typically unchanging. Then, we can define script-specific, database-specific, and other settings later in the script as necessary. This increases the modularity of the code
+
+Conclusion
+
+In summary, functions in R are used to perform specific tasks and eliminate redundant code. When working with R scripts, it is essential to create configuration settings that control the behavior of the script. Configuration settings are created using the "options()" command, and they can be modified during runtime to control the behavior of the script. By creating different types of configuration settings, we can increase the modularity and maintainability of our code.

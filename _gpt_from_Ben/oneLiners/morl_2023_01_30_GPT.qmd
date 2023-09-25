@@ -1,0 +1,65 @@
+---
+title: "Monday OneLineRs: tidylog"
+subtitle: "`filter() and mutate()`"
+date: 2023-01-30
+author: "Jonathan Zadra"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to tidylog
+
+The tidylog package offers a way to ensure that you have the expected results from join, filter, or mutate operations by providing immediate feedback on what changed. It wraps the dplyr functions by masking them with functions of the same name, and under the hood, the dplyr functions are still being used and produce the same output. However, tidylog provides additional information that can be helpful for debugging and understanding the transformations applied.
+
+Loading tidylog and dplyr
+
+Normally, it is necessary to load both tidylog and dplyr packages to use tidylog. Below are the code snippets that show how to load the package:
+
+```R
+library(tidylog) # load tidylog
+library(dplyr) # load dplyr
+```
+
+Obtaining detailed information for joins
+
+Join operations are a common place where errors can occur when data is not enough or when not all the rows have matching values. tidylog allows debugging of such errors by providing detailed information about the joins. The code snippet below shows how to obtain a detailed report when executing join operations:
+
+```R
+y <- inner_join(mtcars, iris, by = c("cyl"))
+```
+
+This code snippet returns information about the join, including when any rows were deleted by dplyr.
+
+Filtering data and adding new variables
+
+The filter() and mutate() dplyr functions are simple but powerful transformations for data analysis. However, it may be time-consuming to check the resulting data frame to ensure that the intended revisions were made. Tidylog provides instantaneous data-flows by flagging immediately when any alteration in the database takes place. 
+
+The code snippets below shows how to obtain detailed feedback on filtering and adding a new variable:
+
+```R
+mtcars %>% filter(cyl == 4)
+mtcars %>% mutate(qsec = wt / 2)
+```
+
+Here the filter operation returns a data frame with filters applied, and the mutate operation results in a new variable called qsec containing the computation of `wt / 2`.
+
+Debugging longer pipes
+
+Tidylog can also be useful in debugging longer pipes that could have gone wrong accidentally. The code snippet below shows how to debug longer pipes:
+
+```R
+mtcars %>% 
+  filter(cyl == 4) %>% 
+  mutate(qsec = wt / 2) %>% 
+  filter(speed > 4)
+```
+
+It first filters the data where cylinder equals 4, creates a new variable called qsec containing the computation of `wt / 2`, and then applies another filter to ensure resulting data is where speed is greater than 4. In this example, tidying logs will help recognize any erroneous operation in the pipe. 
+
+Conclusion
+
+tidylog is a helpful package that provides on-spot feedback on data transformation. This package can be easily combined with dplyr to get details on filtering data and adding new variables. It can also produce a detailed report on joining operations, which helps to recognize erroneous transformations. Tidylog can be beneficial in longer pipes to retain code quality and reduce debugging time.

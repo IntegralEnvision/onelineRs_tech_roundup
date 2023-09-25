@@ -1,0 +1,42 @@
+---
+title: "Monday One liners: Library Loading and Conflict Warning"
+subtitle: "`filter() and library()`"
+date: 2021-11-15
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions: Explained
+
+R is a programming language and software environment for data analysis and visualization. R has a wide variety of functions that are built into the package, and it also allows for users to build their own functions. In this tutorial, we will focus on how to use R functions and how to avoid conflict warnings.
+
+Loading Libraries in R
+
+Before we can use any functions in R, we need to make sure that the appropriate package is loaded. To load a package in R, we use the `library()` function. For example, if we want to use the dplyr package, we enter the following command:
+
+```R
+library(dplyr)
+```
+
+This will load the dplyr package and allow us to use the functions within that package.
+
+Conflict Warnings in R
+
+When we load a package in R, there may be some functions that have the same name as functions in other packages. For example, the dplyr package has a function called `filter()`. However, the stats package also has a function called `filter()`. If we load both the dplyr package and the stats package, there will be a conflict between the two functions, and R will give us a warning.
+
+To avoid these conflict warnings, we can use the parameter `warn.conflicts`. If we set `warn.conflicts = FALSE`, R will not give us any warnings when there are conflicts between functions. F can be used as a shorthand instead of FALSE.
+
+```R
+library(dplyr, warn.conflicts = F)
+```
+
+In the command above, we have loaded the dplyr package and set `warn.conflicts` to `FALSE`. This will prevent R from issuing any conflict warnings when we load this package.
+
+Conclusion
+
+In this tutorial, we have learned about how to load packages in R and how to avoid conflict warnings. By using the `library()` function and setting the `warn.conflicts` parameter to `FALSE`, we can load the packages we need without receiving any annoying warnings. Happy coding!

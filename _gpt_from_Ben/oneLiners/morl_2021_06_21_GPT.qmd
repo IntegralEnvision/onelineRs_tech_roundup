@@ -1,0 +1,84 @@
+---
+title: ""
+subtitle: "`Date() and format() and strptime()`"
+date: 2021-06-21
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+One line code to get current date in R
+
+The Sys.Date() function returns the current system date. It returns the date in YYYY-MM-DD format.
+
+```
+Sys.Date()
+```
+
+Output:
+
+```
+[1] "2021-08-18"
+```
+
+Getting Dates in Different Formats
+
+If you need the date value in a different format, you can use the format() function to specify the format you want. For example, you might want to display the date using a different separator or display the month as a word instead of a number.
+
+For this, you can use the following code:
+
+```
+format(Sys.Date(), "%d %B %Y")
+```
+
+Here, the "%d %B %Y" format string specifies to display the date as "day Month year". The "%d" directive displays the day of the month as a number ('01' to '31'). The "%B" directive displays the full name of the month. The "%Y" directive displays the year as a four-digit number.
+
+Output:
+
+```
+[1] "18 August 2021"
+```
+
+You can use any directive that is supported by the strptime() function to specify a custom format for the date.
+
+
+
+Common Formats
+
+Here are some commonly used date formats in R:
+
+Format string | Description
+--- | ---
+%Y | Year, four digits (e.g. 2021)
+%m | Month, two digits (e.g. 08)
+%b | Abbreviated month name (e.g. Aug)
+%B | Full month name (e.g. August)
+%d | Day of the month, two digits (e.g. 18)
+%a | Abbreviated weekday name (e.g. Wed)
+%A | Full weekday name (e.g. Wednesday)
+
+You can use these formats to display the date value in different formats.
+
+```
+format(Sys.Date(), "%Y-%m-%d")
+```
+
+Output:
+
+```
+[1] "2021-08-18"
+```
+
+```
+format(Sys.Date(), "%B %d, %Y")
+```
+
+Output:
+
+```
+[1] "August 18, 2021"
+```

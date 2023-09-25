@@ -1,0 +1,81 @@
+---
+title: ""
+subtitle: "`col_character() and col_double()`"
+date: 2021-08-02
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions to Import CSVs: A Tutorial
+
+The read_csv function is an alternative to the read.csv function in R that is part of the readr package, which is itself part of the tidyverse. It loads data as a tibble rather than a traditional R dataframe, and has several advantages over read.csv:
+
+- It loads data faster.
+- It doesn't change input types.
+- It allows non-standard variable names, such as those that start with a number or contain spaces.
+- It never creates row names.
+
+In this tutorial, we will explore how to use the read_csv function to import CSVs into R, and examine some of its key features and arguments.
+
+Importing Data with read_csv
+
+To use the read_csv function in R, first, you need to install and load the readr package. You can install it from CRAN using the following code:
+
+```
+install.packages("readr")
+```
+
+Once you have installed the package, you can load it into your current R session using:
+
+```
+library(readr)
+```
+
+Now you are equipped to use the read_csv function to import your CSV files. The command to do so is as follows:
+
+```
+my_data <- read_csv("my_file.csv")
+```
+
+This command will import the contents of the CSV file called "my_file.csv" into a tibble called "my_data". You can replace "my_file.csv" with the path to your own CSV file and "my_data" with the desired name of your tibble.
+
+Handling Header Rows and Variable Names
+
+By default, read_csv assumes that the first row of your CSV file contains headers, or variable names. If this is not the case, or if you have a CSV file with no headers, you can use the argument `col_names = FALSE` to indicate that the CSV file has no headers.
+
+```
+no_headers <- read_csv("no_headers.csv", col_names = FALSE)
+```
+
+By default, read_csv will convert any non-alphanumeric characters - such as spaces or commas - in your header names to periods. If you want to preserve non-standard header names, you can use the argument `check_names = FALSE` to turn off this behavior.
+
+```
+non_standard_headers <- read_csv("non_standard_headers.csv", check_names = FALSE)
+```
+
+Handling Input Types
+
+One of the biggest advantages of read_csv over read.csv is that read_csv doesn't try to be too clever in how it imports your data. Specifically, it doesn't change the data types for your input columns.Therefore, if you expect a column to contain a string, read_csv makes sure it stays as a string, rather than coercing it to a factor or character vector.
+
+```
+cylinder_data <- read_csv("cylinder_data.csv")
+```
+
+Handling Large Files
+
+read_csv is designed to be faster when importing large CSV files, so it is well-suited for handling big data CSV files. However, in some cases, you may still run into performance problems. In such cases, you can use the `col_types` argument to specify the expected types of columns and truncate strings to a specific maximum length using the `guess_max` argument.
+
+```
+large_data <- read_csv("large_data.csv", col_types = cols(x = col_double(), y = col_character()), guess_max = 10000)
+```
+
+By correctly specifying the column types, read_csv can improve performance significantly on large CSV files.
+
+Conclusion
+
+read_csv is a great function for importing CSV files into R, particularly if you are working with large files or difficult-to-work-with headers. In this tutorial, we have seen how to load CSVs into R using read_csv, and how to customize its behavior using its many arguments.

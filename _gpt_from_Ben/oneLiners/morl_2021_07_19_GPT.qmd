@@ -1,0 +1,77 @@
+---
+title: ""
+subtitle: "`case_when() and character() and frame() and head() and mutate()`"
+date: 2021-07-19
+author: "Julia Bouzaher"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions: Exploring case_when()
+
+R language provides a number of functions which are capable of handling data manipulation, data analysis and visualization. One such function is case_when(), which allows creating a new column based on given logical conditions. This tutorial will explain how to use case_when() function in R for creating a new column based on multiple conditions. 
+
+Getting Started
+
+Before starting with the case_when() function, let us first create a data frame with a water quality focus as an example dataset. We can use the built-in R data set, "LakeHuron" for this purpose.
+
+```{r}
+library(dplyr)
+data(LakeHuron)
+df <- as.data.frame(LakeHuron)
+head(df)
+```
+
+The above code will load "dplyr" library and "LakeHuron" dataset from the base R package. We will convert this dataset into a data frame format using the "as.data.frame()" function and then using the "head()" function, we will display the first few rows of the dataset.
+
+Using case_when() Function
+
+The general syntax for using the case_when() function is as follows:
+
+```{r}
+df <- df %>% mutate(new_column = case_when(condition 1 == TRUE ~ value_1, 
+                                           condition 2 == TRUE ~ value_2, 
+                                           TRUE ~ NA_real_)
+                   )
+```
+
+Here, we are using the "mutate()" function along with case_when() function to create a new column based on given conditions. The column name is "new_column" which is followed by the logical conditions inside the case_when() function. The number of conditions is not limited and can be increased or decreased as per the requirement.
+
+Let us try to understand the above code by considering some practical examples.
+
+Example: Creating a new column based on multiple conditions for the LakeHuron dataset.
+
+Suppose, we want to create a new column that categorizes each observation as "low", "average" or "high" based on the values of the "lakeHuron" column. For this, we can write the following code:
+
+```{r}
+df <- df %>% mutate(lakeHuron_category = case_when(lakeHuron < 575.5 ~ "low",
+                                                    lakeHuron >= 575.5 & lakeHuron < 579.5 ~ "average",
+                                                    lakeHuron >= 579.5 ~ "high", 
+                                                    TRUE ~ NA_character_)
+                   )
+```
+
+This code will create a new column called "lakeHuron_category" where each row is categorized based on the given logical conditions. The last line of code in case_when() assigns a value for rows that do not satisfy any mentioned conditions. Here, we used NA_character_ as the value, which means that the row will have NA value in case of no match.
+
+Example: Creating a new column for temperature range.
+
+Suppose we have a dataset that contains a column named "temperature" and we want to create a new column that categorizes each observation as "low", "middle" or "high" based on the values of the "temperature" column. For this, we can write the following code:
+
+```{r}
+df <- df %>% mutate(temp_range = case_when(temperature < 10 ~ "low",
+                                            temperature >= 10 & temperature < 20 ~ "middle",
+                                            temperature >= 20 ~ "high", 
+                                            TRUE ~ as.character(temperature))
+                   )
+```
+
+The above code will create a new column "temp_range" with the given logical conditions, "low", "middle", "high". But in case a row does not satisfy any of the mentioned conditions, the original row value for the "temperature" column will be assigned to the "temp_range" column. In order to maintain the original value type, we used as.character() function here.
+
+
+Conclusion
+
+The case_when() function is a powerful tool in R for creating a new column based on given logical conditions. It is useful when we want to categorize our observations based on multiple conditions. By using the above examples, one can become familiar with the function and apply it to their own datasets.

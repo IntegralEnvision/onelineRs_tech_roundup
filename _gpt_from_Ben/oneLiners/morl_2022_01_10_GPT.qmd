@@ -1,0 +1,38 @@
+---
+title: "Monday One Liners: standard geom_point jitter"
+subtitle: "`geom_boxplot()`"
+date: 2022-01-10
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using the position_jitter function with seed argument for standardizing the jitter position in ggplot2 plots
+
+Introduction
+When plotting data in ggplot2, you can use the function geom_point to identify the data points in your dataset. However, the default setting uses jitter positioning, which means that the points are slightly adjusted from their true value to better visualize the data. This can result in slightly different plots with different runs of the same code. But, if you wish to obtain the same positioning for your data points every time you run your code, one way to achieve this is by using the position_jitter function with a seed argument.
+
+Dataset
+To illustrate the position_jitter function with a seed argument, we will use the mtcars dataset in R, which contains information about car models and their characteristics, including miles per gallon (mpg) and number of cylinders (cyl).
+
+Code Explanation
+To use the position_jitter function with a seed argument in ggplot2, you need to specify a number for the seed argument, which will standardize the jitter positioning across all runs of the code.
+
+In the following code snippet, we create a boxplot of the mpg variable by the cyl variable in the mtcars dataset. Then, we add the function geom_point and specify position_jitter with seed = 37 to adjust the position of the data points.
+
+```r
+ggplot(mtcars, aes(x = cyl, y = mpg, group = cyl)) + 
+  geom_boxplot() + 
+  geom_point(position = position_jitter(seed = 37))
+```
+
+In this example, the seed number chosen was 37, but any number can be used to achieve the desired results.
+
+When you run this code snippet, you will get a plot with the boxplot and data points positioned according to the given seed. If you run the code again with the same seed, you should obtain the same positioning for the data points.
+
+Conclusion
+By using position_jitter with a seed argument, you can create reproducible plots in ggplot2 that always position the data points in the same way. This is useful when you need to compare your plots across different runs or want to minimize the variability in your plots.

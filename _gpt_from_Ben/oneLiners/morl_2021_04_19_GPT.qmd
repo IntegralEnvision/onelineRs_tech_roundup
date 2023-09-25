@@ -1,0 +1,66 @@
+---
+title: ""
+subtitle: "`intersect()`"
+date: 2021-04-19
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R's intersect() Function to Find Common Elements in Vectors
+
+In R, intersect() is a base function that helps to find the items common to two or more sets (in this case vectors). The intersect() function works for both numeric and character vectors. This tutorial will explain the syntax, usage, and benefits of intersect() function.
+
+Syntax:
+intersect(x, y)
+
+Parameters:
+x, y - numeric vectors are intersected.
+
+Example: 
+a <- c(3, 5, 7, 9, 13)
+b <- c(1, 2, 3, 4, 5)
+common <- intersect(a, b)
+In this example, the intersect() function will find only 3, 5, and 7 to be common in both vectors.
+
+Using intersect() with Character Vectors
+In addition to numeric vectors, intersect() also enables the user to find common elements in character vectors. Let us consider an example of comparing two countries’ names.
+
+Syntax:
+intersect(x, y)
+
+Parameters:
+x, y - character vectors to be intersected. 
+
+Example: 
+first_country <- c("Brazil", "Nigeria", "South Africa", "China")
+second_country <- c("Brazil", "India", "South Africa", "Portugal")
+common_country <- intersect(first_country, second_country)
+In this example, the intersect() function will return “Brazil” and “South Africa” as common countries in both vectors.
+
+Using intersect() in Data Analysis
+Suppose you have two data frames and you want to identify the common columns in both. First, store the column names of the two data frames in separate vectors (one vector for one data frame) and then use intersect() function on those vectors.
+
+Syntax:
+   intersect(names(df1), names(df2))
+
+Parameters:
+names(df1) – column names from the first data frame
+names(df2) – column names from the second data frame
+
+Example: 
+df1 <- data.frame(id = c(1, 2, 3), year = c(2021, 2021, 2021), score = c(50, 90, 65))
+df2 <- data.frame(id = c(1, 2, 3), year = c(2022, 2022, 2022), result = c("Fail", "Pass", "Fail")) 
+#store column names
+col_df1 <- names(df1)
+col_df2 <- names(df2)
+#identify common columns in both data frames
+common_columns <- intersect(col_df1, col_df2)
+In this example, the intersect() function will find "id" and "year" as common columns in both data frames.
+
+Conclusion:
+The intersect() function is quite helpful in finding common elements in vectors, whether they are numeric or character vectors. It is also useful in data analysis when dealing with multiple data frames that share common columns.

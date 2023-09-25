@@ -1,0 +1,49 @@
+---
+title: ""
+subtitle: "`class()`"
+date: 2021-07-26
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction
+R is a popular programming language and environment that is widely used in data analysis and statistical computing. R functions are at the core of the language and enable users to perform various operations on data. One common task is identifying the object type of a variable, which can be achieved using the `class()` function.
+
+Using the `class()` Function
+The `class()` function is a built-in R function that takes an R object as input and returns its class or data type. In R, variables can have different types, including numeric, character, factor, integer, and more. To determine the type of a variable, simply call the `class()` function and pass the variable as an argument, like this:
+
+```
+x <- "hello"
+class(x)
+```
+This will return "character" since the variable `x` is a character object. Similarly, if you have a numeric variable, you can use the `class()` function to check its class:
+```
+y <- 25
+class(y)
+```
+This will return "numeric".
+
+Understanding R Base Classes
+It's important to note that R has several base classes that define the different types of objects that can exist within the R environment. These classes include "logical", "numeric", "integer", "complex", "character", and "raw". When you call the `class()` function on an object, it will return one of these base classes.
+
+Numeric vs Integer Data Types
+One thing to keep in mind when working with R is that there isn't a separate data type for integers and floats. Instead, all numeric values in R are represented as doubles, which means that even if you assign a whole number to a variable, it will still be stored as a double data type. For example:
+```
+z <- 10
+class(z)
+```
+This will return "numeric", even though `z` is assigned an integer value.
+
+Conclusion
+The `class()` function is a useful tool for identifying the data type of an R object. By calling this function, users can get a better understanding of the structure of their data, which is essential for working with it effectively.
+
+As a water quality example dataset, consider the following measurements of pH for different samples collected from a river:
+```
+pH_measurements <- c(7.2, 8.1, 6.9, 7.3, 7.8)
+class(pH_measurements)
+```

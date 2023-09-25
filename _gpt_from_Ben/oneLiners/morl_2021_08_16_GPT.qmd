@@ -1,0 +1,55 @@
+---
+title: ""
+subtitle: "`across() and contains() and ends_with() and list() and matches() and mutate_if() and select() and starts_with()`"
+date: 2021-08-16
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to dplyr::across()
+
+dplyr::across() function is a highly flexible function in the dplyr package that allows you to apply the same operation to multiple columns of your data frame. This can be especially useful when you are trying to clean or manipulate your data, because you can apply the same transformation to multiple variables at once. The possible inputs for across() are many, and can be specified in a very flexible way. We will review its syntax, including selecting variables, and applying functions to them.
+
+Syntax of dplyr::across()
+
+across() takes an argument .cols, which specifies the variables you want to modify. You can use any tidyselect specification for this, including the select() helper functions. Here are some options that you can use:
+
+- to select variables based on their names: c("var1", "var2", "var3")
+- to select variables based on their positions: 1:3
+- to negate selections with - c(-var1, -var2, -var3)
+- to use tidyselect helpers such as starts_with(), ends_with(), contains(), matches(), etc.
+
+After selecting the columns, you apply a function to each column. This function can be anything that returns a value: a pre-defined function or an anonymous function defined inline. Here is a simple example to illustrate the syntax:
+
+``` r
+library(dplyr)
+
+data(iris)
+
+iris2 <- iris %>%
+  mutate_if(is.numeric, function(x) x * 2)
+```
+
+This code uses mutate_if() to simultaneously apply function multiply by 2 to all the columns of iris that are numeric.
+
+Using dplyr::across() with Named Functions
+
+Suppose you want to apply not just one function, but multiple functions to each column. You can pass a list of functions to across(). For example, let's say you want to standardize three numeric columns of your data by subtracting each value from the column mean and dividing by the column standard deviation:
+
+``` r
+my_vars <- c("Sepal.Length", "Sepal.Width", "Petal.Length")
+
+iris2 <- iris %>%
+  mutate(across(all_of(my_vars), list(zscore = ~ (. - mean(.))/sd(.))))
+```
+
+In this case the "all_of" function is used to select the variables in "my_vars" from the iris data frame. The list() function is used to create a list of functions to apply. It names the new variable "zscore" and applies to each column of the df. 
+
+Conclusion
+
+dplyr::across() offers a simple and efficient way to apply multiple functions to specified columns of a data frame. It offers great flexibility with its .cols argument, which offers many ways to select the relevant variables. By specifying the function as a list, you can apply multiple functions to each variable at once. In addition, it pairs well with the tidyselect syntax that many dplyr users are already familiar with.

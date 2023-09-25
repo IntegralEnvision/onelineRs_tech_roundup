@@ -1,0 +1,45 @@
+---
+title: "Monday One Liner: purrr's possibly"
+subtitle: "`log() and possibly()`"
+date: 2022-01-31
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to Purrr's Possibly function
+
+The Purrr library is an important library in R for manipulating data with functions. The library has a function named `possibly` that is used to replace errors in functions with replacement values instead of generating errors. This function helps to write robust code, handle errors more gracefully, and improve the overall performance of the code. In this tutorial, we will discuss how to use the `possibly` function to replace errors in the functions with the examples.
+
+An Example on possibly()
+
+Let's start with the example of a logarithmic function. In the example, we use the log() function to calculate the natural logarithmic value of the number passed to the function. When we pass a negative number, the log() function gives us an error.
+
+```
+mylog <- function(x) log(x)
+mylog(-1)
+```
+
+Now when we pass a negative number parameter to the function, the log() function should return an error like below:
+
+```
+Error in log(x) : argument < 0
+```
+
+Using possibly()
+
+We will use purrr's possibly function to wrap the function `mylog` to replace this error with an NA value instead of generating an error. Check the following code snippet that uses the `possibly` function to wrap the `mylog` function.
+
+```
+# Using possibly()
+mylog2 <- possibly(mylog, otherwise = NA)
+mylog2(-1)
+```
+
+In the second function, `mylog2`, we passed `mylog` as our original function that returns an error for negative values of 'x'. The replacement value, `otherwise`, is set to an NA in this case, to replace the error with the "NA" value.
+
+We have now replaced the error with an NA value. Thus, our code becomes more robust and better handles errors.

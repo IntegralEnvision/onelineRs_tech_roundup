@@ -1,0 +1,53 @@
+---
+title: ""
+subtitle: "`integer() and numeric() and readline()`"
+date: 2021-06-28
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+How to Use R Functions: Getting User Input with readline()
+
+R has a built-in function called readline() that allows you to get input directly from the user during an interactive session. This can be helpful for scripts or applications that require user input. Here's an overview of how to use readline() in R:
+
+Using readline() to Get User Input
+
+To use readline(), simply call the function in your R script, and include a prompt string inside the parentheses. The prompt string is what the user will see when the script requests their input. Here's an example:
+
+``` 
+name <- readline("What's your name? ") 
+```
+
+In this example, the prompt string is "What's your name?". When the script runs, the user will see this prompt, and can type their name in response. Their input will be saved as a string in the variable "name".
+
+Note that in this example, we used the arrow assignment operator "<-" to assign the user's input to the variable "name". This is because readline() returns the user's input as a character string. If you want to use the input as a numeric value or for another purpose, you may need to convert it using other R functions.
+
+Using User Input in R Scripts
+
+Once you have obtained user input with readline(), you can use it like any other variable in your R script. For example:
+
+```
+age <- as.integer(readline("How old are you? "))
+birth_year <- 2022 - age
+```
+
+In this example, the script asks the user for their age, and uses the resulting integer value to calculate their birth year. Note that we used the as.integer() function to convert the user's input to an integer value, which is required for the subtraction with the current year.
+
+Possible Dataset example with a Water Quality Focus
+
+Let's say you're creating a water quality monitoring system that asks users to input the pH levels of water samples. You can use readline() to get this input from the user:
+
+```
+pH_level <- as.numeric(readline("Enter the pH level for the water sample: "))
+```
+
+Here, we used the as.numeric() function to convert the user's input to a numeric value, which is necessary for any calculations or comparisons related to the pH level. 
+
+Conclusion
+
+readline() is a simple function in R that allows you to get input from users during an interactive session. You can use this user input just like any other variable in your script. Keep in mind that you may need to convert the user's input to a different type, depending on how you intend to use it.

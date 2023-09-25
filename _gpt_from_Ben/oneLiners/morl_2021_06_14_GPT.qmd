@@ -1,0 +1,48 @@
+---
+title: ""
+subtitle: "`mutate()`"
+date: 2021-06-14
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to Pipes in R
+
+R pipes are a means for chaining and composing a sequence of operations in code, such that the output of the previous operation becomes the input to the following operation. The operator for piping in R is the `%>%` symbol or the pipe symbol, and it is brought in from the `magrittr` package by default. Pipes are used to simplify code that involves multiple operations, and are largely used within the `dplyr` and `tidyr` packages. In this tutorial, you will learn the basics of piping with R, including its advantages and disadvantages.
+
+Using Pipes in R
+
+An example of a simple pipe command to assign data to a new variable is shown below:
+
+`diamonds %>% dplyr::mutate(price_per_carat = price / carat)`
+
+In this example, the `diamonds` data is first piped into the `mutate()` function of the `dplyr` package, and a new column is created called `price_per_carat` which is the result of the `price` column divided by the `carat` column. Piping eliminates the need to reference the original data frame for continuous manipulation, and reduces the complexity of the code. In this case, it is easier to read and understand what is happening with the data.
+
+Advantages of Piping
+
+In addition to simplifying code, piping provides other benefits:
+
+1. Pipes work well with the "tidy" data format of R, allowing for flexible and modular data manipulation.
+
+2. There is an intuitive flow to read the code with pipes: data goes on the left-hand side of the pipe symbol, and a sequence of operations goes on the right-hand side of the pipe symbol.
+
+3. Debugging incorrect code is easier with pipes than with long strings of code, which can be tedious and difficult to trace back to their origin.
+
+Limitations of Piping
+
+However, there are instances when using pipes can be less advantageous:
+
+1. If there are more than 10 steps in the sequence of operations, the code is considered too long, and it may become difficult to debug or trace back through the code.
+
+2. Piping may not work well with functions that receive multiple inputs or provide multiple outputs.
+
+3. Pipe expressions may not always express the code in a clear, comprehensible way, especially if the code has a complex dependency case.
+
+Conclusion
+
+Piping can be a very useful tool for simplifying code within R, but its usage comes with limitations. It is recommended that readers further research the mechanics and appropriate use cases of piping within R by referring to the relevant documentation on packages like `magrittr` and `dplyr`.

@@ -1,0 +1,76 @@
+---
+title: "Monday OneLineRs"
+subtitle: "``"
+date: 2022-04-19
+author: "Jonathan Zadra"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions with the Breaker of Chains Addin
+
+Overview
+
+The Breaker of Chains addin is a tool that allows R users to quickly run a portion of a longer series of pipe chains. This is particularly useful if you are writing a long code block and want to diagnose any issues before proceeding further. 
+
+Installation and Setup
+
+First, you must install the Breaker of Chains package by running the following command:
+
+```R
+devtools::install_github(MilesMcBain/breakerofchains)
+```
+
+Once the package has been installed, you will need to quit and reopen R for the functions to become available in the addins menu. To make this tool more user-friendly, you can assign a hotkey to it. 
+
+To do this, go to the 'Tools' menu and select 'Modify Keyboard Shortcuts'. Then, use the filter box to search for 'break chain'. You will see the following options:
+
+- Break Chain from Cursor to End
+- Break Chain from Cursor to Start
+
+Select the option you prefer, and assign the hotkey of your choice to activate it.
+
+Usage
+
+To use the Breaker of Chains addin, simply place your cursor anywhere in the line you want to run up to and press the hotkey combination you have assigned earlier. This will run the code up to that point, allowing you to check if there are any issues before proceeding.
+
+Example with Water Quality Dataset
+
+Let's say you're working with a water quality dataset that looks like this:
+
+```R
+water_quality <- data.frame(
+  water_type = c("Lake", "River", "Ocean", "Pond", "Stream"),
+  pH = c(7.5, 8.1, 8.5, 6.9, 7.2),
+  turbidity = c(0.9, 1.2, 2.5, 0.6, 0.8),
+  dissolved_oxygen = c(8.3, 7.9, 6.8, 9.2, 8.6),
+  nitrate = c(2.1, 3.2, 3.8, 1.5, 2.7),
+  phosphate = c(0.1, 0.3, 0.6, 0.2, 0.2)
+)
+```
+
+If you want to clean up your dataset before proceeding further, you could use the following code:
+
+```R
+library(dplyr)
+
+water_quality_cleaned <- water_quality %>%
+  select(-c(water_type, turbidity)) %>%
+  filter(dissolved_oxygen > 7) %>%
+  mutate(nutrient_sum = nitrate + phosphate)
+```
+
+However, you may want to run the code block up to the filter function to check whether the filtering is working as expected. Instead of commenting out the rest of the code block or copying and pasting only part of it, you can use the Breaker of Chains addin:
+
+1. Place your cursor anywhere in the `filter` function line.
+2. Press your assigned hotkey combination.
+
+This will run the code up to the `filter` function, allowing you to check whether the filtering has been done correctly.
+
+Conclusion
+
+The Breaker of Chains addin can be a valuable tool for R users who want to run a portion of a longer code block to diagnose any issues before proceeding. With a simple hotkey combination, you can save time and avoid unnecessary commenting or copying and pasting.

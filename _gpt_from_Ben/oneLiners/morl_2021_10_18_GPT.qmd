@@ -1,0 +1,49 @@
+---
+title: "Monday  One Liners: ' or ""
+subtitle: "``"
+date: 2021-10-18
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction
+
+Quotes in R refer to the symbols (' or ") used to delimit strings or character vectors. It is essential to write valid quotes while writing code in R. In R, quotes can be used interchangeably, and both single and double quotes can be used. This tutorial will provide an overview of using single or double quotes in R, as well as how to use single quotes to surround double quotes.
+
+Using Single or Double Quotes in R
+
+In R, both single and double quotes can be used, and they work interchangeably for most circumstances. However, it is preferred to use double quotes according to the documentation. This is because many other programming languages, such as Python and JavaScript, use double quotes for strings, and it helps to maintain consistency.
+
+To demonstrate this, let's consider a simple example. Suppose we need to create a string variable that contains the text "Hello, world!". We can create this variable using either single (') or double (") quotes, as shown below:
+
+```
+# using single quotes
+message1 <- 'Hello, world!'
+
+# using double quotes
+message2 <- "Hello, world!"
+```
+
+As you can see, both single and double quotes can be used to create the same string. 
+
+However, there are some situations where using single quotes is preferable. One such situation is when the string itself contains double quotes. In this case, we can use single quotes to surround the double quotes within the string. This is shown below:
+
+```
+# using single quotes to surround double quotes
+message3 <- 'The teacher said, "Please submit your assignments by Wednesday."'
+```
+
+In the above example, we use single quotes to surround the entire string. Within the string, we use double quotes to surround the text that the teacher said. This helps to avoid any confusion or errors that may arise if we were to use double quotes to mark the beginning and end of the entire string.
+
+Conclusion
+
+In conclusion, both single and double quotes can be used interchangeably in R. However, according to the documentation, double quotes are preferred. Single quotes can be used to surround double quotes within a string, which can help to avoid confusion and errors. It is essential to use valid quotes when writing code in R to ensure that the code functions as intended. 
+
+References:
+
+Quotes in R: https://stat.ethz.ch/R-manual/R-patched/library/base/html/Quotes.html

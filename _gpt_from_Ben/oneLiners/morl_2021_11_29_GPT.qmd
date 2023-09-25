@@ -1,0 +1,40 @@
+---
+title: "Monday One Liners: What's the rle()?"
+subtitle: "`rle()`"
+date: 2021-11-29
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Understanding the rle() Function in R
+
+The rle() function, which stands for "run length encoding", is a useful function in R for dealing with data that has streaks or runs of values. By using the rle() function, we can get the length of the run as well as the value associated with that run. 
+
+Using rle() in R
+
+Here is an example of using rle() in R with a vector of TRUE or FALSE values. 
+``` 
+z <- c(TRUE, TRUE, FALSE, FALSE, TRUE, "A", "B")
+rle(z)
+```
+In this example, we are passing a vector of TRUE or FALSE values to the rle() function. The output of the rle() function will be a named list with two elements: 
+
+1. lengths: An integer vector of the number of items in a run. In this example, it will return the vector 2, 2, 1, 1, 1, 1
+2. values: Indicates the values in each run. In this example, the values component of rle() will return the vectors TRUE, FALSE, TRUE, "A", "B"
+
+The importance of rle() for Time Series Analysis
+
+Time series analysis is an important area of research where rle() often finds its use. In time series analysis, we may want to know how many times a particular value occurs in a sequence. By using rle(), we can identify the number of times a particular value appears in a sequence, which helps us better understand the pattern of data over time. 
+
+rle() for Counting Head/Tail in Coin Flips
+
+Another useful application of rle() is to count the number of heads or tails occurring consecutively in a sequence. If we have a sequence of flips of a coin, we can use rle() to determine the number of times we get heads or tails consecutively. This can be useful in gambling, probability, and statistics research. 
+
+Conclusion
+
+In conclusion, rle() is a useful R function for analyzing and understanding sequences of data that have streaks or runs of values. Using rle(), we can easily identify the number of times a particular value occurs in a sequence and the number of times a value appears consecutively. We hope this article helps you better understand the rle() function and how it can be useful in your work.

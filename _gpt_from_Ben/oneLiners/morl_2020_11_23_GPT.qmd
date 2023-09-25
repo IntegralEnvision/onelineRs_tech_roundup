@@ -1,0 +1,87 @@
+---
+title: "Monday One liners"
+subtitle: "`cases() and fill() and na() and omit()`"
+date: 2020-11-23
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to R Functions
+
+R language is a powerful and flexible programming language used in statistical analyses, data visualization, machine learning, and advanced data analytics. One of its most essential features is the ability to create custom functions to perform repetitive tasks or specific calculations that may not be readily available in the R library.
+
+In this tutorial, we will cover the basics of creating and using your own functions in R. We'll discuss function syntax, essential function arguments, and how to call functions in your code.
+
+Creating a Function
+
+Creating a function in R is simple. It has three parts - the function name, arguments, and the function body. A function is created using the `function` keyword followed by the function name, along with the arguments, which are enclosed in parentheses. The function body is a block of code enclosed in curly braces {}.
+
+Here is an example function that multiplies two numbers:
+
+```
+multiply <- function(x, y) {
+  result <- x * y
+  return(result)
+}
+```
+
+Above function is named `multiply` which takes two arguments `x` and `y`. The body of the function multiplies `x` and `y`, and the result is stored in a variable named `result`. Finally, the function returns the value of `result`.
+
+Calling a Function
+
+Once a function is created, you can call it whenever you need to execute the code inside the function. You call a function by its name, followed by the arguments inside parentheses. For example, using the `multiply` function defined above, we can call the function like so:
+
+```
+result <- multiply(2, 3)
+```
+
+The above code calls the `multiply` function, passing in the arguments 2 and 3. The result (6) is then stored in the variable `result`.
+
+Function Arguments
+
+Function arguments are input values that are passed to a function for processing. You can think of them as the parameters that the function needs to do its job. Arguments are used to make functions more flexible and reusable, as they allow the function to be used with different input values.
+
+Below is an example function that uses an argument:
+
+```
+calculate_area <- function(radius) {
+  pi <- 3.14
+  area <- pi * radius ^ 2
+  return(area)
+}
+```
+
+Above function defines a `calculate_area` function that takes one argument, `radius`. The body of the function calculates the area of a circle using the `pi` constant and the `radius` argument. Finally, the function returns the calculated `area`.
+
+Handling Missing Values in R
+
+Missing values, also called `NA`, are common in real-world datasets. R provides multiple functions to handle missing values. Dealing with missing data is an essential task for data analysts, and it can significantly impact the quality of the results. Missing values can be handled by removing rows with `NA`, replacing `NA` values with a constant value, or imputing missing values based on statistical methods.
+
+Some useful functions for handling `NA` values in R include:
+
+- `is.na()`: returns a logical vector indicating which elements are missing (equal to `NA`).
+- `complete.cases()`: returns a logical vector indicating which rows have no missing values.
+- `na.omit()`: returns the object with missing values removed.
+- `na.fill()`: replaces missing values with a specified value or statistical method (e.g., median, mean).
+
+Example Dataset
+
+We will use the water quality dataset, which contains observations of water quality variables such as pH, conductivity, and temperature.
+
+```
+# create example dataset
+water_quality <- data.frame(
+  pH = c(7.2, 7.5, 7.4, 8.1, NA, 7.0, 6.8, 7.9),
+  conductivity = c(100, 120, 80, 90, NA, 100, 110, 115),
+  temperature = c(20, 18, 21, 23, NA, 20, 19, 22)
+)
+```
+
+Conclusion
+
+Creating and using functions is an essential skill when working with R. Custom functions allow you to perform common tasks more efficiently, reuse code, and make your code more modular. Understanding basic R syntax, handling missing values, and data manipulation can help data analysts work fluently with large datasets.

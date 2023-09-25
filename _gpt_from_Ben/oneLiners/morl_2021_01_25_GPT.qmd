@@ -1,0 +1,83 @@
+---
+title: ""
+subtitle: "`help() and mean() and plot()`"
+date: 2021-01-25
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions: A Helpful Tutorial
+
+R is a powerful tool for data analysis and visualization. One of the key features that make R so useful is its extensive collection of functions, which allow users to perform complex analyses and manipulate data with ease. In this tutorial, we will explore the basics of using R functions, including how to access help documentation, and how to search for help when you need it.
+
+Accessing Help Documentation
+
+One of the best ways to get started with a new function in R is to use the help documentation that comes with the software. To access this documentation, you can use the help() or ? functions in R. For example, suppose you want to learn more about the mean() function, which calculates the arithmetic mean of a vector of numbers. To access the help documentation for this function, simply type the following into the R console:
+
+```
+help(mean)
+```
+
+or
+
+```
+?mean
+```
+
+This will bring up the help documentation for the function, which provides information on the function's inputs, outputs, and any other important details you need to know.
+
+Searching for Help
+
+In some cases, you may not know the exact name of the function you need help with. For example, suppose you want to find a function in R that can calculate the median value of a dataset. To search for this function, you can use the ?? operator in R. Simply type two question marks followed by the keyword you want to search for, like this:
+
+```
+??median
+```
+
+This will bring up a list of all functions in R that have the word "median" in their documentation. From here, you can select the function that best fits your needs and access its help documentation using the techniques discussed above.
+
+Water Quality Dataset Example
+
+As an example of using the functions, we can use a dataset that focuses on water quality. With this dataset, we can explore how to use functions to perform calculations and visualize the data using R.
+
+To load the dataset, we can use the following code:
+
+```
+# Load the water quality dataset
+water_quality <- read.csv("water_quality.csv")
+
+# Display the first few rows of the dataset
+head(water_quality)
+```
+
+This will load the dataset into R and print out the first few rows of the dataset to the console.
+
+To calculate the mean value of the dissolved oxygen levels in the water_quality dataset, we can use the mean() function like this:
+
+```
+# Calculate the mean dissolved oxygen level
+mean_DO <- mean(water_quality$dissolved_oxygen)
+
+# Print the result
+print(mean_DO)
+```
+
+This code will calculate the mean dissolved oxygen level in the dataset and print out the result to the console.
+
+To visualize the relationship between the pH levels and the dissolved oxygen levels in the dataset, we can use a scatter plot. To create this plot, we can use the plot() function like this:
+
+```
+# Create a scatter plot of pH vs. dissolved oxygen
+plot(water_quality$pH, water_quality$dissolved_oxygen)
+```
+
+This code will create a scatter plot of the pH levels vs. the dissolved oxygen levels in the dataset.
+
+Conclusion
+
+Using functions in R is an essential part of working with data in this powerful statistical software. By accessing the help documentation and using search techniques, you can quickly find the functions you need and learn how to use them effectively. And by using example datasets, you can explore the power of functions in R to analyze and visualize your data with ease.

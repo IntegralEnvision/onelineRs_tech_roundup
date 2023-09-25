@@ -1,0 +1,54 @@
+---
+title: "Monday OneLineRs"
+subtitle: "`stamp() and stamp_date() and stamp_time() and today()`"
+date: 2022-04-25
+author: "Jonathan Zadra"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions to Create Customized Stamps
+
+Date and time formatting is an essential part of many reports and visualizations. R programming language provides a handy package, lubridate, that makes it easy to customize date/time formatting with the help of various functions. One such function is stamp_date() that creates a stamp of a customized date format. In this tutorial, we will explore how to use the stamp_date() function in R. 
+
+Creating a Stamp with the stamp_date() Function
+
+The stamp_date() function in R creates a stamp of a customized date format. To create a stamp using the stamp_date() function, we should pass any random date or day, etc., as a parameter to the function. For example, let’s create a stamp for Monday OneLineR for January 31, 2005: 
+
+```
+onelineR_stamp - stamp_date('Monday OneLineR for January 31, 2005')
+```
+
+Here, we use the stamp_date() function to create a stamp for the given date; however, we can create a stamp for any date, and the package will recognize it. We chose this particular date for demonstration purposes only. 
+
+Using the Stamp in R
+
+Now that we have created a stamp, we can pass any object of the class ‘Date’ to our onelineR_stamp variable to produce the output in the desired format. For example, to produce a stamp of today's date, we can use the today() function (which is a lubricate shortcut used to get a date object for today's date), as follows:
+
+```
+today_date <- today()
+onelineR_stamp(today_date)
+```
+
+Alternatively, we can use any other date object instead of today_date to produce a stamp in the desired format: 
+
+```
+other_date <- as.Date("2022-05-01")
+onelineR_stamp(other_date)
+```
+
+Using Other Stamp Functions
+
+In addition to stamp_date(), we can use two more stamp functions provided by the lubridate package, stamp() and stamp_time(). 
+
+- stamp() is the general stamp function that works best when it comes to recognizing the various parts of the text passed to it. However, it's important to consider the format of the date passed to it, e.g., 5/8/11 could be May 8th of 2011 (m/d/y) or August 11th of 2005 (y/m/d). Passing unambiguous values such as a day value greater than 12 rules out the possibility of that part being a month, and a year greater than 31 rules out that part being a day. 
+
+- On the other hand, stamp_date() and stamp_time() are more specialized functions that restrict possible interpretation of the passed date or time value, thereby reducing ambiguity.
+ 
+Conclusion
+
+The lubridate package provides various functions that can simplify the process of customized time and date formatting in R. In this tutorial, we demonstrated how to use the stamp_date() function to create stamps of customized date formats. We also showed how to use these stamps to create a desired output. 

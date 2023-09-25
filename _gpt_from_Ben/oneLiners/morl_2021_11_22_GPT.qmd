@@ -1,0 +1,38 @@
+---
+title: "Monday One- Liners: ? your data"
+subtitle: "``"
+date: 2021-11-22
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions: Accessing Dataset Information
+
+R functions are designed to make data analysis and visualization easier by performing specific tasks. Most functions require some form of data inputs or parameters for them to execute properly. Sometimes, it may not be clear what kind of data or what kind of input syntax a function expects. This is where the R help documentation becomes handy. In this tutorial, we'll show you how to access dataset information using R functions, specifically by using the "?" command.
+
+## Accessing Package Dataset Information
+
+The "?" command can be used to access R documentation for functions and datasets that can be accessed within a particular R package. For example, let's say that we want to learn more about the `iris` dataset in the `datasets` package. We can type `?datasets::iris` into the console, and the R help documentation for the `iris` dataset in the `datasets` package will appear in a new window. Within this help documentation, we can find information such as the dataset description, variable names, and summary statistics.
+
+## Accessing User-Defined Dataset Information
+
+The "?" command can also be used to access R documentation for user-defined datasets that have been loaded into the current R environment. For example, let's say that we have a dataset called `my_data` loaded into our R environment, and we want to learn more about it. We can type `?my_data` into the console, and the R help documentation for `my_data` will appear in a new window. Within this help documentation, we can find information such as variable names, data types, and summary statistics for `my_data`.
+
+## Using The "?" Command In The RStudio Environment
+
+In the RStudio environment, we can also access dataset information by using the `Datasets` tab in the `Help` window. To access a dataset through the `Datasets` tab, we can type `datasets::` into the search box, then select the desired dataset we want to learn more about. This will bring up the help documentation for the selected dataset.
+
+For example, if we want to learn more about the `mtcars` dataset in the `datasets` package, we can type `datasets::` into the search box, then select `mtcars`. This will bring up the R help documentation for the `mtcars` dataset.
+
+## Getting Information About A Specific Variable
+
+In addition to general dataset information, the "?" command can also be used to obtain information about specific variables within a dataset. For example, let's say that we want to learn more about the `Sepal.Length` variable in the `iris` dataset. We can type `?datasets::iris$Sepal.Length` into the console, and the R help documentation for the `Sepal.Length` variable in the `iris` dataset will appear in a new window. Within this help documentation, we can find information such as the variable description, data type, and summary statistics.
+
+## Conclusion
+
+In this tutorial, we demonstrated how to access dataset information using R functions. The "?" command can be used to obtain help documentation for datasets and variables within datasets for both package datasets and user-defined datasets. By utilizing these resources, we can gain a deeper understanding of the datasets that we are working with, which can help us make more informed decisions when analyzing and visualizing our data.

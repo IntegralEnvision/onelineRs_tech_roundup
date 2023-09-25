@@ -1,0 +1,53 @@
+---
+title: "Monday One Liner (Sort of!): Wrapping strings over multiple lines"
+subtitle: "`strwrap()`"
+date: 2021-12-13
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Wrapping Strings over Multiple Lines in R with strwrap()
+
+When writing code, you may encounter situations where a line of code exceeds the limit of the document or screen. R provides you with the ability to break up long strings of text and wrap them onto multiple lines. 
+
+You can achieve this by using the strwrap() function in R. The strwrap() function breaks a long string into multiple lines, based on the width parameter that you specify.
+
+Here is an example of how to use the strwrap() function to wrap a long string onto multiple lines.
+
+```r
+long_string <- "This is a very long string that needs to be wrapped onto multiple lines in order to improve readability."
+wrapped_string <- strwrap(long_string, width = 30)
+```
+
+In this example, we created a long string and assigned it to a variable called long_string. We then used the strwrap() function to wrap the string onto multiple lines with a width of 30 characters per line. The resulting wrapped string is assigned to a variable called wrapped_string.
+
+The strwrap() function can be especially useful when working with data that has long descriptions or column headers.
+
+Example Dataset: Water Quality Index Scores
+
+Here's an example of how to apply the strwrap() function when working with a water quality dataset.
+
+```r
+# Create a sample water quality index scores dataset
+wq_scores <- data.frame(location = c("Lake A", "Lake B", "Lake C"),
+                         overall_score = c(76, 89, 92),
+                         description = c("Lake A has a high score for overall water quality, with high levels of dissolved oxygen and low levels of pollutants.",
+                                         "Lake B has a moderate score for overall water quality, with some levels of pollutants that may require monitoring.",
+                                         "Lake C has a high score for overall water quality, with consistent data over the past several years indicating low levels of pollutants."))
+
+# Wrap the lengthy description variable onto multiple lines for improved readability
+wq_scores$description_wrap <- strwrap(wq_scores$description, width = 50)
+```
+
+In this example, we created a dataset called wq_scores that contains information on the water quality index (WQI) scores of three different lakes. The description column contains lengthy text that describes the water quality characteristics of each lake.
+
+We then applied the strwrap() function to the description column of the dataset to wrap the lengthy text onto multiple lines. The resulting wrapped text is assigned to a new column called description_wrap.
+
+This makes the dataset more readable and easier to understand, especially when viewing it in a console or report. 
+
+In conclusion, using the strwrap() function can help improve the readability of your code and datasets by breaking up long strings of text onto multiple lines.

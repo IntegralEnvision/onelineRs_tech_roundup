@@ -1,0 +1,49 @@
+---
+title: ""
+subtitle: "``"
+date: 2022-03-07
+author: "Dreas Nielsen"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using List Comprehensions in R
+
+List comprehensions are a powerful tool in Python for transforming one list into another list in a single line. However, R does not have a direct equivalent of list comprehensions, but there are alternative functions that can be used to achieve similar results.
+
+Creating a List in R
+Before we are able to demonstrate the use of list comprehensions in R, we first need to understand how to create a list in R. Lists in R are represented by a sequence of objects separated by commas and enclosed by square brackets. Below is an example of creating a list of numbers in R.
+
+```R
+numbers <- c(0, 1, 2, 3, 4)
+```
+
+Transform Items in a List
+
+List comprehensions transform the contents of one list into another list using a given transformation function. In R, a transformation function can be applied to a list using the lapply function. The lapply function takes in a list and a function, and applies the function to each element in the list. Below is an example of using lapply to apply a transformation function to each item in a list.
+
+```R
+> numbers <- c(0, 1, 2, 3, 4)
+> lapply(numbers, function(n) n^2)
+```
+
+In this example, lapply applies the transformation function `function(n) n^2` to each element in the list `numbers`. The result is a new list with each item squared.
+
+Filter Items in a List
+
+List comprehensions can also be used to filter items in a list using a conditional clause. In R, filtering a list can be achieved using the `subset` function. The `subset` function takes in a list, a logical condition, and returns a subset of the original list that satisfies that condition. Below is an example of using the `subset` function to filter a list of numbers.
+
+```R
+> numbers <- c(0, 1, 2, 3, 4)
+> subset(numbers, numbers %% 2 == 0)
+```
+
+In this example, the `% %` modulus operator is used to filter the even numbers in the list `numbers`.
+
+Conclusion
+
+While list comprehensions are not directly available in R, the functionality can still be achieved using alternative functions such as `lapply` and `subset`. Understanding these alternative functions can be helpful when transitioning to R from Python or working with code that uses list comprehensions.

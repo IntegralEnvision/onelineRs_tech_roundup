@@ -1,0 +1,73 @@
+---
+title: ""
+subtitle: "`frame()`"
+date: 2021-02-01
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Creating R Functions to Return Multiple Object Types
+
+In R, unlike other programming languages, functions cannot return multiple objects. One solution for this is to place the objects in a list. The list object can then be returned, and its contents can be accessed by accessing the list object cells. 
+
+To demonstrate this technique, we will create a function to generate summary statistics for a water quality dataset. The dataset used in the examples will be a simple water quality dataset. The data will contain various water quality variables collected at different locations and times. We will create a function that will generate a summary statistical analysis of the data, but return two lists: one with all the observations, and one with only the detected samples.
+
+Creating the Water Quality Dataset
+
+We will create a simple water quality dataset using the `data.frame()` function in R. We will generate data for total dissolved solids (TDS), dissolved oxygen (DO), and pH measurement data to simulate the water quality readings taken at several locations. 
+
+```R
+# Creating a Sample Dataset
+water_quality_data <- data.frame(
+  Location = c("A", "B", "C", "D", "E", "F", "G"), 
+  Time = c("2018-05-01 08:00", "2018-05-01 10:00", "2018-05-01 12:00", 
+           "2018-05-01 14:00", "2018-05-02 08:00", "2018-05-02 10:00", 
+           "2018-05-02 12:00"), 
+  TDS = c(800, 870, 730, 600, 1000, 900, 800), 
+  DO = c(7.6, 8.2, 6.9, 6.1, 8.6, 8.0, 7.2), 
+  pH = c(8.0, 8.1, 7.8, 7.5, 8.2, 7.9, 7.6)
+)
+```
+
+Creating the Function
+
+We will create a function to create the summary statistics of the water quality dataset. The function will return a list object containing two lists: one containing all the data, and the other containing only the detected data. 
+
+```R
+# Creating a Function to Generate Summary Statistics
+summarize_water_quality_data <- function(data){
+  # Finding Detected Data
+  detected_data <- data[complete.cases(data), ]
+  
+  # Generating Summary Statistics for all the Data
+  data_statistics <- sapply(data[,3:5], function(x)c(mean(x), sd(x), min(x), max(x)))
+  
+  # Generating Summary Statistics for only the Detected Data
+  detected_data_statistics <- sapply(detected_data[,3:5], function(x)c(mean(x), sd(x), min(x), max(x)))
+  
+  # Combining the Two Lists and Returning the List Object 
+  return(list(alldata=data_statistics, detectedonly=detected_data_statistics))
+}
+```
+
+Using the Function
+
+We can now use our function with the sample dataset to generate the summary statistics. 
+
+```R 
+# Using the Function to Generate Summary Statistics
+water_quality_stats <- summarize_water_quality_data(water_quality_data)
+    
+# Accessing the Stats Data  
+all_data_stats <- water_quality_stats$alldata
+detected_data_stats <- water_quality_stats$detectedonly
+```
+
+Conclusion
+
+By using lists, we were able to generate a function that returns two different lists containing summary statistics for a water quality dataset. This is a useful technique when dealing with functions that need to return multiple object types, and is specific to R programming.

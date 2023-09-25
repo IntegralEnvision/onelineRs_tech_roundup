@@ -1,0 +1,44 @@
+---
+title: "Monday One Liners: Detect and Non Detect Using Alpha"
+subtitle: "`theme()`"
+date: 2022-06-13
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction
+
+In R, functions use built-in or new-composed code that can make your programming more efficient and less redundant. Functions can take some input, process it and then return an output. In this tutorial, we will explain R functions with the specific focus on detecting and non-detecting data using alpha.
+
+Detect and Non-Detect Using Alpha
+
+In the example text, a multi-line R ggplot was used to visualize detect and non-detects in R. Melanie wanted to separate study, type and detect status for her data. Katherine Heal suggested using alpha, which is a measure of opacity. It is a neat way to do it.
+
+Visualize Detect and Non-Detects Using Alpha
+
+The ggplot function of R package is used to visualize the detect and non-detect data using alpha. The ggplot function requires the dataset d2, that contains the data. The x-axis represents the z-score from the normal value, the y-axis represents the concentration of the water quality for specific habitats. Shape, color and alpha are used to represent study, type and detect status in the plot respectively. 
+
+```
+ggplot(d2, aes(x=Zscore, y=log10(concentration), shape=Study, color=Type, alpha=detected)) +
+geom_point(size=3) +
+labs(x="NORMAL VARIATE (Z-SCORE)",
+     y="2,3,7,8-TCDD (ng/kg)",
+     title="Compare Distributions by Habitat Type") +
+labs(caption="Surface samples only (0-0.5 ft)", adj=1) +
+scale_color_discrete(name = "Type") +
+scale_alpha_manual(values = c(1, 0.3), breaks = c(TRUE, FALSE)) +
+theme() +
+theme(legend.key.size = unit(0.3, cm),
+      legend.title = element_text(color=black, size=9))
+```
+
+In the above code snippet, the geom_point function with size 3 is used to display the points on the plot. The labs function is used to provide a title, x-axis label, y-axis label and caption for the plot. The scale_color_discrete function is used to tell ggplot to use a color scale. Finally, the theme function is used to customize the design of the resulting plot.
+
+Conclusion
+
+Functions are an important feature of R that make programming easier, robust and efficient. In this tutorial, we explained how to use ggplot function to visualize detect and non-detect data using alpha with the help of the dataset named d2.

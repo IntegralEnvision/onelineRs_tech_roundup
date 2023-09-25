@@ -1,0 +1,72 @@
+---
+title: ""
+subtitle: "`rx() and rx_anything_but() and rx_digit() and str_extract() and trimws()`"
+date: 2021-10-04
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using RVerbalExpressions for Regular Expressions
+
+Regular expressions are a powerful tool in data manipulation and transformation, but constructing them can sometimes be a difficult task. However, there are R packages available which allow constructing regular expressions more easily. One such package is RVerbalExpressions. 
+
+Installation
+
+The first step to using RVerbalExpressions is to install it. This can be done by running the following command in the R console:
+
+```
+install.packages("RVerbalExpressions")
+```
+
+Using RVerbalExpressions
+
+Once installed, RVerbalExpressions can be used to construct regular expressions. The package provides a number of functions for this purpose, the most important of which is `rx()`. `rx()` is used to start building an expression, and can be followed by other functions to add different elements to the expression.
+
+For example, to construct an expression which matches a sequence of digits followed by a hyphen and another sequence of digits, we can use the following expression:
+
+```
+library(RVerbalExpressions)
+
+x <- "1234-5678"
+expression <- rx() %>% 
+  rx_digit(4) %>% 
+  rx("-") %>% 
+  rx_digit(4)
+
+matches <- str_extract(x, expression)
+```
+Here, the `rx_digit()` function is used to add the requirement that the digits be exactly 4 in both cases, and the `rx()` function is used to start and end the construction of the expression. We can then use `str_extract()` to extract the matched string from our input string `x`.
+
+In the previous example, we used the pipe operator `%>%` to chain together the different elements of our expression. This makes it easy to see the structure of the expression, and can be useful when constructing more complex expressions.
+
+Using `rx_anything_but()`
+
+Another function provided by RVerbalExpressions is `rx_anything_but()`. This function can be used to match anything except a particular character or sequence of characters. For example, we can use `rx_anything_but()` to match any sequence of characters that does not include the word "cat":
+
+```
+expression <- rx() %>% 
+  rx_anything_but("cat")
+
+matches <- str_extract("the quick brown fox jumps over the lazy dog", expression)
+```
+
+Using `trimws()`
+
+One thing to note when using regular expressions with R is that leading and trailing whitespace can sometimes interfere with matching. To avoid this, we can use the `trimws()` function to remove any leading or trailing whitespace from our input string:
+
+```
+x <- "  some text   "
+expression <- rx() %>% 
+  rx("text")
+
+matches <- trimws(str_extract(x, expression))
+```
+
+Conclusion
+
+RVerbalExpressions provides a simple and readable syntax for constructing regular expressions in R. By using the `rx()` function and other provided functions, we can easily build complex expressions that match the patterns we need.

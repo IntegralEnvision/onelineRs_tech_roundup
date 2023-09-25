@@ -1,0 +1,106 @@
+
+---
+title: "Monday OneLineRs: tidylog"
+subtitle: "``"
+date: 2023-01-30
+author: "Jonathan Zadra"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+Using R Functions with Tidylog Package
+
+R programming provides useful functions that can manipulate and transform datasets. However, it can be challenging to keep track of changes in a dataset after applying functions. Tidylog is a package that simplifies the process of debugging by providing immediate feedback on what changed in the dataset. Tidylog is built on top of the dplyr package and aims to make data analysis easier and more efficient. In this tutorial, we will explore how to use Tidylog with environmental water quality datasets.
+
+Installing and Loading Tidylog Package
+
+Before using Tidylog functions, it is necessary to install and load the package. We can use the following commands:
+
+```{R}
+
+install.packages("tidylog") # Install the tidylog package
+
+library(tidylog) # Load the tidylog package
+
+```
+
+Filtering and Adding Variables with Tidylog
+
+Tidylog reports detailed information for filtering data frames or adding new variables. To show this, we will create an environmental water quality dataset using the following code:
+
+```{R}
+
+# Create a sample environmental water quality dataset
+
+date <- seq(as.Date("2021/01/01"), as.Date("2021/01/31"), "day")
+
+ph <- runif(31, 6, 9)
+
+conductivity <- runif(31, 100, 500)
+
+df <- data.frame(date, ph, conductivity)
+
+```
+
+Now, let us use Tidylog to filter this dataset based on pH values greater than 7.5 and add a new variable 'category' based on pH levels:
+
+```{R}
+
+df %>%
+
+  filter(ph > 7.5) %>%
+
+  mutate(category = ifelse(ph > 8, "High", "Moderate")) %>%
+
+  show_log()
+
+```
+
+In this command, Tidylog will print out the steps taken to filter the dataset based on pH values and add a new variable 'category'. The output will contain detailed information about the steps taken, such as the filter operation, the new variable added, and the number of rows in the resulting dataset.
+
+Joining Datasets with Tidylog
+
+Tidylog can also provide detailed feedback when joining two datasets. Let's create two environmental water quality datasets and join them using the following code:
+
+```{R}
+
+# Create two sample environmental water quality datasets
+
+date <- seq(as.Date("2021/01/01"), as.Date("2021/01/31"), "day")
+
+ph <- runif(31, 6, 9)
+
+conductivity <- runif(31, 100, 500)
+
+df1 <- data.frame(date, ph, conductivity)
+
+
+
+date <- seq(as.Date("2021/01/01"), as.Date("2021/01/31"), "day")
+
+temperature <- runif(31, 10, 30)
+
+dissolved_oxygen <- runif(31, 4, 12)
+
+df2 <- data.frame(date, temperature, dissolved_oxygen)
+
+
+
+# Join the two datasets and show Tidylog output
+
+df1 %>% 
+
+  left_join(df2, by = "date") %>% 
+
+  show_log()
+
+```
+
+In this command, Tidylog will print out the details of the join operation, such as the number of rows and columns in both datasets, and the matching conditions used for joining. It will also report any rows that did not have matching values in both datasets.
+
+Conclusion
+
+Tidylog is an excellent package that can provide detailed feedback during data manipulation and transformation. It simplifies the process of debugging by displaying a summary of the operations performed on the dataset. With this tutorial, you should now have a good understanding of how to install and use Tidylog with R functions.

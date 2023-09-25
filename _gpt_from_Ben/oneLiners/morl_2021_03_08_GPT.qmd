@@ -1,0 +1,104 @@
+---
+title: ""
+subtitle: "``"
+date: 2021-03-08
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Understanding R Functions and Assignment Operators
+
+In R, functions are a fundamental building block of programming. They are used to organize code, create reusable code libraries, and perform specific tasks. Functions can be called with different arguments to get different results.
+
+Assignment operators, such as "=", "-<", "<-", and "->" are used to assign values to variables in R. These operators are used to store data, modify data, or create new data structures.
+
+In this tutorial, we will explain how to use R functions and assignment operators effectively.
+
+Using Assignment Operators in R
+
+There are multiple assignment operators in R. The most commonly used operators are "=" and "<<-". Both operators can be used for basic assignments.
+
+Here's an example of a basic assignment using "=":
+
+```R
+x <- 5
+```
+
+The variable "x" is assigned the value 5.
+
+Here's an example of the same assignment using "<<-":
+
+```R
+x <<- 5
+```
+
+The difference between the two is that "<<-" can assign values to variables outside the current environment. This can be very useful when working with global variables or variables in other functions.
+
+Using Functions in R
+
+Functions are a way to organize code and perform specific tasks. They are defined using the "function" keyword, followed by the name of the function and its arguments.
+
+Here's an example of a function that takes two arguments and returns their sum:
+
+```R
+add_two_numbers <- function(x, y) {
+  sum <- x + y
+  return(sum)
+}
+```
+
+To call this function, simply pass in two numbers as arguments:
+
+```R
+add_two_numbers(3, 5)
+```
+
+This will return the value 8.
+
+Arguments in Functions
+
+Functions in R can take multiple arguments. These arguments can be optional or required. 
+
+Here's an example of a function that takes both required and optional arguments:
+
+```R
+calculate_grade <- function(score, scale = 100) {
+  grade <- (score / scale) * 100
+  
+  if (grade >= 90) {
+    return("A")
+  } else if (grade >= 80) {
+    return("B")
+  } else if (grade >= 70) {
+    return("C")
+  } else {
+    return("F")
+  }
+}
+```
+
+In this example, the function takes two arguments: "score" and "scale". The "score" argument is required, while the "scale" argument is optional and defaults to 100.
+
+To call this function with a required argument and an optional argument:
+
+```R
+calculate_grade(85)
+```
+
+This will return the value "B". 
+
+To call this function with both arguments:
+
+```R
+calculate_grade(85, 200)
+```
+
+This will return the value "C".
+
+Conclusion
+Understanding functions and assignment operators is essential for effective programming in R. Assignment operators are used to assign values to variables, while functions are used to organize code and perform specific tasks. With the knowledge presented in this tutorial, you will be able to write more efficient and effective code in R.

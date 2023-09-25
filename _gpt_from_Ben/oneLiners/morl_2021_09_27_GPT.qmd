@@ -1,0 +1,67 @@
+---
+title: ""
+subtitle: "`Browser() and browser()`"
+date: 2021-09-27
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using the R Function Browser() for Debugging Within Functions
+
+The browser() function allows you to pause the execution of a function and enter interactive debugging mode. This can be very useful when you need to understand how a function is processing its inputs, how it handles errors, or why it is not producing the output you expect. Here's how you can use browser() in your R functions:
+
+Example Dataset:
+
+In this tutorial, we will use a water quality dataset. This dataset contains water quality measurements such as pH, temperature, and dissolved oxygen.
+
+1. Define a function
+
+Let's start by defining a simple function.
+
+``` r
+my_function <- function(x) {
+  y <- x * 2
+  z <- y + 5
+  return(z)
+}
+```
+
+This function takes one input (x), multiplies it by 2, adds 5, and returns the result (z).
+
+2. Add browser() Function to the Function
+
+Now, let's add the browser() function to pause execution of the function at a specific point.
+
+``` r
+my_function <- function(x) {
+  y <- x * 2
+  browser()
+  z <- y + 5
+  return(z)
+}
+```
+
+The browser() function added on line 3 will launch the interactive debugger when the function is executed. Execution will be paused at this line until you press 'c' to continue.
+
+3. Test the Function with the Browser
+
+Let's test the function using an input value of 5.
+
+``` r
+my_function(5)
+```
+
+When this command is executed, the function will run until it reaches the browser() function on line 3. The R console will display the debug prompt "debugging in: my_function(x)" and you can inspect the values of variables in memory and execute R commands interactively.
+
+4. Continue Execution
+
+To continue executing the function, press 'c' on your keyboard. The function will finish executing and the result of the function call will be returned.
+
+Conclusion
+
+The R function browser() allows you to pause the execution of your function at a specific point and enter interactive debugging mode. This can be a valuable tool when you need to understand how your function is processing data, how it is handling errors, or why it is not producing the desired output. By carefully inspecting the values of variables and executing R commands interactively, you can gain insight into the behavior of your code and locate hard-to-find bugs.

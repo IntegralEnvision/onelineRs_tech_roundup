@@ -1,0 +1,64 @@
+---
+title: "Monday One-Liner"
+subtitle: "`distinct()`"
+date: 2021-03-29
+author: "Steven Eikenbary"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to R Functions
+
+R is a powerful programming language for data analysis and statistical computing. It provides several built-in functions that allow us to carry out various operations on datasets and manipulate data efficiently. Functions enable the reuse of code, saving time, and making it easier to develop and maintain our code.
+
+In this tutorial, we will be discussing the 'distinct()' function which helps us to find unique pairs across columns within the same data frame. We'll show you how to use it in a practical scenario and also provide some tips to keep in mind while using this function.
+
+Using 'distinct()' Function in R
+
+The 'distinct()' function in R is provided by the 'dplyr' package. It helps us find the unique rows of a dataframe or data tibble by comparing selected columns.
+
+For instance, if we have a dataset that contains water quality assessment values for different locations. We might be interested in identifying the unique parameters recorded from specific locations; in this case, we can use the `distinct()` function to find distinct pairs across columns within the same data frame.
+
+Example: Water Quality Assessment Records for UK Locations
+
+Suppose we have 'water-quality' data for different locations in the UK contained in a dataframe 'water_quality'. The data contains the following variables:
+
+* `LOCATION_NAME`: Name of the location
+* `PARAMETER_NAME`: Name of the parameter measured
+* `PARAMETER_VALUE`: Value of the parameter
+* `LOCATION_LATITUDE`: Latitude of the location
+* `LOCATION_LONGITUDE`: Longitude of the location
+
+To find the unique parameter name and value pairs for each location, we can use the following code:
+
+```{r}
+#load library
+library(dplyr)
+
+#select relevant columns
+water_quality %>% distinct(LOCATION_NAME, PARAMETER_NAME, PARAMETER_VALUE,.keep_all=TRUE)
+```
+
+The code will return a dataframe that contains unique pairs of `PARAMETER_NAME` and `PARAMETER_VALUE` column values for each `LOCATION_NAME`.
+
+Tips for Using 'distinct()' Function
+
+Here are some tips to keep in mind when using the 'distinct()' function:
+
+1. Ensure that your column names are correctly spelled and capitalized.
+
+2. The `distinct()` function returns only distinct rows, so it doesn't change the original dataset.
+
+3. When working with large datasets, it's important to select only the columns you need to minimize computation times.
+
+4. By setting the `.keep_all` argument to `TRUE`, you can keep all columns of the original dataset for the distinct rows.
+
+Conclusion
+
+The `distinct()` function in R is a very useful tool for finding distinct pairs of rows within the same data frame. We can use this function in many cases where we need to find unique values of specific columns in the dataset.
+
+In this tutorial, we've shown how to use the `distinct()` function along with some tips and conventions to keep in mind while using this function. Remember to practice with different datasets to develop fluency in using this function.

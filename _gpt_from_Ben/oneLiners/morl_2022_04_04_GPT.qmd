@@ -1,0 +1,55 @@
+---
+title: "Monday One Liners: Hmisc::Cs()"
+subtitle: "`Cs() and frame()`"
+date: 2022-04-04
+author: "Jonathan Zadra"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to Hmisc::Cs()
+
+Hmisc is a package for manipulating and analyzing data in R that has been around since the early days of R. One of the functions it offers is the `Cs()` function, which is useful when you have a list of comma-separated values that you want to turn into a vector. This function can be especially helpful when you are dealing with text data that is not originally formatted for R.
+
+Creating a Vector with Hmisc::Cs()
+
+Let's assume you have a list of letter values separated by commas like "a, b, c, d, e, f, g" and you want to turn this into a vector in R. You can use the `Cs()` function to accomplish this without having to manually add quotation marks to each value.
+
+First, you will need to install and load the Hmisc package to use the `Cs()` function.
+
+```r
+install.packages("Hmisc")
+library(Hmisc)
+```
+
+Once you have the package loaded, you can use the `Cs()` function to create your vector.
+
+```r
+my_vector <- Cs("a, b, c, d, e, f, g")
+```
+
+The resulting vector will contain the letter values as individual elements, each enclosed in quotation marks.
+
+Using Hmisc:: Cs() with Water Quality Data
+
+Let's assume you have a water quality dataset with comma-separated values with different variables like pH, temperature, and turbidity. You can use the `Cs()` function to convert these comma-separated values into a vector for further analysis.
+
+First, you will need to create your dataset in R. Here is an example of how you can create a dataset with the variables pH, temperature, and turbidity.
+
+```r
+my_data <- data.frame(pH = Cs("7.2, 6.8, 7.1, 7.3, 7.0"),
+                      temperature = Cs("20.5, 21.0, 20.1, 21.2, 20.9"),
+                      turbidity = Cs("4.5, 3.9, 4.2, 4.7, 4.1"))
+```
+
+In this example, we use the `Cs()` function to create the values for each variable. We then combine them into a data frame using the `data.frame()` function.
+
+You can now use this data frame for further analysis and visualization.
+
+Conclusion
+
+Using the `Cs()` function from the Hmisc package can save you time and effort when working with comma-separated data in R. This function is just one of the many tools available in R to help you manipulate, analyze, and visualize data efficiently.

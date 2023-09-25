@@ -1,0 +1,66 @@
+---
+title: ""
+subtitle: "`path() and write_csv()`"
+date: 2021-09-20
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Creating a file path using file.path() in R
+
+A file path is the address of a file or directory that helps to locate it in the file system. R provides a way to create a file path using the file.path() function. This function takes character arguments and combines them into a path with a provided path separator.
+
+The syntax for the file.path() function is:
+
+```
+file.path(path1, path2, ..., pathN, fsep)
+```
+
+where `path1`, `path2`,...,`pathN` are character vectors, and `fsep` is an optional path separator. The default separator is the platform's separator.
+
+For example, to create a file path for a file named "my_file.csv" in the directory "my_folder", the following code snippet can be used:
+
+```
+file.path("my_folder", "my_file.csv")
+```
+
+This will return a file path string based on the platform separator.
+
+
+## Windows Example
+
+On Microsoft Windows, file paths use backslashes to separate directories. However, the forward slash can also be used. Here is an example showing how to use file.path() on Windows:
+
+```
+file.path("C:/Users/UserName/Documents", "my_folder", "my_file.csv")
+```
+
+This creates a file path by joining the paths `C:/Users/UserName/Documents`, `my_folder`, and `my_file.csv` with the forward slash separator. Using the forward slash instead of the backslash will work correctly with R's functions and avoid the need to escape special characters like backslashes.
+
+## Example dataset
+
+Here's an example dataset with a water quality focus, where we can create a file path using the file.path() function:
+
+```
+library(tidyverse)
+
+# create an example dataset of water quality parameters
+water_quality <- tibble(
+  parameter = c("Temperature", "pH", "Dissolved Oxygen", "Turbidity", "Conductivity"),
+  units = c("Celsius", "pH units", "mg/L", "NTU", "µS/cm"),
+  limits = c("0-30", "6-9", "5-8", "<10", "0-500")
+)
+
+# create a file path to save the dataset as a csv
+file_path <- file.path("data", "water_quality_data.csv")
+
+# save the dataset as a csv
+write_csv(water_quality, file_path)
+```
+
+In this example, `file.path()` is used to create a file path to save the `water_quality` dataset as a CSV file named "water_quality_data.csv" in a subdirectory "data". The `write_csv()` function is then used to save the dataset as a CSV file to the specified path created by the `file.path()` function.

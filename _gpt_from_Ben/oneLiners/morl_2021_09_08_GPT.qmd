@@ -1,0 +1,36 @@
+---
+title: ""
+subtitle: "`rename()`"
+date: 2021-09-08
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions to Check Whether a File is Open
+
+In this tutorial, we will explain how to use the R function `file.rename()` to check whether a file is open or not. This can be important in ensuring that files are not accidentally overwritten or modified when they are in use by another program or process. We will walk through an example that uses the `file.rename()` function to test for an open file and explain how it works.
+
+Example Dataset
+
+For this tutorial, we will use a water quality dataset that includes measurements of pH, dissolved oxygen, and other water parameters over a set time period. This dataset is stored in a CSV file called "water_quality.csv" and includes data from multiple sampling locations.
+
+Checking Whether a File is Open with file.rename()
+
+One way to check if a file is open and in use by another program is to attempt to rename it. If the file is open, the rename will fail, indicating that the file is currently in use. To do this in R, we can use the `file.rename()` function and specify the same filenames for both the `from` and `to` arguments. This will attempt to rename the file to its current name, which should always succeed unless the file is open.
+
+Here's an example of how to use `file.rename()` to check whether a file is open:
+
+```
+file.rename("water_quality.csv", "water_quality.csv")
+```
+
+In this example, we're attempting to rename the file "water_quality.csv" to itself, which should always succeed unless the file is currently open in another program. The `file.rename()` function will return a boolean value of `TRUE` if the file rename was successful, and `FALSE` if it failed. If the file is open in another program, the rename will fail and `FALSE` will be returned.
+
+Wrap Up
+
+In this tutorial, we demonstrated how to use the `file.rename()` function in R to check if a file is open in another program. By specifying the same filename for both the `from` and `to` arguments, we can test whether a file can be renamed and determine if it is currently in use. This is a useful technique for avoiding accidental modification or overwriting of files that are currently in use by other programs.

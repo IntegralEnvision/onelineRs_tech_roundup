@@ -1,0 +1,50 @@
+---
+title: ""
+subtitle: "`case_when() and ifelse()`"
+date: 2021-05-03
+author: "Katherine Heal"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using the case_when() Function for Vectorized If-Else Statements in R's dplyr Package
+
+R's dplyr package includes a useful function called case_when(), which works similarly to ifelse(), but is vectorized and allows for multiple conditions. In essence, it can be used to apply a range of if-else statements to whole columns of a dataframe instead of having to apply them one by one. 
+
+The syntax of the case_when() function is:
+
+```R
+case_when(condition1 ~ result1,
+          condition2 ~ result2,
+          condition3 ~ result3,
+          TRUE ~ result4)
+```
+
+Here's a brief explanation of each parameter:
+- "condition1" is the first of one or more logical conditions that will be tested.
+- "~" is used to separate conditions from their corresponding outputs.
+- "result1" is the output of the first condition if it' `TRUE`.
+- "condition2" is the second logical condition that will be tested.
+- "result2" is the output of the second condition if it's `TRUE`.
+- "condition3" is the third logical condition that will be tested.
+- "result3" is the output of the third condition if it's `TRUE`.
+- "TRUE" serves as the default condition, which will be used only if none of the other conditions are met.
+- "result4" is value of the expression if none of the other conditions are true.
+
+For example, let's say you have a water quality dataset and you want to create a new column called "Good Water" based on the values in the "EC" and "pH" columns. You want the value in the "Good Water" column to be "Yes" if the EC is below 10 and the pH is between 6.5 and 8.5, "No" if the EC is above 10 or the pH is outside of the 6.5-8.5 range, and "NA" if either the EC or pH value is missing. You can use case_when() to achieve this as shown below:
+
+```R
+water_quality_dataset <- water_quality_dataset %>%
+  mutate(Good_Water = case_when(is.na(EC) | is.na(pH) ~ "NA", 
+                                EC < 10 & pH >= 6.5 & pH <= 8.5 ~ "Yes",
+                                EC > 10 | pH < 6.5 | pH > 8.5 ~ "No",
+                                TRUE ~ "Other"))
+``` 
+
+This code creates a new column called "Good_Water" in our water quality dataset by applying a set of specified conditions to our two selected column. Using case_when(), we've specified that a value of "NA" should be added to our "Good_Water" column if either the EC or pH value is missing; "Yes" should be added to our "Good_Water" column if the EC value is below 10 and the pH value is between 6.5 and 8.5; "No" should be added to our "Good_Water" column if the EC value is above 10 or the pH value is below 6.5 or above 8.5; and "Other" should be added to all other instances within our dataset. 
+
+Overall, case_when() is a handy function to know when working with datasets in R as it offer an efficient way to create new columns through simple vectorized if-else statements.

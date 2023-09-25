@@ -1,0 +1,53 @@
+---
+title: "Monday One Liners: str() to Compactly Display the Structure of an Arbitrary R Object"
+subtitle: "`glimpse() and str()`"
+date: 2021-12-06
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using `str()` to Display the Structure of an R Object
+
+In R, `str()` is a simple yet powerful function that compactly displays the structure of an object in R. Its functionality is similar to dplyr's `glimpse()`, however, `str()` is a base R function, which means it is available without having to load any external libraries. 
+
+The `str()` function takes one argument, an R object, and returns a character string that describes its structure. This can be especially helpful when working with larger datasets that contain many variables, dimensions, or nested lists, as it allows users to quickly get an overview of the object's contents.
+
+### Syntax 
+
+The basic syntax of `str()` function is as follows:
+
+```R
+str(object)
+```
+
+- `object`: An R object. 
+
+### Example 
+
+Let's create a simple data frame `df` containing some information about water quality variables. 
+
+```R
+df <- data.frame(
+  var_names = c("pH", "DO", "Tur", "Chl"),
+  units = c("pH units", "mg/L", "NTU", "µg/L"),
+  min = c(6.5, 5, 0, 0),
+  max = c(8.5, 11, 100, 100),
+  stringsAsFactors = FALSE
+)
+```
+
+If we want to check the structure or contents of this data frame, we can use the `str()` function as follows:
+
+```R
+str(df)
+```
+This will return a compact summary of the structure of the data frame, including its dimensions (rows x columns), variable names and types, and some sample data. 
+
+### Conclusion 
+
+In this tutorial, we learned how to use the `str()` function in R to display the structure of an R object. `str()` is a built-in function in R, meaning that it is always available to use without having to load any external libraries. By using `str()`, it is easy to get a quick overview of the contents of an object, making it an essential tool for working with datasets in R.

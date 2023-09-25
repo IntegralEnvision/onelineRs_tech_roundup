@@ -1,0 +1,64 @@
+---
+title: "Monday One-Liners, Python Edition"
+subtitle: "`enumerate() and range() and split()`"
+date: 2022-03-21
+author: "Dreas Nielsen"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using the Enumerate Function in Python
+
+The `enumerate()` function in Python is used to get an indexed list of objects. It takes an iterable as input, adds a counter to each element in the iterable, and returns an enumerate object. The enumerate object can then be used to iterate over the original object.
+
+Syntax
+
+The syntax for the enumerate() function is:
+
+```
+enumerate(iterable, start=0)
+```
+
+where `iterable` is the object you want to iterate over, and `start` is an optional argument that specifies the starting index for the enumeration.
+
+Example Dataset
+
+To demonstrate the `enumerate()` function, let's create a dataset of water quality parameters for some water samples. We will create a list of tuples, where each tuple contains the parameter name and its value for a specific sample. Here's an example:
+
+```
+water_samples = [("pH", 7.2), ("Temperature", 20.5), ("Turbidity", 5.4),
+                 ("Dissolved Oxygen", 6.8), ("Nitrate", 0.5)]
+```
+
+Using `enumerate()` to Iterate Over a List
+
+In the example given in the text, we saw how to iterate over a list using a for loop and the `range()` function. Let's rewrite that using `enumerate()`:
+
+```
+q1 = "Assumption is the mother of all screw-ups".split()
+for i, word in enumerate(q1):
+    print(i, word)
+```
+
+In this example, we iterate over the list of words in the string "Assumption is the mother of all screw-ups" using `enumerate()`. The `enumerate()` function generates a tuple `(i, word)` for each word in the list. The variable `i` is the index of the current element, and `word` is the element itself. The loop then prints both the index and the element for each iteration.
+
+Using `enumerate()` with a Starting Index
+
+The `enumerate()` function also supports an optional `start` argument, which specifies the starting index for the enumeration. Here's an example:
+
+```
+water_samples = [("pH", 7.2), ("Temperature", 20.5), ("Turbidity", 5.4),
+                 ("Dissolved Oxygen", 6.8), ("Nitrate", 0.5)]
+for i, sample in enumerate(water_samples, start=1):
+    print("Sample", i, ":", sample[0], "=", sample[1])
+```
+
+In this example, we use `enumerate()` to iterate over the `water_samples` list of tuples. The `start` argument is set to 1, so the first index will be 1 instead of 0. The loop then prints out the sample number, followed by the parameter name and its value.
+
+Conclusion
+
+The `enumerate()` function in Python is a useful tool for iterating over lists and other iterable objects. It provides a simple way to add indexes to elements in an iterable, and can make code more readable and efficient. The optional `start` argument can be used to specify a starting index for the enumeration.

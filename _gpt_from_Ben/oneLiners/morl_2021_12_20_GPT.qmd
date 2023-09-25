@@ -1,0 +1,58 @@
+---
+title: "Monday One Liners: pull()"
+subtitle: "`head() and pull() and select()`"
+date: 2021-12-20
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction
+
+In this tutorial, we will learn about the `pull()` function in R. It is a useful function within the dplyr package that helps retrieve a specific column as a vector. The `pull()` function extracts a column from a data frame or tibble, and returns it as a vector (i.e., 1-dimensional array of data). It can be useful when we need to extract a single column to perform a specific analysis or use it for further manipulations. 
+
+Using `pull()` with tidyverse and palmerpenguins dataset
+
+Before we dive into `pull()`, let's first load the required packages and data. We will be using the `tidyverse` package and `palmerpenguins` data to demonstrate the use of `pull()`. 
+
+```R
+library(tidyverse)
+library(palmerpenguins)
+
+head(penguins)
+```
+We use `library(tidyverse)` to load the tidyverse package and `library(palmerpenguins)` to load the palmerpenguins dataset. The `head()` function helps us check the first few rows of the dataset.
+
+Using `pull()` function
+
+Suppose we need to extract one variable (ice) from the penguins dataset, and we want to use it in another R function. We can use `pull()` function in such instances, as shown below:
+
+```R
+ice <- pull(penguins, bill_depth_mm)
+```
+
+Here, we use `pull()` to extract the "bill_depth_mm" variable and convert it into a new vector named "ice".
+
+`pull()` with piping
+
+`pull()` can be used in combination with other dplyr verbs to perform more complex operations on the data. One way to do this is by using the pipe operator `%>%`, which allows us to chain multiple functions together.
+
+```R
+library(tidyverse)
+library(palmerpenguins)
+
+species_name <- penguins %>% 
+  select(species) %>% 
+  pull()
+
+```
+
+Here, we first use `select()` function to extract the "species" variable we are interested in, and then use `pull()` to convert it to a new vector named `species_name`. We used the pipe operator `%>%` to combine the two functions.   
+
+Conclusion
+
+In conclusion, `pull()` is a useful function in R that helps extract a specific column from a data frame or tibble in the form of a vector. It can be used for further manipulation, analysis or to extract a specific variable for use in other functions. We hope this tutorial has provided you with a brief overview of how to use `pull()` and how it can be effectively used in R programming.

@@ -1,0 +1,55 @@
+---
+title: "Monday One liners"
+subtitle: "`head() and na() and str()`"
+date: 2020-12-21
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using the R Package "zoo" to Replace NAs
+
+The "zoo" package in R provides various functions related to time series data analysis. Among those functions, one is the carry the last observation forward (locf) to replace NAs.
+
+In this tutorial, we will use an example dataset designed around water quality monitoring. The dataset contains measurements of various water quality parameters (such as pH, alkalinity, etc.) at different wells for each day. The observations in the dataset contain missing values. We will use the "zoo" package to carry the last observation forward to replace the missing values in this dataset.
+
+Importing the Dataset
+
+Before we can start exploring the dataset and replacing the NAs, we first need to import the dataset into R.
+
+```R
+# reading the dataset into R
+dataset <- read.csv("water_quality_dataset.csv")
+```
+
+Understanding the Dataset
+
+To better understand the dataset, we can use various functions such as `str()`, `head()`, etc. to inspect the data. For this tutorial we will be using the "Well.No." feature from the dataset which tells us which well the data measurements come from. We can check for NA values within our data using the `is.na()` function. 
+
+```R
+# print the structure of the dataset
+str(dataset)
+
+# print the first 5 rows of the dataset
+head(dataset)
+
+# check for NA values in the "Well.No." column
+sum(is.na(dataset$'Well.No.'))
+```
+
+Carrying the last observation forward to Replace NAs
+
+Now that we have a grasp of the dataset, we can use the "zoo" library to fill in the missing data. The command `zoo::na.locf(data)` carries the last observation forward in a dataset, replacing NA values with the last non-NA value of the dataset. A forward fill means that, if NAs occur within a group labeled by Well.No. (a group is a contiguous series of observations sharing the same Well.No. value), then the previous observation with a non-NA value of the same group will replace it. This is helpful when working with time-series data because values often follow a predictable progression of staying constant or slightly changing. 
+
+```R
+# replacing NAs with the last observation carried forward for the "Well.No." feature
+dataset$'Well.No.' - zoo::na.locf(dataset$'Well.No.')
+```
+
+Conclusion
+
+In this tutorial, we learned how to carry the last observation forward to replace NAs using the "zoo" package. We imported a water quality dataset with missing values and demonstrated the usage of the "zoo" package to replace the missing values. This method is useful when working with time series data because it relies on the progression of observations within groups, while keeping the overall structure of the dataset intact.

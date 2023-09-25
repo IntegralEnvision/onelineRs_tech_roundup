@@ -1,0 +1,44 @@
+---
+title: "Moday One Liner label_bquote:"
+subtitle: "`bquote() and format() and geom_point() and n() and paste()`"
+date: 2021-10-25
+author: "Katherine Heal"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction: 
+This tutorial highlights the use of bquote(), a powerful function in R used in plotting to concatenate character strings with expressions. 
+
+What is bquote()?
+bquote() is a powerful function in R used to combine character strings with expressions. This is very useful because expressions are a dominant way to write and display mathematical equations. It’s also useful when working with ggplot2 format(), paste(), and other R functions that require text and mathematical expressions to be displayed together.
+
+Syntax:
+bquote( 'string' ~ expression )    
+
+Code Explanation:
+Our example code uses the palmer penguin dataset, which is built-in to the palmer penguin package in R. A new column “total_specimen” is derived from calculating the total number of penguin specimens by species. Then, we create a scatterplot using ggplot a plotting package in R. It is also further faceted by ‘species’ and ‘total_specimen’. However, the new facet labels are italicized for both species and each respective count.
+
+Code:
+library(palmerpenguins)
+
+dat - penguins %%
+ group_by(species) %%
+ mutate(total_specimen = n())
+
+g - ggplot(data = dat,
+   aes(x = bill_length_mm,
+   y = bill_depth_mm))+
+ geom_point() +
+ facet_wrap(facets = vars(species, total_specimen),
+   labeller = label_bquote(
+      italic(.(as.character(species)))~penguins,
+      ~italic(n)~'='~.(total_specimen)))
+g
+
+Output:
+A scatterplot with faceting labels that are partially italicized. The labels look like this: species_name penguins, number= correspondingnumber.

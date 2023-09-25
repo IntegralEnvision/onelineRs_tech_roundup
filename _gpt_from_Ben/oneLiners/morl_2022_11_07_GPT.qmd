@@ -1,0 +1,54 @@
+---
+title: "Integral Package edition: "Write clip" - wc()"
+subtitle: "`wc()`"
+date: 2022-11-07
+author: "Jonathan Zadra"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to wc() function in R
+
+The wc() function is a part of the integral package in R and serves as a shortcut for quickly copying data to the clipboard. It can be used at the end of a pipe, passed directly, or with no arguments to copy the most recent console output. It is particularly useful for copying simple data structures such as vectors and most data frames, but may give warnings or encounter issues with more complex data.
+
+Using wc() with pipe
+
+The wc() function can be used at the end of a pipe (%%) to quickly copy the data to the clipboard. For example, if we have a data frame 'df' and we want to copy the top 10 rows to the clipboard, we can write:
+
+df %>% head(10) %>% wc()
+
+This will copy the top 10 rows of the data frame to the clipboard.
+
+Using wc() with direct input
+
+The wc() function can also be used with direct input of data. For example, if we have a vector 'vec' and we want to copy it to the clipboard, we can write:
+
+wc(vec)
+
+This will copy the vector 'vec' to the clipboard.
+
+Using wc() with no arguments
+
+The wc() function can also be used with no arguments to copy the most recent console output to the clipboard. For example, if we have just executed a command that generates some output and we want to copy that output to the clipboard, we can simply write:
+
+wc()
+
+This will copy the most recent console output to the clipboard.
+
+Compatibility with different data structures
+
+It is important to note that the wc() function works best with simple data structures such as vectors and most data frames. However, it may give warnings or encounter issues with more complex data structures. Therefore, it is important to be mindful of the data structure being copied and to check the copied data for any potential issues before using it elsewhere.
+
+Water quality dataset example
+
+As an example, we can use the 'water' dataset available in the 'AER' package in R. This dataset contains information on water quality in New York City from 1978 to 1987. To copy the top 10 rows of this dataset to the clipboard using wc(), we can write:
+
+library(AER)
+data(water)
+water %>% head(10) %>% wc()
+
+This will copy the top 10 rows of the 'water' dataset to the clipboard.

@@ -1,0 +1,76 @@
+---
+title: ""
+subtitle: "`length() and max() and mean() and min() and plot() and sd()`"
+date: 2022-02-28
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction
+R is a powerful programming language that is popular among statisticians and data analysts. It provides a wide range of functions that simplify programming and analysis of data. In this tutorial, we will discuss what functions are and how to create and use functions in R.
+
+What are functions in R?
+A function is a block of code that performs a specific task. It takes input or arguments, does some calculations, and returns output. Functions in R are used for code reusability, reducing code redundancy, and making code more modular.
+
+Creating Functions in R
+In R, a function is defined using the 'function' keyword followed by the name of the function, arguments passed to the function, and the body of the function. Here is the syntax for creating functions in R:
+
+```r
+function_name <- function(arg1, arg2, ...) {
+  # body of the function
+  return(output)
+}
+```
+
+As an example, let's create a function called 'sum_of_squares' that calculates the sum of the squares of two numbers:
+
+```r
+sum_of_squares <- function(x, y) {
+  sum <- x^2 + y^2
+  return(sum)
+}
+```
+
+Calling Functions in R
+Once the function is created, we can call it by passing arguments to it. Here is the syntax for calling functions in R:
+
+```r
+function_name(arg1, arg2, ...)
+```
+
+Using our previous example, here's how we can call the 'sum_of_squares' function:
+
+```r
+result <- sum_of_squares(3, 4)
+```
+
+Here, the 'result' variable will store the output of the function, which is the sum of squares of 3 and 4. 
+
+Built-in Functions in R
+R comes with a large number of built-in functions for performing common tasks such as mathematical calculations, statistical analysis, data manipulation, and data visualization. We can use these functions by simply calling them in our code. Here are some examples of commonly used built-in functions in R:
+
+- min() and max(): used to find the minimum and maximum values of a vector or array.
+- length(): used to find the length of a vector or array.
+- mean(): used to find the arithmetic mean of a vector or array.
+- sd(): used to find the standard deviation of a vector or array.
+- plot(): used to create simple data visualizations.
+
+Example Dataset
+Here is an example dataset of water quality measurements for various variables:
+
+```r
+water_quality <- data.frame(
+  pH = c(7.2, 7.4, 7.1, 6.9, 7.3),
+  temperature = c(25.3, 24.9, 23.8, 26.1, 27.6),
+  dissolved_oxygen = c(7.9, 8.2, 8.1, 7.7, 8.0),
+  turbidity = c(5.2, 6.1, 5.5, 4.8, 5.9)
+)
+```
+
+Conclusion
+Functions are an important concept in R programming and allow programmers to write reusable code that simplifies data analysis. In this tutorial, we've discussed how to create and call functions in R, as well as some commonly used built-in functions. Use these functions in your code to simplify your work and improve the overall quality of your analysis.

@@ -1,0 +1,51 @@
+---
+title: "Monday Oneliners: Getting appropos(), help.search and ??"
+subtitle: "`apropos() and search()`"
+date: 2021-11-01
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R functions: A Step-by-Step Guide
+
+R is a powerful programming language that is widely used for statistical computing and data analysis. It has a vast collection of functions, which can be overwhelming for beginners. In this tutorial, we will explore some helpful R functions, including `apropos()`, `help.search()`, and `??`.
+
+### Using apropos()
+
+`apropos()` is an R function that allows you to search for functions that match a specific string or regular expression. It is particularly useful when you don't know the exact name of the function you are looking for, or when you want to find all functions that contain a specific string. Here is an example of how to use `apropos()`:
+
+
+```
+apropos("glm")
+```
+
+This code will return a list of all the functions that contain the string "glm" in their name. It's important to note that `apropos()` is case-insensitive, so it will return matches regardless of capitalization.
+
+### Using help.search() and ??
+
+`help.search()` and `??` are R functions that allow you to search for help pages of functions that match a specific string or regular expression. Like `apropos()`, these functions are useful when you don't know the exact name of the function you are looking for. Here is an example of how to use `help.search()`:
+
+
+```
+help.search("^glm")
+```
+
+This code will return a list of all the help pages that match the regular expression "^glm". The "^" character is used to indicate the start of a string. Therefore, this expression will match any function whose name starts with "glm".
+
+You can also use the `??` shortcut to achieve the same result:
+
+
+```
+??("^glm")
+```
+
+This code will also return a list of all help pages that match the regular expression "^glm".
+
+### Conclusion
+
+In this tutorial, we have explored some helpful R functions for searching for functions and their help pages. By using `apropos()`, `help.search()`, and `??`, you can easily find the functions you need, even if you don't know their exact names. Remember to visit the R help website for more information on R functions and other helpful tips. Happy coding!

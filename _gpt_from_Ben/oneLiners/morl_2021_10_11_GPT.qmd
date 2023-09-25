@@ -1,0 +1,65 @@
+---
+title: ""
+subtitle: "``"
+date: 2021-10-11
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to Using R Functions
+
+R is a programming language used for statistical computing, data analysis, and data visualization. R has built-in functions and also allows you to create custom functions to perform specific tasks. In this tutorial, we will learn about two useful built-in functions in R - `which.min` and `which.max`. 
+
+Using which.min to Find the Index of the Minimum Value
+
+`which.min` is a function in R that is used to find the index of the minimum value in a vector. It returns the index of the first occurrence of the minimum value. Using `which.min` is useful when you need to find the index of the minimum value in a vector of numbers or any other numeric column in a dataset.
+
+To use the `which.min` function, you need to pass a vector as an argument. For example, let's say we have a vector `v <- c(2, 6, -3, 1, 9)` and we want to find the index of the minimum value. Here's how to do it:
+
+```r
+v <- c(2, 6, -3, 1, 9)
+min_index <- which.min(v)
+```
+The `which.min` function returns 3 because -3 is at the third index of the vector `v`.
+
+Using which.max to Find the Index of the Maximum Value
+
+`which.max` is a function in R that is used to find the index of the maximum value in a vector. Like `which.min`, it returns the index of the first occurrence of the maximum value. In the example below, we have a vector `v <- c(7, 2, 9, 6, 1)` and we want to find the index of the maximum value:
+
+```r
+v <- c(7, 2, 9, 6, 1)
+max_index <- which.max(v)
+```
+
+The `which.max` function returns 3 because 9 is at the third index of the vector `v`.
+
+Finding All Minimum or Maximum Values
+
+As mentioned earlier, `which.min` and `which.max` return the index of the first occurrence of the minimum or maximum value in a vector, respectively. What if we want to find all the minimum or maximum values in a vector? We can achieve this by putting a logical expression in the `which` function.
+
+To find all minimum values in a vector, we can use the following code:
+
+```r
+v <- c(2, 6, -3, 1, 9, -3)
+min_indices <- which(v == min(v))
+```
+
+The `which` function returns a vector of indices where the logical expression is true. In this case, the function `which(v == min(v))` returns the indices where `v` is equal to the minimum value. The vector `min_indices` will contain all the indices where the minimum value occurs in the vector `v`.
+
+Similarly, to find all maximum values in a vector, we can use the following code:
+
+```r
+v <- c(7, 2, 9, 6, 1, 9)
+max_indices <- which(v == max(v))
+```
+
+Here, `which(v == max(v))` will return the indices where `v` is equal to the maximum value.
+
+Conclusion
+
+In this tutorial, we learned about the `which.min` and `which.max` functions in R. We also learned how to find all the minimum or maximum values in a vector using the `which` function with a logical expression. These functions are useful when working with datasets and performing data analysis in R.

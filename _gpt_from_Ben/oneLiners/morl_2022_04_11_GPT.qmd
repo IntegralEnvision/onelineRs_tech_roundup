@@ -1,0 +1,57 @@
+---
+title: "Monday One-LineRs: visdat"
+subtitle: "`visdat()`"
+date: 2022-04-11
+author: "Jonathan Zadra"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction
+R is a powerful and widely used programming language for data analysis and statistical computing. One of the key features of R are its functions which allow users to perform various tasks including data manipulation, visualization, and statistical analysis. In this tutorial, we will explore how to use the R visdat() function for visualizing missing data in datasets with a focus on water quality.
+
+What is the visdat() function in R?
+The visdat() function is a part of the visdat package which provides a quick and easy way to visualize missing data in datasets. The function provides a visual summary of the missingness of variables in a dataframe.
+
+Importing and Preparing Data
+Before we can use the visdat() function, we need a dataset to use. Here, we will create a hypothetical dataset on water quality. Let's start by creating variables for the location of the water sampling, the date of the sample, the pH, the water temperature and the level of dissolved oxygen. 
+
+```
+# Creating a hypothetical water quality dataset with 5 variables
+# Importing necessary packages
+library(tidyverse)
+
+# Creating variables
+location <- c("River A", "River B", "River C", "River D")
+date_sampled <- as.Date(c("2021-01-01", "2021-02-03", "2021-03-07", "2021-06-01"))
+pH <- c(7.0, NA, 6.5, 8.0)
+water_temp <- c(25, 27, NA, 26)
+DO <- c(7.5, 8.0, 6.8, NA)
+
+# Combining variables to create a dataset
+water_quality_df <- as.data.frame(cbind(location, date_sampled, pH, water_temp, DO))
+```
+
+Visualizing Missing Data Using visdat()
+Now that we have our dataset we can visualize missing data using the visdat() function. The visdat() function provides a visual summary of missing data by plotting a matrix of bars where the width of each bar corresponds to the number of non-missing observations in a given variable. The missing observations are represented by blank spaces in the matrix. 
+
+```
+# Installing necessary packages before using visdat()
+install.packages("visdat")
+
+# Loading packages
+library(visdat)
+
+# Using visdat() to visualize missing data
+visdat::vis_dat(water_quality_df)
+```
+
+Output:
+This command produces a figure showing the missingness of the variables in the dataset. The plot consists of a matrix of bars where the height of each bar indicates the number of observations in a given variable, and the width of each bar indicates the proportion of missing observations. The missing observations are represented by blank spaces in the plot. 
+
+Conclusion
+The visdat() function is a powerful tool for quickly visualizing missing data in datasets. By using visdat(), users can easily identify which variables have missing observations and the degree of missingness within each variable. This makes it a helpful function for data exploration, cleaning and analysis.

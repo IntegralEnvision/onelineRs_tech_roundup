@@ -1,0 +1,48 @@
+---
+title: ""
+subtitle: "`clean_names() and select()`"
+date: 2021-08-23
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions to Work with Columns that Start with Numbers
+
+When working with column names that start with a number, like "2021_data," in R, it's important to use backslashes at the beginning and end of the column name to make it work with base R and dplyr verbs. In this tutorial, we will demonstrate how to refer to columns that start with numbers in R using helpful code snippets.
+
+Using Backslashes to Refer to Columns that Start with Numbers in R
+
+To refer to columns starting with numbers in R, we use backslashes around the column name. For example, to select the "2021_data" column using dplyr's select() function, we would use the following code snippet:
+
+```
+library(dplyr)
+df %>% select(\2021_data\)
+```
+ 
+In this code, the backslashes around "2021_data" indicate to R that we are referring to a column name that starts with a number.
+
+Using the janitor Package to Clean Column Names in R
+
+The janitor package is a tool that can be used to clean column names in R to make working with columns that start with numbers easier. To install and load the janitor package in R, we use the following code:
+
+```
+install.packages("janitor")
+library(janitor)
+```
+
+Once the janitor package is installed and loaded, we can use the clean_names() function to clean column names in our dataset. The clean_names() function will remove any special characters or spaces in the column names and replace them with underscores. Here's an example of how we can clean column names using the janitor package:
+
+```
+df_cleaned <- clean_names(df)
+```
+
+In this code, we are cleaning the column names of our data frame "df" and saving the cleaned data frame to "df_cleaned."
+
+Conclusion
+
+By using backslashes and the janitor package in R, we can easily refer to and clean column names that start with numbers. These techniques are particularly useful when working with datasets that contain columns with unconventional names. With these helpful code snippets, you can confidently write code to work with columns that start with numbers in R.

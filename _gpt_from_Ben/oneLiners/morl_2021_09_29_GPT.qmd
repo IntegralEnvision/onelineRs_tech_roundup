@@ -1,0 +1,60 @@
+---
+title: ""
+subtitle: "`str_extract() and str_replace() and str_split()`"
+date: 2021-09-29
+author: "Mark Schroeder"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions for String Manipulation
+
+In R programming language, we can use various functions for manipulating strings. These functions can be used to extract specific characters or patterns of characters, replace characters in strings, or split strings into substrings. Three of the commonly used functions for string manipulation are str_extract(), str_replace(), and grep. In addition to using these functions, we can also use Regular Expressions (regex) for pattern matching to find specific pieces of string for further manipulation.
+
+Extracting Numeric Results out of Strings using StringR Functions
+
+One common data extraction task is to extract numeric results out of strings such as when the result is next to a qualifier or units. In such cases, we can use StringR functions like str_extract or str_replace to search for and extract the required value. 
+
+For example, consider a column named "result" with values like "0.045 U", "91", "0.037 I", "0.00046U" that require numeric extraction. We can use the following code to extract the numeric portion of the string:
+``` 
+mutate(result_num = result %>% str_extract("\\-*\\d+\\.*\\d*"))
+```
+In this code, we first use the pipe operator %>% to pass the "result" column to the str_extract function. The pattern "\\-*\\d+\\.*\\d*" is used by the function to search and extract the numeric portion of the string. This pattern matches four areas of the string:
+
+- "\\-*" specifies the pattern for the special character "-" (hyphen). The "*" signifies that this pattern is optional, i.e., the string can also have a positive value.
+
+- "\\d+" is an expression that matches all digits in the string. The "+" sign indicates that the pattern can repeat until the next pattern.
+
+- "\\.*" specifies the pattern for a decimal place, which can appear 0 or more times (*) before the next pattern.
+
+- "\\d*" specifies a pattern for digits after the decimal place.
+
+Note that the pattern only returns the numeric digits and not the qualifiers.
+
+Using Regular Expressions (RegEx)
+
+Regular expressions are a powerful tool to search for specific patterns in strings that cannot be found by simple character matching. We can use regex in R with the help of functions like str_extract or str_replace.
+
+For example, consider a string "temperature: 25 C" that contains a value we want to extract using regex. The following code can be used to extract the value:
+```
+str_extract("temperature: 25 C", "\\d+")
+```
+In this code, the pattern "\\d+" specifies that the function should extract one or more digits from the string.
+
+String Splitting
+
+In some cases, we need to split a string into separate substrings based on a delimiter like "," or "-". This can be done using the str_split() function in R.
+
+For example, consider a string "12-345-6-789" that needs to be split into separate substrings. The following code can be used to split the string using the "-" delimiter:
+```
+str_split("12-345-6-789", "-")
+```
+This code returns a list of vectors where each vector contains the substrings.
+
+Conclusion
+
+In R programming language, we can use various functions for manipulating strings. Some of the commonly used functions are str_extract(), str_replace(), and grep. We can also use Regular Expressions (regex) for pattern matching to find specific pieces of string for further manipulation. String splitting can be done using the str_split() function.

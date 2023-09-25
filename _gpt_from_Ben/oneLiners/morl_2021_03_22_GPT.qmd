@@ -1,0 +1,53 @@
+---
+title: ""
+subtitle: "`Browser() and browser() and function()`"
+date: 2021-03-22
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using the browser() Function for Debugging in R
+
+When writing code in R, it's not uncommon to run into issues with your code. Debugging is the process of finding and fixing these issues, which can range from simple errors to more complex issues. One way to halt execution and debug your code using a line in your code is through the use of the browser() function. 
+
+The browser() function is a built-in function in R that halts execution of a program and launches an interactive debugging environment called an environment browser. This allows you to explore variables and functions in an interactive environment to help you debug the code. The browser() function is particularly useful for debugging when issues are not immediately evident.
+
+Here's an example of how to use the browser() function to stop your code before returning the value TRUE: 
+
+```
+my_function <- function() { 
+  x <- 1 + 2 
+  browser() 
+  y <- x * 3
+  return(y) 
+}
+```
+
+In this example, the browser() function is called after the first line of code. When the function is run, the execution will be paused at this point, and the environment browser will be launched. This allows you to explore the state of the variables at that point in the code and write additional code to help you diagnose the issue. 
+
+Using the browser() function can be particularly helpful when you need to explore the state of complex objects or when you need to step through a loop or conditional statement to determine where the issue lies in your code.
+
+Browser() Function with Data
+
+Here's an example of how to use the browser() function with a water quality dataset:
+
+```
+data("Water", package = "carData")
+head(Water)
+
+my_function <- function() { 
+  x <- filter(Water, pH > 7) 
+  browser() 
+  y <- summarize(x, mean_cond = mean(cond))
+  return(y) 
+}
+```
+
+In this example, the browser() function is called after the first line of code, which filters the Water dataset for pH values greater than 7. When the function is run, the execution will be paused at this point, and the environment browser will be launched. This allows you to explore the filtered data and write additional code to help you diagnose issues with the data.
+
+Overall, the browser() function is a useful tool for debugging R code. It enables you to explore the state of variables and functions in an interactive environment, making it easier to identify and resolve issues with your code.

@@ -1,0 +1,58 @@
+---
+title: "Monday One-Liners, Python Edition"
+subtitle: "`list() and set() and sorted()`"
+date: 2022-03-14
+author: "Dreas Nielsen"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+How to Get Unique Elements from a List in Python
+
+When working with lists in Python, you might need to remove duplicates and get only the unique elements. Python does not have a built-in method to achieve this, but you can use sets to quickly remove duplicates and retrieve only unique elements.
+
+To get unique elements from a list, you can use the following code snippet:
+
+```python
+original_list = [1, 1, 2, 3, 3, 4, 5, 5, 6]
+unique_list = list(set(original_list))
+```
+
+Here, we first create a list with some duplicate values. We assign this list to the variable `original_list`. We then create a set from this list using the `set()` function. Since sets can only contain unique values, any duplicates are removed.
+
+Finally, we convert the set back to a list using the `list()` function, which gives us a list with only the unique values from the original list.
+
+It's worth noting that although the resulting list will include all unique elements from the original list, the order may not be preserved since sets are not ordered. If order is important, you can sort the resulting list by calling the `sorted()` function:
+
+```python
+original_list = [1, 1, 2, 3, 3, 4, 5, 5, 6]
+unique_list = sorted(list(set(original_list)))
+```
+
+This will give you a list that is both unique and sorted in ascending order.
+
+Using Sets to Remove Duplicates
+
+Since sets can only contain unique values, you can use sets to quickly remove duplicates from a list with the following method:
+
+```python
+original_list = [1, 2, 2, 3, 3, 3, 4, 4, 5]
+unique_list = list(set(original_list))
+```
+
+Here, we create a new list `unique_list` by converting `original_list` to a set and back to a list again. The duplicates are removed during this conversion since sets do not allow duplicate values.
+
+Using Sorted to Sort Your List
+
+In the example above, we just used the `list()` function to convert our set back to a list. However, this results in a list that is not sorted. You can use the `sorted()` function to sort the resulting list:
+
+```python
+original_list = [1, 2, 2, 3, 3, 3, 4, 4, 5]
+unique_list = sorted(list(set(original_list)))
+```
+
+This will give you a sorted list with unique elements only.

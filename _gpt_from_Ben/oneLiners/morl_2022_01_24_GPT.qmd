@@ -1,0 +1,46 @@
+---
+title: "Monday One Liners: Just the One Function!"
+subtitle: "`cor() and library() and mean()`"
+date: 2022-01-24
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to Monday One Liners: Just the One Function!
+
+When working with R, we often use external libraries or packages to access already-built functions to perform specific operations or calculations. However, sometimes we don't need the entire package, and adding it can add unnecessary loading times or take up too much memory. In such cases, we can load that specific function from the package. This one-liner solution saves the effort of loading the entire package and only calls the required function directly. This tutorial will explain two methods to load single functions in R, using the '::' notation and the `include.only` parameter in the `library()` function.
+
+Using the '::' notation to access single functions
+
+The '::' notation helps to call a specific function from a specific library or package. Here's how it works:
+
+        library_name::function_name(arguments)
+
+For Example, let's say we want to use the `cor()` function to get the correlation matrix between variables x and y. The `cor()` function comes from the base `stats` library. 
+
+        stats::cor(x, y)
+
+This one-liner uses the `::` symbol to call `cor()` directly from the base `stats` package.
+
+Using the `include.only` parameter in `library()` function
+
+With R version 3.6 and higher, we can use the `include.only` parameter to load only the necessary function from the package, like so:
+
+        library(library_name, include.only = function_name)
+
+For example, let's assume we want to use the `mean()` function in the `base` library. To access the `mean()` function directly, we can use the following one-liner statement:
+
+        library(base, include.only = mean)
+
+This statement will directly load only the `mean()` function from the `base` package.
+
+Conclusion
+In this tutorial, we've discussed two ways to use single functions from a package/library in R. While `::` is an excellent option for many scenarios, the `include.only` parameter in `library()` is a more efficient method for newer versions of R. These techniques not only improve code readability but can also save on loading time and memory in many circumstances.
+
+References
+https://www.roelpeters.be/load-single-function-r-library/

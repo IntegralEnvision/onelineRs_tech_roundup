@@ -1,0 +1,69 @@
+---
+title: ""
+subtitle: "``"
+date: 2021-04-12
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction
+
+In R, the `%in%` operator can be used to check if a value or a set of values exists in a vector. It returns a logical (TRUE/FALSE) of the same length as the first argument. 
+
+Checking if a value is in a vector
+
+To check if a value is in a vector, you can use the `%in%` operator. 
+
+```
+# define a vector
+x <- c("red", "green", "blue")
+
+# check if red is in the vector
+"red" %in% x
+
+# check if banana is in the vector
+"banana" %in% x
+```
+
+This will return `TRUE` for the first example and `FALSE` for the second example.
+
+Comparing vectors
+
+`%in%` can also be used to compare one vector to another vector.
+
+```
+# define two vectors 
+x <- c("a", "b", "c", "d")
+y <- c("b", "d", "f", "h")
+
+# check which elements in x are in y
+x %in% y
+
+# check which elements in y are in x
+y %in% x
+```
+
+These will return a logical vector of the same length as the first argument. If an element in x exists in y, the corresponding element in the returned vector will be `TRUE`, otherwise it will be `FALSE`.
+
+Subsetting columns
+
+`%in%` can also be used to subset columns in a dataframe. 
+
+```
+# define a dataframe
+df <- data.frame(a = 1:5, b = 6:10, canal = 11:15, evergiven = 16:20)
+
+# subset the dataframe to exclude canal and evergiven
+df_new <- df[, !(colnames(df) %in% c("canal", "evergiven"))]
+```
+
+This uses the `%in%` operator with the `!` operator to exclude columns named "canal" and "evergiven" from the dataframe. The resulting dataframe `df_new` will have all the columns from `df` except "canal" and "evergiven".
+
+Conclusion
+
+The `%in%` operator is a useful tool for checking if a value or vector exists in another vector, and for subsetting dataframes.

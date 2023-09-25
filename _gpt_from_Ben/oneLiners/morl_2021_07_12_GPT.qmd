@@ -1,0 +1,48 @@
+---
+title: ""
+subtitle: "`length() and lengths() and nchar()`"
+date: 2021-07-12
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions to Get Lengths of Vectors, Lists, and Characters
+
+In R, there are several functions you can use to obtain lengths of vectors, lists, and number of characters. These functions are helpful when you're working with data and need to know the size of elements in your dataset. In this tutorial, we will look at the following functions: length, lengths, and nchar.
+
+### The length() Function
+The length() function gives the number of elements in a vector. You can use it to determine the size of your vector. Here is an example showing how to obtain the number of elements in a concatenated vector:
+
+```
+vector <- c(1, 2, 3, 4, 5)
+length(vector)
+```
+
+In the code snippet, we create a vector with elements 1 to 5 and assign it to the variable "vector". We then apply the length() function to the vector variable to get its size, which returns 5.
+
+### The lengths() Function
+The lengths() function returns the length of each element in a list. You can use it to determine the sizes of each element in a list. Here is an example showing how to obtain the lengths of each element in a list:
+
+```
+myList <- list(c(1,2,3,4), c(4,3,2,1,0), c(1,3), c(1,1,1,1,1,1))
+lengths(myList)
+```
+
+In the code snippet, we create a list containing four elements of varying lengths and assign it to the variable "myList". We then apply the lengths() function to the "myList" variable to get the length of each element in the list.
+
+### The nchar() Function
+The nchar() function returns the number of characters in a string vector. You can use it to determine the length of each character in a string vector. Here is an example showing how to obtain the lengths of each character in a string vector:
+
+```
+myString <- c("WATER", "QUALITY", "IS", "IMPORTANT")
+nchar(myString)
+```
+
+In the code snippet, we create a string vector containing four elements and assign it to the variable "myString". We then apply the nchar() function to "myString" to get the length of each element in the vector.
+
+Overall, these functions are useful for obtaining lengths for vectors, lists, and character strings. It is important to note that each function is applied to its respective data type. By using these functions, you can better understand how much data you're working with and make more informed decisions about your data analysis.

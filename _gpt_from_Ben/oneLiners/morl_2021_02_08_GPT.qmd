@@ -1,0 +1,51 @@
+---
+title: ""
+subtitle: "`head() and skim() and tail()`"
+date: 2021-02-08
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions for Data Exploration and Summary Statistics
+
+In data analysis, it is essential to explore and summarize the data to develop insights and uncover patterns. R provides several functions that help to explore and understand the data. This tutorial covers two essential R functions - head() and tail() for examining data and skimr::skim() for generating summary statistics.
+
+Viewing Data with head() and tail()
+
+When working with a large dataset in R, it may not be practical to inspect the entire dataset. The head() and tail() functions allow you to view the top or bottom rows of a data frame, respectively. For example, if you have loaded a dataset named `water_data`, you can use the following code snippets to view the first and last few rows:
+
+```R
+# view first six rows of water_data
+head(water_data)
+
+# view last six rows of water_data
+tail(water_data)
+```
+
+By default, both the head() and tail() functions display the first or last six rows of the data frame. However, you can specify the number of rows to display by passing the desired number as the second argument. For instance, if you want to display the first 10 rows of the `water_data` dataset:
+
+```R
+head(water_data, 10)
+```
+
+Generating Summary Statistics with skimr::skim()
+
+In addition to visualizing the data, it is essential to generate summary statistics to provide quick insights into the data. The skimr::skim() function is a powerful tool for generating summary statistics in R. This function computes various summary statistics for each variable and provides a wealth of useful information in a tabular format. The following code snippet demonstrates how to use skimr::skim() function to generate summary statistics for a data frame:
+
+```R
+library(skimr)
+
+# generate summary statistics for water_data
+skim(water_data)
+```
+
+The skim() function generates a table that includes the variable name, data type, minimum, maximum, mean, median, standard deviation, and various quantiles. The output of skim() provides a wealth of information that helps understand the distribution of each variable in the dataset.
+
+Conclusion
+
+Exploring and summarizing data is a crucial step in data analysis. R provides many tools and functions that make this task effortless. In this tutorial, we have covered the head() and tail() functions for examining data and skimr::skim() function for generating summary statistics.

@@ -1,0 +1,50 @@
+---
+title: ""
+subtitle: "`stopifnot()`"
+date: 2021-03-01
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions: Stop the Code!
+
+When writing code, it's important to include checks in order to ensure that the data you're working with is what you expect it to be. This helps to reduce errors and make your program more robust. One way to accomplish this is by using the `stop` function or one of its variants.
+
+## The `stop` function
+
+The `stop` function is a basic function in R that can be used to return an error message and stop the execution of a program. The syntax for using `stop` is simple. Just include an `if` statement before the command to check the condition you're interested in. If the condition is not met, the script will stop and return the error message specified in the `stop` command.
+
+```r
+if (condition == FALSE) {
+  stop("Error message")
+}
+```
+
+## The `stopifnot` function
+
+Similar to `stop`, `stopifnot` returns an error message and stops the execution of a script when a condition is not met. However, `stopifnot` can be more descriptive and allows for multiple conditions to be checked at once. All conditions must be true in order for the function to continue execution.
+
+```r
+stopifnot(condition1, condition2, ...)
+```
+
+## The `assertthat` package
+
+The `assertthat` package provides a variety of functions for consistency checks, including the `assert_that` function. This function is similar to `stopifnot`, but with more descriptive error messages. Additionally, the error messages can be customized with the use of `%>%` ("pipe") operator, which sends the results of one function to the next.
+
+```r
+library(assertthat)
+
+assert_that(condition1, condition2) %>%
+  stopifnot()
+```
+
+This combination first checks the conditions stated in `assert_that` then calls `stopifnot` to stop the execution of the script if either of the previous clause is not met.
+
+
+In general, the `stop`, `stopifnot`, and `assert_that` functions can be incredibly helpful when writing scripts that need to ensure the proper conditions to execute . by providing an error message and halting the execution of a script if any incorrect input or output is noted.

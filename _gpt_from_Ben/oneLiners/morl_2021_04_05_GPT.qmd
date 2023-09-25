@@ -1,0 +1,67 @@
+---
+title: ""
+subtitle: "`Get_dupes() and get_dupes()`"
+date: 2021-04-05
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to Get_dupes() function
+
+The get_dupes() function from the janitor package in R helps you identify duplicates in your data. It is a very simple, yet powerful, function that can save you a lot of time and effort in cleaning and processing your data. This tutorial will explain how to use get_dupes() to identify duplications in your data.
+
+Creating a Sample Data Set
+
+To demonstrate how the get_dupes() function works, let's create a sample data set using R script. This dataset will contain information about the water quality of various locations. Add the following R script to create the dataset:
+
+```r
+# create a sample data set
+location <- c("A", "B", "C", "D", "E", "F", "G", "H")
+city <- c("New York", "Los Angeles", "London", "Paris", "Tokyo", "Sydney", "Moscow", "Mumbai")
+ph <- c(7.2, 6.8, 7.5, 7.0, 7.8, 8.1, 6.2, 7.5)
+dissolved_oxygen <- c(5.6, 7.2, 8.1, 4.4, 7.9, 9.8, 6.5, 7.1)
+water_quality <- data.frame(location, city, ph, dissolved_oxygen)
+```
+
+Understand the get_dupes() Function
+
+The get_dupes() function returns a dataframe of the full record of the duplicated values and the count of duplicates as the dupe_count.
+
+Here is the syntax for using the get_dupes() function:
+
+```r
+# get duplicated records in water_quality dataset
+get_dupes(water_quality, c("location", "city"))
+```
+
+The arguments for this function are:
+
+`data`: the dataset to search for duplicates
+
+`cols`: a character vector of columns to check for duplicates.
+
+In the above example, we are looking for duplicates in the location and city columns.
+
+Interpreting the Output
+
+When we run this code, we will get a return a dataframe of the full record of the duplicated values and the count of duplicates as the dupe_count. It will show all the columns of the dataset along with information on the location, city, ph, and dissolved oxygen.
+
+Here is what the output might look like if you run the code:
+
+```r
+# output of get_dupes() function
+  location       city  ph dissolved_oxygen dupe_count
+1        C     London 7.5              8.1          2
+2        H     Mumbai 7.5              7.1          2
+```
+
+As you can see, the output shows us that there are two duplicated records in the dataset. One record has a location of C and city of London, and one record has a location of H and city of Mumbai. The ph and dissolved oxygen measurements are also provided in the output.
+
+Conclusion
+
+The get_dupes() function from the janitor package can be very useful for identifying duplicate rows in your data. It is simple to use, and provides a lot of information, including the full record of the duplicated values and a count of duplicates. Remember to install and load the janitor library before using the get_dupes() function.

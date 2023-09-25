@@ -1,0 +1,50 @@
+---
+title: "Monday One Liners"
+subtitle: "`Date()`"
+date: 2021-01-11
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using One Line If Statements in R
+
+In R programming, the one line if statement or the ternary operator, provides a simple way to write conditional statements. It is a shorthand way of writing a traditional if-else statement in a single line of code. This makes the code concise and easy to write.
+
+Syntax of One Line If Statements
+
+The simple syntax of one line if statement is as follows:
+
+condition <- ifelse(test_expression, value_if_true, value_if_false)
+
+where:
+
+- "condition" stores the output of the one line if statement
+- "test_expression" is the logical expression that evaluates to either TRUE or FALSE
+- "value_if_true" is the output value if the condition evaluates to TRUE
+- "value_if_false" is the output value if the condition evaluates to FALSE
+
+Example
+
+Consider the following example of a one line if statement that checks for the existence of a directory, create it if it does not exist or skips the creation step. 
+
+outdir <- paste0(here(Output/),Sys.Date())
+
+if (!dir.exists(outdir)) {
+  dir.create(outdir) 
+}
+
+
+This code checks the existence of the directory specified by "outdir". If the directory does not exist, it creates a new directory using "dir.create" function. However, the code may give a warning if the directory already exists. To prevent the warning, we can use the one line if statement as shown here:
+
+condition <- ifelse(!dir.exists(outdir), dir.create(outdir), NULL)
+
+Here, the condition stores the output of the one line if statement. The first argument to the ifelse function is the logical expression "!dir.exists(outdir)" which evaluates to TRUE if the directory does not exist. If the condition is true, then it calls the dir.create function to create a new directory. Otherwise, it returns NULL.
+
+Conclusion
+
+In this tutorial, we have discussed the concept of one line if statements in R programming. One line if statements provide a simple and concise way to write conditional statements in R. Use of these statements can help you write clear code for solving complex problems.

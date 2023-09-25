@@ -1,0 +1,50 @@
+---
+title: "Monday OnelineRs"
+subtitle: "`cheat()`"
+date: 2022-10-24
+author: "Jonathan Zadra"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+The `cheat()` Function in the `integral` Package for Accessing Cheat Sheets
+
+The `cheat()` function in the `integral` package of R provides a convenient and easy way to access cheat sheets for R packages. The cheat sheets can be opened using the `cheat()` function with a bare, unquoted value matching the package name. If no package name is specified, the function will display all available sheets. One of the key benefits of this function is that it includes some cheat sheets that aren't available in the Help menu of RStudio.
+
+### Installing the `integral` Package
+
+To use the `cheat()` function, you first need to install the `integral` package. This can be done using the following command:
+
+```R
+install.packages("integral")
+```
+
+### Opening a Cheat Sheet
+
+Once you have installed the `integral` package, you can use the `cheat()` function to open a cheat sheet for any package. For example, if you want to access the cheat sheet for the `dplyr` package, you can use the following command:
+
+```R
+cheat(dplyr)
+```
+
+This will open a cheat sheet in a new window that provides an overview of the `dplyr` package and examples of its functions.
+
+### Displaying All Available Cheat Sheets
+
+If you want to view all available cheat sheets, you can use the following command:
+
+```R
+cheat()
+```
+
+This will display a list of all packages for which cheat sheets are available in the `integral` package.
+
+### Additional Cheat Sheets
+
+If you come across a cheat sheet that is not currently included in the `integral` package, you can contact the package author and request that they add it to the package. This can be done via the package's GitHub page.
+
+Overall, the `cheat()` function in the `integral` package makes it easy for R users to access cheat sheets for R packages, saving time and energy in the process.

@@ -1,0 +1,59 @@
+---
+title: "Monday One-Liners, Python Edition"
+subtitle: "`get_token() and next_token()`"
+date: 2022-03-28
+author: "Dreas Nielsen"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Understanding Implicit Type Conversion in Python
+
+In Python, the interpreter automatically converts variable types in many circumstances, making dynamic typing possible. This means you don't need to declare variable type before use like other programming languages. The interpreter has a set of rules it uses to decide what data type the variable belongs to, when declaring or initializing a variable is not possible.
+
+One of the cases in which implicit type conversion is prone to errors is in the interpretation of variables to Boolean values in logical expressions like conditional statements. The following section will explain how to limit the use of implicit type conversion in Python.
+
+Limiting Implicit Type Conversion with if variable
+
+In Python, a statement like `if variable:` will convert the variable `variable` into a Boolean type. This means that the variable `variable` should be of Boolean type, but Python implicitly converts variables of many other types. Variables of Integer and floating-point values of zero, empty lists, empty tuples, empty dictionaries, empty sets, and values of None (null) will all be interpreted as a Boolean value of False when used in a conditional statement.
+
+The interpretation of a None value as False is inconsistent with virtually all other programming languages. For example, you cannot interpret a NULL or NA value in R as a Boolean, nor a missing value in Julia as a Boolean. This can lead to logical errors in the code.
+
+To avoid errors arising from implicit type conversion, when branching depending on whether a variable is None, it is recommended to test specifically for None, instead of relying on implicit type conversion. Instead of using `if variable:`, variables of interest should be tested for none using `if x is None:`. 
+
+Example
+
+Suppose you're writing a function that searches for a particular type of token in an input stream, returns the value if the token is found, and None if not. 
+
+```
+def next_token(token_type):
+    tok = input_stream.get_token()
+    if tok.type == token_type:
+        return tok.value
+    else:
+        return None
+        
+```
+The code snippet above creates a function `next_token` that searches for a token type in an input stream and returns the value if the token is found or None if not. 
+
+If you're using the `next_token` function to find a numeric expression in the input stream and are using syntax like:
+
+```
+x = next_token(NUMERIC)
+if x:
+    ## Do something if x is not None
+else:
+    ## Do something if x is None
+```
+
+If the `next_token()` function returns a numeric value of zero, it will be interpreted as False, and your code will end up in the wrong branch. This is because zero is converted to False by Python's implicit type conversion.
+
+Therefore, to avoid errors, it is better to test for `None` specifically using `if x is None:`.
+
+Conclusion
+
+Although Python's implicit type conversion makes programming easy, it can lead to logical errors in code. In particular, using a statement like `if variable:` will convert the variable into a Boolean type, but Python implicitly converts variables of many other types, leading to logical errors in code. Explicitly testing for a condition like None using `if x is None:` helps to avoid such errors in code.

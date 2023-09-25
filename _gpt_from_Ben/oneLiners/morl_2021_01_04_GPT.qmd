@@ -1,0 +1,53 @@
+---
+title: "Monday One Liners"
+subtitle: "`geom_point()`"
+date: 2021-01-04
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction
+R is a programming language used in statistical computing and graphics. It comes with a vast range of functions and packages to handle different statistical operations. In this tutorial, we will explore the expand_scale function in ggplot, which is used to expand plot scales.
+
+What is ggplot?
+ggplot is a powerful data visualization package in R developed by Hadley Wickham. It is built on the grammar of graphics philosophy where a plot is created layer by layer as grammarists create sentences piece by piece.
+
+Understanding expand_scale function in ggplot
+expand_scale is a convenient way to expand plot scales in ggplot. Sometimes the range of the data you are plotting does not cover the entire range of the y-axis or x-axis. Setting the limits argument in coordinate systems can help you address this problem, but it is not very flexible. expand_scale, on the other hand, allows us to expand both ends (or only one end) of a scale by a multiplicative or additive factor.
+
+Syntax of expand_scale function
+The expand_scale function takes the following arguments:
+
+- add: a numeric vector that specifies the amount to add to both ends of the scale.
+- mult: a numeric vector that specifies the factor to multiply both ends of the scale by.
+
+Example using a water quality dataset
+To better understand the expand_scale function, let us create a water quality dataset and use it to plot.
+
+```{r}
+# create water quality dataset
+set.seed(123)
+water_quality <- data.frame(date = seq(as.Date("2021-01-01"), as.Date("2021-01-10"), by = 1),
+                            calcium = runif(10, 20, 30),
+                            pH = runif(10, 6, 8))
+head(water_quality)
+```
+
+Let us plot the pH against the calcium level, where we want to expand the y-axis by 10% on the lower end and 20% on the upper end.
+
+```{r}
+# plot pH against calcium
+ggplot(water_quality, aes(x = calcium, y = pH)) +
+  geom_point() + 
+  scale_y_continuous(limits = c(6, 8), expand = expand_scale(mult = c(0.1, 0.2)))
+```
+
+In the above code, we have used the scale_y_continuous function to expand the y-axis by specifying the limits between 6 and 8, and the expand_scale argument where the y-axis is expanded by multiplying the lower end by 0.1 and the upper end by 0.2.
+
+Conclusion
+In conclusion, the expand_scale function in ggplot is a useful function to expand plot scales. It allows you to expand either or both ends of a plot scale by a multiplicative or additive factor. This function can be used when the range of data being plotted does not cover the entire range of the plot scale.

@@ -1,0 +1,60 @@
+---
+title: ""
+subtitle: "`c()`"
+date: 2021-03-15
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Overview of the c() Function in R
+
+In R, c() stands for "combine," and is used to combine or concatenate multiple elements, including vectors, lists, arrays, and more. Essentially, the c() function allows users to create a single object out of multiple smaller objects. 
+
+Vectors in R
+
+In R, numbers are represented as vectors with length 1. For example, if you input the number 1, R will create a vector with an index of 1 that contains the value of 1. 
+
+Combining Vectors with c()
+
+To combine multiple vectors together into a single vector, the c() function is used. For example, if you type:
+
+```
+c(c(1,2), c(3))
+```
+
+R will concatenate the two vectors (1,2) and (3) to create a new vector of length three with an index of 1. The resulting vector will contain the numbers 1, 2, and 3.
+
+Combining Other Objects with c()
+
+In addition to vectors, the c() function can also be used to combine other R objects. This includes lists, arrays, and more. For example, you can use c() to combine multiple strings into a single string:
+
+```
+c("hello", "world")
+```
+
+This will create a single character vector with two elements ("hello" and "world").
+
+Additional Resources 
+
+For more information on vectors and the c() function in R, the R intro PDF provides a comprehensive overview. You can search for "c()" within the PDF for specific information. Additionally, the Stack Overflow post (linked above) provides additional examples of c() in action.
+
+Creating a Water Quality Dataset Example:
+
+Here is an example of creating a water quality dataset using the c() function:
+
+```
+# Create vectors for location, temperature, and pH levels
+location <- c("Stream A", "Stream B", "Pond C", "Lake D")
+temperature <- c(12.5, 11.8, 15.2, 19.6)
+pH <- c(6.8, 7.2, 6.5, 8.1)
+
+# Combine vectors into a single dataframe
+water_data <- data.frame(location, temperature, pH)
+```
+
+In this example, we create three separate vectors for location, temperature, and pH levels. We then use the c() function to combine these vectors into a single dataframe called water_data. This dataframe can now be used for further analysis or visualization.

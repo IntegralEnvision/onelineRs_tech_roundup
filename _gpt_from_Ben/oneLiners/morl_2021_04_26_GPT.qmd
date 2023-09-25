@@ -1,0 +1,57 @@
+---
+title: ""
+subtitle: "`everything() and mutate() and names() and row_number() and select()`"
+date: 2021-04-26
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions: Understanding row.names() and resetting a row index
+
+R is a powerful programming language that provides various functions to work with data. In this tutorial, we will cover understanding row.names() function and resetting a row index to enhance your data analysis experience. 
+
+Understanding row.names() function using mtcars dataset
+
+The row.names() function in R returns the row names of a dataframe. For example, let's consider the mtcars dataset which is an in-built dataset in R, containing information about fuel consumption and 10 other aspects of automobile design for 32 automobiles. Below is an example code snippet that loads the mtcars dataset from R.
+
+```r
+data(mtcars) # Load mtcars dataset
+```
+
+If you enter the command `row.names(mtcars)` in the console, it returns the car model or name for each row, which is the dataset's row index. 
+
+Resetting row index using row.names()
+
+Sometimes, after slicing or subsetting a dataset, you may want to reset or rename the row index in R. The code snippet below illustrates how to reset a row index by assigning NULL to row names.
+
+```r
+# Assign NULL to row names to reset the row index
+row.names(mtcars) <- NULL
+```
+
+In the above code snippet, `row.names(mtcars)` returns the row names of the `mtcars` dataset, after which we have assigned NULL to `row.names(mtcars)` to reset the row index.
+
+After resetting the row index, you can assign a new row index to the dataframe using the row_number() function from the dplyr package. Here's an example code snippet:
+
+```r
+# Load dplyr package
+library(dplyr)
+
+# Reset row index and add new row index
+mtcars %>%
+  mutate(new_id = row_number()) %>%
+  select(new_id, everything())
+```
+
+In the above code, the mutate() function creates a new column named "new_id" that contains the row numbers assigned by the row_number() function. Then the select() function is used to reorder the columns so that the new_id column is the first column and everything() selects all other columns in the dataset.
+
+Further reading
+
+In this tutorial, we have learned about the row.names() function in R and how to reset the row index. For further reading, please refer to the official R documentation for row.names() function for the base package.
+
+Happy coding!

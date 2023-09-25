@@ -1,0 +1,72 @@
+---
+title: ""
+subtitle: "`ifelse()`"
+date: 2021-06-01
+author: "Dreas Nielsen"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using Inline Conditional Statements in R
+
+In R, you can use inline conditional statements to execute alternative expressions based on a given condition. This can make your code more concise and easier to understand at a glance. In this tutorial, we'll take a look at the syntax for inline conditionals in R and how they compare to other languages.
+
+Inline Conditional Syntax in R
+
+The general syntax for inline conditional statements in R is as follows:
+
+```
+if(condition) expression_if_true else expression_if_false
+```
+
+In this syntax, "condition" is the logical condition that you want to test. If the condition is TRUE, the expression "expression_if_true" is executed, and if the condition is FALSE, the expression "expression_if_false" is executed.
+
+Here's an example. Let's say we have a vector of numeric values and we want to convert any negative values to 0. We could use an inline conditional statement to accomplish this:
+
+```
+x <- c(1, -2, 3, -4, 5)
+x <- ifelse(x < 0, 0, x)
+```
+
+In this example, the condition is "x < 0", which tests if each element of x is negative. If the condition is TRUE, the value 0 is returned. If the condition is FALSE, the original value of x is returned.
+
+Using ifelse() Function
+
+In R, there is a built-in function called "ifelse()" that simplifies the syntax for inline conditionals. The syntax for ifelse() is as follows:
+
+```
+ifelse(condition, expression_if_true, expression_if_false)
+```
+
+Using the same example that we used earlier, we can simplify the code using ifelse() function:
+
+```
+x <- c(1, -2, 3, -4, 5)
+x <- ifelse(x < 0, 0, x)
+```
+
+In this example, the "condition" argument is the same as before, and the "expression_if_true" and "expression_if_false" arguments are the same as the expressions in the previous example.
+
+Comparing Inline Conditionals in Other Languages
+
+Let's take a look at how inline conditional statements work in some other popular programming languages.
+
+Python: expression_if_true if condition else expression_if_false
+
+Python's syntax for inline conditionals is similar to R's, except that the condition is not the first part of the expression. The first expression (expression_if_true) is the default expression that is used in the majority of cases, and the second expression is used only in the case of unusual conditions.
+
+Javascript: condition ? expression_if_true : expression_if_false
+
+Javascript's syntax for inline conditionals is similar to R's, except that the entire expression is enclosed in parentheses and the question mark and colon act as operators that separate the true and false expressions.
+
+C: condition ? expression_if_true : expression_if_false
+
+C's syntax for inline conditionals is identical to Javascript's.
+
+Conclusion
+
+Inline conditional statements can be useful in R for simplifying your code and making it easier to read. The syntax for inline conditionals in R is straightforward and easy to use. Additionally, there is a built-in function, "ifelse()", that simplifies the syntax even further.

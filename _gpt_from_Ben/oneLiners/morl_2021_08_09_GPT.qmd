@@ -1,0 +1,103 @@
+---
+title: ""
+subtitle: "`fill() and group_by() and ungroup()`"
+date: 2021-08-09
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Using R Functions for Filling Data 
+
+When working with data in R, it is common to encounter missing values that can cause issues when performing certain functions. Fortunately, the tidyverse package in R provides a useful function called `fill()` that can be used to fill in columns of data using a previous or next value. Here’s a quick tutorial on how to use `fill()` in R:
+
+Syntax 
+
+To use the `fill()` function in R, the basic syntax is as follows:
+
+```
+fill(data, ..., .direction = c("down", "up", "downup", "updown"))
+```
+
+- `data`: a data.frame or tibble containing missing values.
+- `...`: column names to fill.
+- `.direction`: a character string that specifies the direction of filling values. Four options are available - "down" (fills missing data from top to bottom), "up" (fills missing data from bottom to top), "downup" (fills missing data in both directions), and "updown" (fills missing data in reverse order).
+
+Example Dataset
+
+Let's first create an example dataset with a water quality focus using the following code:
+
+```
+water_quality <- tibble::tribble(
+  ~date, ~ph, ~turbidity,
+  "2022-01-01", 7.2, 10,
+  "2022-01-02", NA, 8.5,
+  "2022-01-03", NA, 11,
+  "2022-01-04", NA, NA,
+  "2022-01-05", 6.8, 7.8
+)
+```
+
+The `water_quality` dataset contains the pH and turbidity measures of water samples taken on different dates. There are some missing values in the dataset that can be filled using the `fill()` function.
+
+Filling Missing Values
+
+To fill in missing values using the `fill()` function, we need to specify the dataset and the columns to be filled. For example, to fill in missing pH values from the previous observation, we can simply use the following code:
+
+```
+fill(water_quality, ph, .direction = "down")
+```
+
+This will fill in the missing values from the observation directly above each missing value. Similarly, we can fill in missing turbidity values from the next observation using the following code:
+
+```
+fill(water_quality, turbidity, .direction = "up")
+```
+
+This will fill in the missing values from the observation directly below each missing value. Note that we can also fill in data from both directions using `.direction="downup"` or `.direction="updown"`.
+
+Handling Missing Values in Groups
+
+Often times, data is grouped and there may be missing values within each group. In these cases, we can use the `fill()` function with the `dplyr` package to fill in missing values within each group. Here’s an example:
+
+```
+squirrels <- tibble::tribble(
+  ~group, ~name, ~role, ~n_squirrels,
+  1,   "Sam",  "Observer",  NA,
+  1,   "Mara", "Scorekeeper",  8,
+  1,   "Jesse", "Observer",  NA,
+  1,   "Tom",  "Observer",  NA,
+  2,   "Mike",  "Observer",  NA,
+  2,   "Rachael", "Observer",  NA,
+  2,   "Sydekea", "Scorekeeper",  14,
+  2,   "Gabriela", "Observer",  NA,
+  3,   "Derrick", "Observer", NA,
+  3,   "Kara", "Scorekeeper",  9,
+  3,   "Emily",  "Observer",  NA,
+  3,   "Danielle", "Observer",  NA
+)
+
+```
+
+The `squirrels` dataset contains observations of the number of squirrels observed in different groups. There are some missing values within each group that can be filled in using the `fill()` function. 
+
+To do this, we first group the data by the `group` column using `dplyr::group_by()`, and then use the `fill()` function with the `.direction="downup"` argument to fill in missing values in both directions within each group:
+
+```
+library(dplyr)
+
+squirrels %>% 
+  group_by(group) %>% 
+  fill(n_squirrels, .direction = "downup") %>% 
+  ungroup()
+```
+
+This will fill in missing values in both the upward and downward direction for each group. We then use `ungroup()` to remove the grouping.
+
+Conclusion
+
+The `fill()` function in R is a powerful tool that can help you quickly fill in missing values when working with datasets, whether you’re filling in missing values that come before or after a given observation or filling in missing values within groups. Understanding how and when to use the `.direction` argument when filling in missing values is a critical part of using the `fill()` function in R.

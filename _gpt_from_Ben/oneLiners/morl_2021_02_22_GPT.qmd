@@ -1,0 +1,66 @@
+---
+title: ""
+subtitle: "`geom_point() and max() and mean() and median() and min() and sd()`"
+date: 2021-02-22
+author: "Eben Pendleton"
+format:
+    html:
+        df-print: kable
+title-block-banner: false
+image: "path/url to image"
+categories: [tidyr, joins, filtering, mutates, tidyverse]
+---
+
+Introduction to R Functions 
+
+R provides a wide range of built-in functions that can be used for data manipulation, statistical analysis, and modeling. These functions help programmers and data analysts perform complex tasks more efficiently by automating certain tasks and reducing code length. In this tutorial, we'll explore some of the basic functions in R and how they can be used to analyze water quality data. 
+
+Example Dataset
+
+Let us create a sample dataset for water quality analysis in R. Suppose we have collected data on the temperature, pH, and turbidity of water samples from three different lakes. We can create a data frame in R to store the data as follows:
+
+```R
+lake_names <- c("Lake A", "Lake B", "Lake C")
+temperature <- c(25, 27, 26)
+pH <- c(7.5, 7.0, 7.2)
+turbidity <- c(2.0, 2.5, 1.8)
+
+water_quality <- data.frame(lake_names, temperature, pH, turbidity)
+```
+
+This creates a data frame with the lake names, temperature, pH, and turbidity values for each lake. We can use this dataset to illustrate some of the basic functions in R. 
+
+1. Accessing Data in R
+
+Before we can analyze the data in R, we need to be able to access it. There are several ways to do this, but one of the most common ways is using the "$" operator. We can use this operator to access the columns of the data frame by name. For example, to access the temperature column, we can use: 
+
+```R
+water_quality$temperature
+```
+
+This will return a vector of the temperature values for each lake. Similarly, we can access the other columns using their respective names.
+
+2. Basic Descriptive Statistics in R 
+
+One of the most common tasks in data analysis is calculating basic descriptive statistics. R provides several built-in functions for this, including mean(), median(), min(), max(), and sd(). For example, to calculate the mean temperature for all lakes, we can use:
+
+```R
+mean(water_quality$temperature) 
+```
+
+This will return the mean temperature across all lakes. Similarly, we can use the other functions to compute other basic statistics on the rest of the columns.
+
+3. Data Visualization in R 
+
+Visualizing data is an important part of data analysis as it helps to uncover patterns and trends that may not be apparent from tabular data. R provides a wide range of functions for creating visualizations, including ggplot2 and lattice. For example, to create a scatter plot of pH vs. turbidity, we can use:
+
+```R
+library(ggplot2)
+ggplot(water_quality, aes(x = pH, y = turbidity)) + geom_point()
+```
+
+This will create a scatter plot of pH vs. turbidity for all lakes. We can use other ggplot2 functions and settings to customize the plot further.
+
+Conclusion 
+
+In this tutorial, we explored some of the basic functions in R and how they can be used for water quality data analysis. We demonstrated how to access data in R, calculate basic descriptive statistics, and create visualizations. R provides a wide range of functions for data manipulation and analysis, and learning these functions can greatly improve the efficiency and quality of data analysis.

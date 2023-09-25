@@ -1,0 +1,35 @@
+---
+title: "A color picker tool for selecting colors in plots and R code"
+subtitle: "`colourpicker`"
+date: 2023-09-25
+author: "Jonathan Zadra"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+image: "coulourpicker_hex.png"
+categories: [colors, ggplot, interactive helpers, shiny]
+---
+
+Finding just the right color for plots can be a hassle sometimes. In addition to simplifying that process with an interactive GUI, the `colourpicker` package also includes shiny functions to allow the user to choose colors.
+
+Github page with usage instructions: <https://github.com/daattali/colourpicker>
+
+# Demo
+
+[![](https://github.com/daattali/colourpicker/blob/master/inst/img/plothelper-demo.gif?raw=true)](Plothelper%20Demo)
+
+# Installation
+
+**For most users:** To install the stable CRAN version:
+
+```         
+install.packages("colourpicker")
+```
+
+**For advanced users:** To install the latest development version from GitHub:
+
+```         
+install.packages("remotes")
+remotes::install_github("daattali/colourpicker")
+```

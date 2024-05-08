@@ -130,7 +130,7 @@
     "href": "techroundup.html",
     "title": "New Tech Roundup",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nYouTube: Shiny Workshop - Create Your Own Hydrological Data App\n\n\n\n\n\n\n\n\n\nWednesday, May 17, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nExtended Task: Truly non-blocking operations in Shiny\n\n\n\n\n\n\n\n\nWednesday, May 8, 2024\n\n\nJonathan Zadra\n\n\n\n\n\n\n\nYouTube: Shiny Workshop - Create Your Own Hydrological Data App\n\n\n\n\n\n\n\n\nWednesday, May 17, 2023\n\n\nJonathan Zadra\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "techroundup/tech_2023_05_17.html",
@@ -138,5 +138,12 @@
     "title": "YouTube: Shiny Workshop - Create Your Own Hydrological Data App",
     "section": "",
     "text": "YouTube Link"
+  },
+  {
+    "objectID": "techroundup/tech_2024_05_08.html",
+    "href": "techroundup/tech_2024_05_08.html",
+    "title": "Extended Task: Truly non-blocking operations in Shiny",
+    "section": "",
+    "text": "Posit Blog Post\nExtendedTask is a new way to manage long-running operations that won’t block within or across sessions, meaning that a user can launch an ExtendedTask and still interact with the app while it’s running. This is a big deal because it means that Shiny apps can now be more responsive and interactive than ever before."
   }
 ]

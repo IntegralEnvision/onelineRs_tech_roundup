@@ -1,15 +1,9 @@
 [
   {
-    "listing": "/oneliners.html",
+    "listing": "/techroundup.html",
     "items": [
-      "/oneliners/molr_2023_09_25_colourpicker.html",
-      "/oneliners/molr_2023_06_12_ggnewscale.html",
-      "/oneliners/molr_2023_06_05.html",
-      "/oneliners/molr_2023_05_22.html",
-      "/oneliners/molr_2023-03-27.html",
-      "/oneliners/molr_2023-03-20.html",
-      "/oneliners/molr_2023-03-06.html",
-      "/oneliners/molr_2023-01-30.html"
+      "/techroundup/tech_2024_05_08.html",
+      "/techroundup/tech_2023_05_17.html"
     ]
   },
   {
@@ -20,9 +14,16 @@
     ]
   },
   {
-    "listing": "/techroundup.html",
+    "listing": "/oneliners.html",
     "items": [
-      "/techroundup/tech_2023_05_17.html"
+      "/oneliners/molr_2023_09_25_colourpicker.html",
+      "/oneliners/molr_2023_06_12_ggnewscale.html",
+      "/oneliners/molr_2023_06_05.html",
+      "/oneliners/molr_2023_05_22.html",
+      "/oneliners/molr_2023-03-27.html",
+      "/oneliners/molr_2023-03-20.html",
+      "/oneliners/molr_2023-03-06.html",
+      "/oneliners/molr_2023-01-30.html"
     ]
   }
 ]

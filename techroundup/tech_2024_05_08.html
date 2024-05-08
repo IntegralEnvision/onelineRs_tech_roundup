@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jonathan Zadra">
-<meta name="dcterms.date" content="2023-01-30">
+<meta name="dcterms.date" content="2024-05-08">
 
-<title>Monday OneLineRs &amp; Tech Roundup - Get Feedback on Tidyverse Operations</title>
+<title>Monday OneLineRs &amp; Tech Roundup - Extended Task: Truly non-blocking operations in Shiny</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -152,38 +118,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#attaching-libraries" id="toc-attaching-libraries" class="nav-link active" data-scroll-target="#attaching-libraries">Attaching libraries</a></li>
-  <li><a href="#usage-examples" id="toc-usage-examples" class="nav-link" data-scroll-target="#usage-examples">Usage Examples</a>
-  <ul class="collapse">
-  <li><a href="#filtering-or-mutating" id="toc-filtering-or-mutating" class="nav-link" data-scroll-target="#filtering-or-mutating">Filtering or Mutating</a></li>
-  <li><a href="#joining" id="toc-joining" class="nav-link" data-scroll-target="#joining">Joining</a></li>
-  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes">Pipes</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Get Feedback on Tidyverse Operations</h1>
-<p class="subtitle lead"><code>tidylog</code></p>
+<h1 class="title">Extended Task: Truly non-blocking operations in Shiny</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">dplyr</div>
-    <div class="quarto-category">mutating</div>
-    <div class="quarto-category">filtering</div>
-    <div class="quarto-category">selecting</div>
-    <div class="quarto-category">grouping</div>
-    <div class="quarto-category">joining</div>
-    <div class="quarto-category">tidyr</div>
-    <div class="quarto-category">tidyverse</div>
-    <div class="quarto-category">logging</div>
-    <div class="quarto-category">interactive helpers</div>
+    <div class="quarto-category">environmental</div>
+    <div class="quarto-category">shiny</div>
   </div>
   </div>
 
@@ -201,7 +146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 30, 2023</p>
+      <p class="date">May 8, 2024</p>
     </div>
   </div>
   
@@ -213,114 +158,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>You’ve probably spent significant time looking at the results of join, filter, or mutate operations to be sure you got what you expected. There is a nice helper package, tidylog, which provides immediate feedback on what changed. It wraps the common dplyr functions by masking them with functions of the same name. Under the hood the dplyr functions are still being used and will produce the same output, but the there is additional info printed to the screen about what happened during the join.</p>
-<section id="attaching-libraries" class="level1">
-<h1>Attaching libraries</h1>
-<p>Load tidylog after dplyr and/or tidyr:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>, <span class="at">quietly =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'dplyr' was built under R version 4.3.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.3.1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidylog"</span>, <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="usage-examples" class="level1">
-<h1>Usage Examples</h1>
-<section id="filtering-or-mutating" class="level2">
-<h2 class="anchored" data-anchor-id="filtering-or-mutating">Filtering or Mutating</h2>
-<p><code>tidylog</code> will give you feedback, for instance when filtering a data frame or adding a new variable:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>filtered <span class="ot">&lt;-</span> <span class="fu">filter</span>(mtcars, cyl <span class="sc">==</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>filter: removed 21 rows (66%), 11 rows remaining</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mutated <span class="ot">&lt;-</span> <span class="fu">mutate</span>(mtcars, <span class="at">new_var =</span> wt <span class="sc">**</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>mutate: new variable 'new_var' (double) with 29 unique values and 0% NA</code></pre>
-</div>
-</div>
-</section>
-<section id="joining" class="level2">
-<h2 class="anchored" data-anchor-id="joining">Joining</h2>
-<p><code>tidylog</code> also reports detailed information for joins:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>joined <span class="ot">&lt;-</span> <span class="fu">left_join</span>(nycflights13<span class="sc">::</span>flights, nycflights13<span class="sc">::</span>weather,</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"origin"</span>, <span class="st">"hour"</span>, <span class="st">"time_hour"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>left_join: added 9 columns (temp, dewp, humid, wind_dir, wind_speed, …)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>           &gt; rows only in x     1,556</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>           &gt; rows only in y  (  6,737)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>           &gt; matched rows     335,220</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>           &gt;                 =========</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>           &gt; rows total       336,776</code></pre>
-</div>
-</div>
-<p>In this case, we see that 1,556 rows from the flights dataset do not have weather information.</p>
-</section>
-<section id="pipes" class="level2">
-<h2 class="anchored" data-anchor-id="pipes">Pipes</h2>
-<p><code>tidylog</code> can be especially helpful in longer pipes:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, cyl, hp, am) <span class="sc">%&gt;%</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mpg <span class="sc">&gt;</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg_round =</span> <span class="fu">round</span>(mpg)) <span class="sc">%&gt;%</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl, mpg_round, am) <span class="sc">%&gt;%</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>select: dropped 7 variables (disp, drat, wt, qsec, vs, …)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>filter: removed 6 rows (19%), 26 rows remaining</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>mutate: new variable 'mpg_round' (double) with 15 unique values and 0% NA</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>group_by: 3 grouping variables (cyl, mpg_round, am)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>tally: now 20 rows and 4 columns, 2 group variables remaining (cyl, mpg_round)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>filter (grouped): no rows removed</code></pre>
-</div>
-</div>
-<p>Here, it might have been accidental that the last filter command had no effect, or it might tell us that something we thought was affecting our data actually wasn’t, hopefully leading us to track down why.</p>
+<p><a href="https://shiny.posit.co/blog/posts/shiny-r-1.8.1/">Posit Blog Post</a></p>
+<p>ExtendedTask is a new way to manage long-running operations that won’t block within or across sessions, meaning that a user can launch an ExtendedTask and still interact with the app while it’s running. This is a big deal because it means that Shiny apps can now be more responsive and interactive than ever before.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,0 +1,15 @@
+---
+title: "Extended Task: Truly non-blocking operations in Shiny"
+subtitle: ""
+date: 2024-05-8
+author: "Jonathan Zadra"
+format:
+  html:
+    df-print: kable
+title-block-banner: false
+categories: [environmental, shiny]
+---
+  
+[Posit Blog Post](https://shiny.posit.co/blog/posts/shiny-r-1.8.1/)
+
+ExtendedTask is a new way to manage long-running operations that won’t block within or across sessions, meaning that a user can launch an ExtendedTask and still interact with the app while it’s running. This is a big deal because it means that Shiny apps can now be more responsive and interactive than ever before.
